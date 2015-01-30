@@ -2,6 +2,7 @@
 </div>
 
 <a href="<?=base_url()?><?=$this->uri->segment(1);?>/add" class="button" style="float:left; margin-right:5px;">Add Item</a>
+<a href="<?=base_url()?><?=$this->uri->segment(1);?>/addthree" class="button" style="float:left; margin-right:5px;">Set Up Result</a>
 <a href="<?=base_url()?><?=$this->uri->segment(1);?>/csv" class="button" style="float:left; margin-right:5px;">Export CSV</a>
 
 <?if($this->session->flashdata('flashError')):?>

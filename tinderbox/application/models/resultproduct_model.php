@@ -5,7 +5,7 @@ class ResultProduct_Model extends CI_Model
 	var $table = "tblResultproduct";
 	var $pk = "resultproductId";
 	var $ds = "resultproductTimeStamp";  //Default sortby field
-	var $rq = "resultproductNumber";		//Required field (you'll need to mod the form validation if there isn't one)
+	var $rq = "resultproductBitint";		//Required field (you'll need to mod the form validation if there isn't one)
 	var $fields = array(
 		 'resultproductNumber' => array('label'=>'Rank','type'=>'int'),
 		 'resultproductBitint' => array('label'=>'BitInt','type'=>'int'),

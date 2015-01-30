@@ -74,7 +74,7 @@
 
 //Add your scripts here
 
-var LAST_QUESTION_NUMBER = 4;
+var LAST_QUESTION_NUMBER = 5;
 
 var currentQues = 1;
 var arrAnswers = [];
@@ -121,7 +121,7 @@ function HandleQuestion(response){
 function TallyMon(pId, pVal){
 	return function(){
 		arrAnswers.push(pId);
-		bitTotal += parseInt(pVal);
+		bitTotal += parseInt(pVal,10);
 		console.log('tally',arrAnswers,bitTotal);
 		currentQues++;
 
@@ -130,5 +130,5 @@ function TallyMon(pId, pVal){
 		}else{
 			AskQuestion();
 		}
-	}
+	};
 }

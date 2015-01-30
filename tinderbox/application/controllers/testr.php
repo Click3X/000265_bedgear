@@ -1,161 +1,31 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Resultproduct extends CI_Controller
+class Testr extends CI_Controller
 {
 	var $profile = array(
         'model' => 'resultproduct_model',
         );
-
-	// Create
-	function add($pFormat="html")
-	{
-		$model_ref = $this->profile['model'];
-		$this->load->model($model_ref);
-
-
-		$data['format'] = $pFormat;
-		$data['fields'] = $this->$model_ref->_fields();
-		$data['lookups'] = array();
-
-		foreach( $this->$model_ref->_fields() as $name=>$props ){
-			if(substr_compare($name, 'Id', -2, 2) === 0){
-				if(file_exists(APPPATH."models/".substr($name, 0, -2)."_model.php")){
-					// Load up dropdown menu data for join fields
-					$modelName = substr($name, 0, -2)."_model";
-					$this->load->model($modelName);
-					$data['lookups'][$name] = $this->$modelName->_GetRef();
-				}
-			}
-		}
-
-	    // Validate form
-	    $this->form_validation->set_rules($this->$model_ref->_rq(), 'required', 'trim|required');
-
-	    if($this->form_validation->run())
-	    {
-
-
-			//////////////////////////////////////////////////////////////////////
-	    	// Do any record preprocessing here
-	    	//////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-	        // Validation passes
-	        $nId = $this->$model_ref->Add($_POST);
-
-			if($pFormat == "html"){
-				if($nId)
-		        {
-		            $this->session->set_flashdata('flashConfirm', 'The item has been successfully added.');
-		           redirect($this->uri->segment(1));
-		        }
-		        else
-		        {
-	                $this->session->set_flashdata('flashError', 'A database error has occured, please contact your administrator.');
-		            redirect($this->uri->segment(1));
-		        }
-			}elseif($pFormat == "xml"){
-				// TODO: see if we can redirect with flash
-				//redirect($this->uri->segment(1)."/details/xml/".$nId);
-
-				$this->details("xml", $nId);
-			}
-	    }else{
-	    	$this->load->view('template/template_head');
-		    $this->load->view($this->uri->segment(1).'/'.$this->uri->segment(1).'_add_form', $data);
-			$this->load->view('template/template_foot');
-	    }
-	}
-
-
-	function addthree($pFormat="html")
-	{
-		$model_ref = $this->profile['model'];
-		$this->load->model($model_ref);
-
-
-		$data['format'] = $pFormat;
-		$data['fields'] = $this->$model_ref->_fields();
-		$data['lookups'] = array();
-
-		foreach( $this->$model_ref->_fields() as $name=>$props ){
-			if(substr_compare($name, 'Id', -2, 2) === 0){
-				if(file_exists(APPPATH."models/".substr($name, 0, -2)."_model.php")){
-					// Load up dropdown menu data for join fields
-					$modelName = substr($name, 0, -2)."_model";
-					$this->load->model($modelName);
-					$data['lookups'][$name] = $this->$modelName->_GetRef();
-				}
-			}
-		}
-
-		// Validate form
-		$this->form_validation->set_rules($this->$model_ref->_rq(), 'required', 'trim|required');
-
-		if($this->form_validation->run())
-		{
-
-
-			//////////////////////////////////////////////////////////////////////
-			// Do any record preprocessing here
-			//////////////////////////////////////////////////////////////////////
-
-
-
-
-			// Validation passes
-			for($idx=1; $idx<=3; $idx++){
-				$nId = $this->$model_ref->Add(array('resultproductNumber'=>$idx,'resultproductBitint'=>$_POST['resultproductBitint'],'productId'=>$_POST['productId'.$idx]));
-				if( $idx == 1 ){
-					$nId = $this->$model_ref->Add(array('resultproductNumber'=>$idx,'resultproductBitint'=>1+((int)$_POST['resultproductBitint']),'productId'=>$_POST['productId2']));
-				}elseif( $idx == 2 ){
-					$nId = $this->$model_ref->Add(array('resultproductNumber'=>$idx,'resultproductBitint'=>1+((int)$_POST['resultproductBitint']),'productId'=>$_POST['productId1']));
-				}else{
-					$nId = $this->$model_ref->Add(array('resultproductNumber'=>$idx,'resultproductBitint'=>1+((int)$_POST['resultproductBitint']),'productId'=>$_POST['productId'.$idx]));
-				}
-			}
-
-			if($pFormat == "html"){
-				if($nId)
-				{
-					$this->session->set_flashdata('flashConfirm', 'The item has been successfully added.');
-					redirect($this->uri->segment(1));
-				}
-				else
-				{
-					$this->session->set_flashdata('flashError', 'A database error has occured, please contact your administrator.');
-					redirect($this->uri->segment(1));
-				}
-			}elseif($pFormat == "xml"){
-				// TODO: see if we can redirect with flash
-				//redirect($this->uri->segment(1)."/details/xml/".$nId);
-
-				$this->details("xml", $nId);
-			}
-		}else{
-			$this->load->view('template/template_head');
-			$this->load->view($this->uri->segment(1).'/'.$this->uri->segment(1).'_addthree_form', $data);
-			$this->load->view('template/template_foot');
-		}
-	}
 
     // Retrieve
 	function index($pFormat="html")
 	{
 		$model_ref = $this->profile['model'];
 		$this->load->model($model_ref);
+		$this->load->model('question_model');
+		$this->load->model('answer_model');
 
-		$data['total_rows'] = $this->$model_ref->Get(array('count' => true));
-		$data['records'] = $this->$model_ref->Get(array('sortBy'=>$this->$model_ref->_ds(),'sortDirection'=>'DESC'));
+		//$data['total_rows'] = $this->$model_ref->Get(array('count' => true));
+		//$data['records'] = $this->$model_ref->Get(array('sortBy'=>$this->$model_ref->_ds(),'sortDirection'=>'DESC'));
 		$data['fields'] = $this->$model_ref->_fields();
 		$data['pk'] = $this->$model_ref->_pk();
+		$data['questions'] = array();
+
+		foreach($this->question_model->Get(array('sortBy'=>'questionNumber','sortDirection'=>'ASC')) as $question){
+			$tmpAns = new stdClass();
+			$tmpAns->answers = $this->answer_model->Get(array('questionId'=>$question->questionId,'sortBy'=>'answerNumber','sortDirection'=>'ASC'));
+			$tmpAns->questionText = $question->questionText;
+			array_push($data['questions'],$tmpAns);
+		}
 
 		if($pFormat == "html"){
 			if( $this->session->userdata('userEmail') ){

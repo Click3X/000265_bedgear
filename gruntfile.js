@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 			'* <%= pkg.name %> v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>. \n' +
 			'* Author: <%= pkg.author %> - Licensed under MIT license.\n' +
 			'*/\n',
-		// Begining of tasks          
+		// Begining of tasks
 		// Starting lint JavaScript files
 		jshint: {
 			options: {
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
                 ext: '.min.js'
             }
         },
-		recess: {
+/*		recess: {
 			options: {
 				compile: true,
 				banner: '<%= banner %>'
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 				src: ['less/responsiveboilerplate.less'],
 				dest: 'css/<%= pkg.name %>.min.css'
 			}
-		},
+		},*/
         express: {
             all: {
                 options: {
@@ -82,10 +82,10 @@ module.exports = function(grunt) {
 					debounceDelay: 250
 				}
 			},
-			recess: {
+			/*recess: {
 				files: 'less/*.less',
 				tasks: ['recess']
-			}
+			}*/
 		},
         open: {
             all: {
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
     grunt.loadTasks('tasks');
 
     // Register tasks for development and production
-	grunt.registerTask('default', ['jshint','uglify','recess']);
+	grunt.registerTask('default', ['jshint','uglify']);
 	// Register tasks for development using watch
     grunt.registerTask('dev', ['watch']);
 

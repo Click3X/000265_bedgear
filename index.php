@@ -1,11 +1,26 @@
+<?php
+
+$social = array();
+$social['title'] = "Bedgear Product Selector";
+$social['description'] = "InsertDescriptionHere";
+$social['image'] = "http://staging.click3x.com/bedgear/images/apple-touch-icon-114x114.png";
+$social['link'] = "http://staging.click3x.com/bedgear";
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Place your title here</title>
-		<meta name="description" content="Place your description here">
-		<meta name="author" content="Your name">
-		<meta name="keywords" content="Your keywords">
+		<title><?=$social['title']?></title>
+		<meta name="description" content="<?=$social['description']?>">
+		<meta name="author" content="Matthew Wilber">
+		<meta property="og:title" content="<?=$social['title']?>" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="<?=$social['link']?>" />
+		<meta property="og:image" content="<?=$social['image']?>" />
+		<meta property="og:site_name" content="<?=$social['title']?>" />
+		<meta property="fb:admins" content="631337813" />
+		<meta property="og:description" content="<?=$social['description']?>" />
 		<!-- Optimized mobile viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes">
