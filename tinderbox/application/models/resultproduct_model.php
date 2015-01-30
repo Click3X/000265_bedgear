@@ -7,8 +7,8 @@ class ResultProduct_Model extends CI_Model
 	var $ds = "resultproductTimeStamp";  //Default sortby field
 	var $rq = "resultproductNumber";		//Required field (you'll need to mod the form validation if there isn't one)
 	var $fields = array(
-		 'resultproductNumber' => array('label'=>'Number','type'=>'int'),
-		 'resultproductBitint' => array('label'=>'Number','type'=>'int'),
+		 'resultproductNumber' => array('label'=>'Rank','type'=>'int'),
+		 'resultproductBitint' => array('label'=>'BitInt','type'=>'int'),
 		 'productId' => array('label'=>'Product','type'=>'int'),
 		);
 
@@ -77,6 +77,37 @@ class ResultProduct_Model extends CI_Model
 		// sort
 		if(isset($options['sortBy']) && isset($options['sortDirection']))
 			$this->db->order_by($options['sortBy'], $options['sortDirection']);
+
+		$query = $this->db->get($this->table);
+		//echo "SQL:".$this->db->last_query();
+
+		if(isset($options['count'])) return $query->num_rows();
+
+		if(isset($options[$this->pk])) return $query->row(0);
+
+		return $query->result();
+	}
+
+	function GetWithProd($options = array()){
+
+		$this->db->join('tblProduct', 'tblResultproduct.productId = tblProduct.productId');
+
+		foreach ($this->fields as $key => $value) {
+			if(isset($options[$key]))
+			$this->db->where($key, $options[$key]);
+		}
+		if(isset($options[$this->pk]))
+		$this->db->where($this->pk, $options[$this->pk]);
+
+		// limit / offset
+		if(isset($options['limit']) && isset($options['offset']))
+		$this->db->limit($options['limit'], $options['offset']);
+		else if(isset($options['limit']))
+		$this->db->limit($options['limit']);
+
+		// sort
+		if(isset($options['sortBy']) && isset($options['sortDirection']))
+		$this->db->order_by($options['sortBy'], $options['sortDirection']);
 
 		$query = $this->db->get($this->table);
 		//echo "SQL:".$this->db->last_query();

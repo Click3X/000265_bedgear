@@ -5,9 +5,9 @@ class Product_Model extends CI_Model
 	var $table = "tblProduct";
 	var $pk = "productId";
 	var $ds = "productTimeStamp";  //Default sortby field
-	var $rq = "productNumber";		//Required field (you'll need to mod the form validation if there isn't one)
+	var $rq = "productName";		//Required field (you'll need to mod the form validation if there isn't one)
 	var $fields = array(
-		 'productNumber' => array('label'=>'Number','type'=>'int','constraint'=>11),
+		 'productName' => array('label'=>'Name','type'=>'varchar','constraint'=>100),
 		 'productText' => array('label'=>'Text','type'=>'varchar','constraint'=>255),
 		);
 

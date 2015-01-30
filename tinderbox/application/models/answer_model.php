@@ -9,7 +9,7 @@ class Answer_Model extends CI_Model
 	var $fields = array(
 		 'answerText' => array('label'=>'Text','type'=>'varchar','constraint'=>255),
 		 'answerNumber' => array('label'=>'Number','type'=>'int'),
-		 'answerBitint' => array('label'=>'Number','type'=>'int'),
+		 'answerBitpos' => array('label'=>'BitPos','type'=>'int'),
 		 'questionId' => array('label'=>'Question','type'=>'int'),
 		);
 
