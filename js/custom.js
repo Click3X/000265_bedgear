@@ -74,7 +74,7 @@
 
 //Add your scripts here
 
-var LAST_QUESTION_NUMBER = 5;
+var LAST_QUESTION_NUMBER = 7;
 
 var currentQues = 1;
 var arrAnswers = [];
