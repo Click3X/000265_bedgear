@@ -45,6 +45,7 @@ $social['link'] = "http://staging.click3x.com/bedgear";
 				<div class="content">
 					<div class="col3"></div>
 					<div id="questiongroup" class="col6">
+						<a href="#" onclick="GoBack(); return false;"> Back </a>
 						<p class="number">#</p>
 						<p class="question">loading...</p>
 						<ul class="answers"></ul>

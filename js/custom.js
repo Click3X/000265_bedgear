@@ -78,7 +78,8 @@ var LAST_QUESTION_NUMBER = 7;
 
 var currentQues = 1;
 var arrAnswers = [];
-var bitTotal = 0;
+var arrHistory = [];
+//var bitTotal = 0;
 
 
 $(document).ready(function() {
@@ -87,8 +88,20 @@ $(document).ready(function() {
 	AskQuestion();
 });
 
+function GoBack(){
+	arrHistory.shift();
+	currentQues=parseInt(arrHistory[0].questionNumber,10);
+	RenderQuestion();
+}
+
 function GetResult(){
 	$('#questiongroup').hide();
+	var bitTotal = 0;
+	$.each(arrHistory, function(idx, question){
+		bitTotal += question.answerBit;
+		arrAnswers.push(question.answerChoice);
+	});
+	console.log('tally',arrAnswers,bitTotal);
 	$.get('tinderbox/jsonapi/result/'+bitTotal,HandleResult);
 
 }
@@ -103,31 +116,59 @@ function HandleResult(response){
 
 function AskQuestion(){
 	console.log('loading question',currentQues);
-	$('#questiongroup .number').empty();
-	$('#questiongroup .question').empty().html('loading...');
-	$('#questiongroup .answers').empty();
+	ClearQuestionGroup();
 	$.get('tinderbox/jsonapi/question/'+currentQues,HandleQuestion);
 }
 
 function HandleQuestion(response){
-	$('#questiongroup .number').html(response.question[0].questionNumber);
-	$('#questiongroup .question').html(response.question[0].questionText);
-	$.each(response.answers,function(idx, answer){
-		$('#questiongroup .answers').append($('<li/>').append($('<button/>').html(answer.answerText).click(TallyMon(answer.answerId,answer.answerBitpos))));
-	});
+	if( response.question ){
+		arrHistory.unshift(response.question);
+		console.log('history', arrHistory);
+		RenderQuestion();
+	}else{
+		// If no question comes back, assume we're at the end of the quiz
+		GetResult();
+	}
+}
+
+function RenderQuestion(){
+	ClearQuestionGroup();
+	$('#questiongroup .number').html(arrHistory[0].questionNumber);
+	$('#questiongroup .question').html(arrHistory[0].questionText);
+	$('#questiongroup .answers').append(BuildAnswers(arrHistory[0].answers));
 	$('#questiongroup').show();
 }
 
-function TallyMon(pId, pVal){
-	return function(){
-		arrAnswers.push(pId);
-		bitTotal += parseInt(pVal,10);
-		console.log('tally',arrAnswers,bitTotal);
-		currentQues++;
+function ClearQuestionGroup(){
+	$('#questiongroup .number').empty();
+	$('#questiongroup .question').empty().html('loading...');
+	$('#questiongroup .answers').empty();
+}
 
-		if( currentQues > LAST_QUESTION_NUMBER ){
-			GetResult();
+function BuildAnswers(pArrAns, pTarget){
+	var tmpList = $('<ul/>');
+	$.each(pArrAns,function(idx, answer){
+		var tmpItem = $('<li/>').append($('<button/>').html(answer.answerText).click(TallyMon(answer.answerId,answer.answerBitpos, answer.question)));
+		tmpList.append(tmpItem);
+	});
+
+	return tmpList;
+}
+
+function TallyMon(pId, pVal, pQues){
+	return function(pTarget){
+		console.log('pQues',pQues);
+		console.log('pVal', pVal);
+
+		arrHistory[0].answerChoice = pId;
+		arrHistory[0].answerBit = parseInt(pVal,10)
+
+		if( pQues ){
+			// Handle a sub-question
+			HandleQuestion({'question':pQues});
 		}else{
+			// Ask the next question
+			currentQues++;
 			AskQuestion();
 		}
 	};

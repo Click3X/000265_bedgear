@@ -5,10 +5,11 @@ class Question_Model extends CI_Model
 	var $table = "tblQuestion";
 	var $pk = "questionId";
 	var $ds = "questionTimeStamp";  //Default sortby field
-	var $rq = "questionNumber";		//Required field (you'll need to mod the form validation if there isn't one)
+	var $rq = "questionText";		//Required field (you'll need to mod the form validation if there isn't one)
 	var $fields = array(
 		 'questionNumber' => array('label'=>'Number','type'=>'int','constraint'=>11),
 		 'questionText' => array('label'=>'Text','type'=>'varchar','constraint'=>255),
+		 'answerId' => array('label'=>'Answer','type'=>'int','constraint'=>11),
 		);
 
 

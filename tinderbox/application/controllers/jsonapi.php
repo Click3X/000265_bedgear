@@ -43,12 +43,44 @@ class JSONAPI extends CI_Controller {
 	function question($pNumber = 0){
 		$this->load->model('question_model');
 		$this->load->model('answer_model');
-		$this->_response->question = $this->question_model->Get(array('questionNumber'=>$pNumber));
-		if( isset($this->_response->question[0]->questionId) ){
-			$this->_response->answers = $this->answer_model->Get(array('questionId'=>$this->_response->question[0]->questionId));
-		}
+
+		$this->_response->question = $this->BuildQuestion($pNumber, 0);
+
+
+
+
+
+				//$this->_response->question->answers[$idx]->question = $this->question_model->Get(array('questionNumber'=>$pNumber, 'answerId'=>$answer->answerId));
+				//if( isset($this->_response->question->answers[$idx]->question[0]->questionId) ){
+				//	$this->_response->question->answers[$idx]->question[0]->answers = $this->answer_model->Get(array('questionId'=>$this->_response->question->answers[$idx]->question[0]->questionId));
+				//}
+			//}
+		//}
 
 		$this->_JSONout();
+	}
+
+	function BuildQuestion($pQn = 0, $pAid = 0){
+
+		//echo "BUILDING QUESTION!!!!! (".$pQn.")(".$pAid.")";
+
+		$pQobj = $this->question_model->Get(array('questionNumber'=>$pQn, 'answerId'=>$pAid));
+
+		if( isset($pQobj[0]->questionId) ){
+			// Get rid of the array. If there's more than one question it's a data entry error
+			$pQobj = $pQobj[0];
+
+			// Get the array of answers
+			$pQobj->answers = $this->answer_model->Get(array('questionId'=>$pQobj->questionId));
+			// Find out if there's a sub squestion
+			foreach( $pQobj->answers as $idx=>$answer ){
+				$pQobj->answers[$idx]->question = $this->BuildQuestion($pQn, $answer->answerId);
+			}
+		}else{
+			$pQobj = false;
+		}
+		//print_r($pQobj);
+		return $pQobj;
 	}
 
 	function result($pBitInt){
