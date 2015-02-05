@@ -104,6 +104,7 @@ $social['link'] = "http://staging.click3x.com/bedgear";
 <script src="js/util.js"></script>
 <script src="js/cPanel.js"></script>
 <script src="js/cQuestion.js"></script>
+<script src="js/cMultiChoice.js"></script>
 <script src="js/cResult.js"></script>
 
 <!-- If you need more than one script, we strong recommend to use the head.js.

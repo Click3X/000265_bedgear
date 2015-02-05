@@ -13,8 +13,8 @@ function AppInit(){
     question.push(new Question('question3',3));
     question.push(new Question('question4',4));
     question.push(new Question('question5',5));
-    question.push(new Question('question6',6));
-    question.push(new Question('question7',7));
+    question.push(new MultiChoice('question6',6));
+    question.push(new MultiChoice('question7',7));
 
     // Ask the first question
     question[currentQues].Load();
@@ -41,6 +41,7 @@ function NextQuestion(){
     question[currentQues].Load();
   }
 }
+
 
 $(document).ready(function(){
   AppInit();
