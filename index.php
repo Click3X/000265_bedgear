@@ -44,13 +44,51 @@ $social['link'] = "http://staging.click3x.com/bedgear";
 
 				<div class="content">
 					<div class="col3"></div>
-					<div id="questiongroup" class="col6">
-						<a href="#" onclick="GoBack(); return false;"> Back </a>
+					<div id="intro" class="col6 panel">
+						SomeIntroHere
+					</div>
+					<div id="question1" class="col6 panel">
 						<p class="number">#</p>
 						<p class="question">loading...</p>
 						<ul class="answers"></ul>
 					</div>
-					<div id="resultgroup" class="col6">
+					<div id="question2" class="col6 panel">
+						<a href="#" class="back"> Back</a>
+						<p class="number">#</p>
+						<p class="question">loading...</p>
+						<ul class="answers"></ul>
+					</div>
+					<div id="question3" class="col6 panel">
+						<a href="#" class="back"> Back</a>
+						<p class="number">#</p>
+						<p class="question">loading...</p>
+						<ul class="answers"></ul>
+					</div>
+					<div id="question4" class="col6 panel">
+						<a href="#" class="back"> Back</a>
+						<p class="number">#</p>
+						<p class="question">loading...</p>
+						<ul class="answers"></ul>
+					</div>
+					<div id="question5" class="col6 panel">
+						<a href="#" class="back"> Back</a>
+						<p class="number">#</p>
+						<p class="question">loading...</p>
+						<ul class="answers"></ul>
+					</div>
+					<div id="question6" class="col6 panel">
+						<a href="#" class="back"> Back</a>
+						<p class="number">#</p>
+						<p class="question">loading...</p>
+						<ul class="answers"></ul>
+					</div>
+					<div id="question7" class="col6 panel">
+						<a href="#" class="back"> Back</a>
+						<p class="number">#</p>
+						<p class="question">loading...</p>
+						<ul class="answers"></ul>
+					</div>
+					<div id="resultgroup" class="col6 panel">
 						<h1>Your ideal Bedgear:</h1>
 						<ol class="products"></ol>
 					</div>
@@ -62,7 +100,11 @@ $social['link'] = "http://staging.click3x.com/bedgear";
 <!-- JavaScript at the bottom for fast page loading -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="libs/jquery-1.10.1.min.js"><\/script>')</script>
-<script src="js/custom.js"></script>
+<script src="js/main.js"></script>
+<script src="js/util.js"></script>
+<script src="js/cPanel.js"></script>
+<script src="js/cQuestion.js"></script>
+<script src="js/cResult.js"></script>
 
 <!-- If you need more than one script, we strong recommend to use the head.js.
  EX:

@@ -7,6 +7,16 @@ button{
   margin:10px;
 }
 
+.panel{
+  color:#fff;
+  position:absolute;
+  top:0px;
+  left:0px;
+  background:#298ee2;
+  padding:0px;
+  display: none;
+}
+
 #resultgroup ol.products{
   list-style-type: upper-roman;
   margin:50px;
