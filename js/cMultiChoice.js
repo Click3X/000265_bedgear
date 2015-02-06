@@ -25,7 +25,7 @@ MultiChoice.prototype.BuildAnswers = function(self, pArrAns){
 MultiChoice.prototype.CatAnswers = function(self){
   return function(){
     var answerList = "";
-    $.each(self.elem.find('.multichoice:checked'),function(idx,answer){
+    $.each(self.elem.find('.multichoice input:checked'),function(idx,answer){
       if( answerList == "" )
         answerList += $(answer).val();
       else

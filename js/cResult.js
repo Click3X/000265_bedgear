@@ -17,6 +17,7 @@ Result.prototype.Load = function(){
       this.arrAnswers.push(arrHistory[idx].answerChoice);
     }
     console.log('tally',this.arrAnswers.join(),this.bitTotal);
+    $.post(API_PATH+'survey/',{'answerId':this.arrAnswers.join()},function(){console.log('survey data sent');});
     $.get(API_PATH+'result/'+this.bitTotal,this.HandleResult(this));
 };
 

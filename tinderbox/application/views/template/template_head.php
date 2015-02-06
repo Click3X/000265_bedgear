@@ -27,9 +27,8 @@
 				<ul>
 					<? if( $this->session->userdata('userEmail') ): ?>
 					<li><a href="<?= base_url() ?>testr" class="users">Testr</a></li>
-						<!-- Add nav elements here --><li><a href="<?= base_url() ?>question" class="question">Question</a></li><li><a href="<?= base_url() ?>answer" class="answer">Answer</a></li><li><a href="<?= base_url() ?>resultproduct" class="resultproduct">Resultproduct</a></li><li><a href="<?= base_url() ?>product" class="product">Product</a></li>
+						<!-- Add nav elements here --><li><a href="<?= base_url() ?>report" class="report">Report</a></li><li><a href="<?= base_url() ?>question" class="question">Question</a></li><li><a href="<?= base_url() ?>answer" class="answer">Answer</a></li><li><a href="<?= base_url() ?>product" class="product">Product</a></li>
 						<li><a href="<?= base_url() ?>user" class="users">Users</a></li>
-						<li><a href="<?= base_url() ?>admin/builder" class="builder">Builder</a></li>
 						<li><a href="<?= base_url() ?>admin/logout" class="logout">Log Out</a></li>
 					<? else: ?>
 						<li><a href="<?= base_url() ?>admin/login" class="login">Log In</a></li>
