@@ -43,56 +43,69 @@ $social['link'] = "http://staging.click3x.com/bedgear";
 		<!--To Start clear this code! -->
 
 				<div class="content">
-					<div class="col3"></div>
-					<div id="intro" class="col6 panel">
+					<div id="intro" class="panel">
 						SomeIntroHere
 					</div>
-					<div id="question1" class="col6 panel">
-						<p class="number">#</p>
-						<p class="question">loading...</p>
-						<ul class="answers"></ul>
+					<div id="question1" class="panel">
+						<a href="#" class="start">Start</a>
+						<div class="questiongroup">
+							<p class="number">#</p>
+							<p class="question">loading...</p>
+							<ul class="answers"></ul>
+						</div>
 					</div>
-					<div id="question2" class="col6 panel">
+					<div id="question2" class="panel">
 						<a href="#" class="back"> Back</a>
-						<p class="number">#</p>
-						<p class="question">loading...</p>
-						<ul class="answers"></ul>
+						<div class="questiongroup">
+							<p class="number">#</p>
+							<p class="question">loading...</p>
+							<ul class="answers"></ul>
+						</div>
 					</div>
-					<div id="question3" class="col6 panel">
+					<div id="question3" class="panel">
 						<a href="#" class="back"> Back</a>
-						<p class="number">#</p>
-						<p class="question">loading...</p>
-						<ul class="answers"></ul>
+						<div class="questiongroup">
+							<p class="number">#</p>
+							<p class="question">loading...</p>
+							<ul class="answers"></ul>
+						</div>
 					</div>
-					<div id="question4" class="col6 panel">
+					<div id="question4" class="panel">
 						<a href="#" class="back"> Back</a>
-						<p class="number">#</p>
-						<p class="question">loading...</p>
-						<ul class="answers"></ul>
+						<div class="questiongroup">
+							<p class="number">#</p>
+							<p class="question">loading...</p>
+							<ul class="answers"></ul>
+						</div>
 					</div>
-					<div id="question5" class="col6 panel">
+					<div id="question5" class="panel">
 						<a href="#" class="back"> Back</a>
-						<p class="number">#</p>
-						<p class="question">loading...</p>
-						<ul class="answers"></ul>
+						<div class="questiongroup">
+							<p class="number">#</p>
+							<p class="question">loading...</p>
+							<ul class="answers"></ul>
+						</div>
 					</div>
-					<div id="question6" class="col6 panel">
+					<div id="question6" class="panel">
 						<a href="#" class="back"> Back</a>
-						<p class="number">#</p>
-						<p class="question">loading...</p>
-						<ul class="answers"></ul>
+						<div class="questiongroup">
+							<p class="number">#</p>
+							<p class="question">loading...</p>
+							<ul class="answers"></ul>
+						</div>
 					</div>
-					<div id="question7" class="col6 panel">
+					<div id="question7" class="panel">
 						<a href="#" class="back"> Back</a>
-						<p class="number">#</p>
-						<p class="question">loading...</p>
-						<ul class="answers"></ul>
+						<div class="questiongroup">
+							<p class="number">#</p>
+							<p class="question">loading...</p>
+							<ul class="answers"></ul>
+						</div>
 					</div>
-					<div id="resultgroup" class="col6 panel">
+					<div id="resultgroup" class="panel">
 						<h1>Your ideal Bedgear:</h1>
 						<ol class="products"></ol>
 					</div>
-					<div class="col3"></div>
 				</div>
 
 		<!--Also on the same folder of this file have a demo.html with a basic style just for preview the columns-->

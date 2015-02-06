@@ -12,7 +12,7 @@ MultiChoice.prototype.BuildAnswers = function(self, pArrAns){
   return function(){
     var tmpList = $('<ul/>');
     $.each(pArrAns,function(idx, answer){
-      var tmpItem = $('<li/>').append($('<input/>').addClass('multichoice').attr('type','checkbox').attr('value',answer.answerId)).append($('<label/>').html(answer.answerText));
+      var tmpItem = $('<li/>').addClass('multichoice').append($('<input/>').attr('type','checkbox').attr('value',answer.answerId)).append($('<label/>').html(answer.answerText));
       tmpList.append(tmpItem);
     });
 

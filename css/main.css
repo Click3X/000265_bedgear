@@ -13,8 +13,68 @@ button{
   top:0px;
   left:0px;
   background:#298ee2;
-  padding:0px;
+  padding:0% 5%;
   display: none;
+  width:90%;
+  min-height:100%;
+}
+
+.panel .back, .panel .start {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 30px;
+  margin: 50px 30px 0px 30px;
+  padding: 15px;
+  background: #ddd;
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+}
+.panel .back:after {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+  border-color: rgba(221, 221, 221, 0);
+  border-right-color: #ddd;
+	border-width: 30px;
+	margin-top: -30px;
+}
+
+.questiongroup{
+  margin-left:30px;
+}
+
+.questiongroup .number{
+  display:none;
+}
+
+.questiongroup .question{
+  margin-top:30px;
+}
+
+.questiongroup .answers{
+  margin-top:20px;
+}
+
+.questiongroup .answers li{
+  margin-bottom:5px;
+}
+
+.questiongroup .answers li.multichoice{
+  margin-bottom:10px;
+}
+
+li.multichoice input[type=checkbox]{
+  margin-right: 20px;
+  vertical-align: middle;
+  transform: scale(2);
+  -webkit-transform: scale(2);
 }
 
 #resultgroup ol.products{

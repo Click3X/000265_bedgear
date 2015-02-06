@@ -35,7 +35,6 @@ Question.prototype.HandleQuestion = function(self){
           // If no question comes back, assume we're at the end of the quiz
           self.GetResult();
         }
-        self.Show();
     };
 };
 
@@ -82,4 +81,32 @@ Question.prototype.TallyMon = function(self, pId, pVal, pQues){
       NextQuestion();
     }
   };
+};
+
+Question.prototype.RevealChoice = function(self){
+  return function(){
+  self.elem.find('.answers ul li:hidden:first').css({
+      opacity: 0,
+      marginLeft: 200
+    }).stop().show().animate({
+      opacity: 1,
+      marginLeft: 0
+    }, 200, self.RevealChoice(self));
+  };
+};
+
+Question.prototype.Show = function(pProfileId){
+
+  this.elem.find('.question').css('opacity',0);
+  this.elem.find('.answers li').hide();
+  Panel.prototype.Show.call(this);
+
+  this.elem.find('.question').animate({
+      opacity: 1
+      //marginLeft: 0
+    }, 500, this.RevealChoice(this)());
+
+
+
+  return true;
 };
