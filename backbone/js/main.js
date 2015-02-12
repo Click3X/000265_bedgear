@@ -130,6 +130,7 @@ require([
                 console.log(this.model.attributes);
                 $(this.el).html(this.template(this.model.attributes.question));
 
+                $('.panel').hide();
                 this.$el.show();
 
                 this.$('.question').css('opacity',0);
@@ -141,6 +142,32 @@ require([
                 }, 500, function(){});
 
             }
+        });
+
+        var Result = Backbone.Model.extend({
+            urlRoot: '../tinderbox/jsonapi/result',
+            defaults: {
+                bitTotal:0,
+                arrAnswers:[],
+                data:[],
+            },
+            initialize: function(){
+                //this.set('id',this.get('bitTotal'));
+            },
+
+        });
+
+        var ResultView = Backbone.View.extend({
+            template: _.template($('#result-template').html()),
+            initialize: function(){
+                this.model.bind("change",this.render,this);
+            },
+            render: function(){
+                console.log(this.model.get('data'));
+                $(this.el).html(this.template(this.model.attributes));
+                $('.panel').hide();
+                this.$el.show();
+            },
         });
 
         var arrHistory = Array();
@@ -174,7 +201,10 @@ require([
                     tally.arrAnswers.push(arrHistory[idx].get('answerChoice'));
                     console.log('tally',tally);
                 }
-
+                result_model.set('id', tally.bitTotal);
+                result_model.set('bitTotal', tally.bitTotal);
+                result_model.set('arrAnswers', tally.arrAnswers);
+                result_model.fetch();
             }else{
                 // Load up the latest question
                 if(pSub){
@@ -189,9 +219,14 @@ require([
             }
         }
 
+        var result_model = new Result();
+        var result_view = new ResultView({el: $('#result'), model:result_model});
         var view_question = new QuestionView({ el: $("#question") });
 
         NextQuestion();
+
+
+        //this.model.fetch({success:function(){console.log(this.model.attributes);}});
 
     });
 });
