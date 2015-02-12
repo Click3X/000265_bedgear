@@ -56,7 +56,11 @@
                 <div id="page-content">
                     <div id="question" class="panel">
                         <script type="text/template" id="question-template">
+                            <% if( questionNumber == 1 ){ %>
                             <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <p class="question"><%= questionText %></p>

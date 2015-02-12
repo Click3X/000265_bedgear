@@ -106,7 +106,7 @@ require([
             },
             events: {
                 'click .answers li button':'HandleAnswerClick',
-                'click .answers li button.back':'HandleBackClick',
+                'click .back':'HandleBackClick',
             },
             HandleAnswerClick: function(evt){
                 this.model.TallyMon($(evt.currentTarget).attr('answerId'));
@@ -176,13 +176,15 @@ require([
 
         // Pop the current question off the history stack and load the last question from memory
         function PreviousQuestion(){
-          // Remove the current question from the history
-          arrHistory.shift();
-          // Adjust the question pointer to the current history item
-          currentQues=parseInt(arrHistory[0].get('question').questionNumber,10)-1;
-          // Render instead of load since we're working off an existing history
-          view_question.AddModel(arrHistory[0]);
-          view_question.AskQuestion();
+            console.log('ck1',arrHistory.length, arrHistory);
+            // Remove the current question from the history
+            arrHistory.shift();
+            console.log('ck2',arrHistory.length, arrHistory);
+            // Adjust the question pointer to the current history item
+            currentQues=parseInt(arrHistory[0].get('question').questionNumber,10);
+            // Render instead of load since we're working off an existing history
+            view_question.AddModel(arrHistory[0]);
+            view_question.render();
         }
 
         // Increment the question array pointer and load the appropriate panel
