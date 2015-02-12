@@ -22,6 +22,7 @@ require([
     'underscore',
     'backbone'
 ], function( $, _, Backbone ) {
+
     $(document).ready(function(){
         /*----- user agent ------*/
         var uagent = navigator.userAgent.toLowerCase(),body = document.body,
@@ -66,35 +67,63 @@ require([
         /*----- init router ------*/
         //router = new Router();
 
-        var arrHistory = Array();
-
 
         // Lots of experimentation here
         var Question = Backbone.Model.extend({
             urlRoot: '../tinderbox/jsonapi/question',
+            defaults: {
+                'question':{
+                    questionNumber:0,
+                    questionText:'loading...',
+                    answerChoice:0,
+                    answerBit:0,
+                }
+            },
             initialize: function(){
                 //alert("Welcome to this world");
                 //this.listenTo(this.model,'change', this.HandleFetch);
             },
-            HandleFetch: function(){
-                //this.set('displaydata') = this.get('question');
-                //this.question.answerHTML = "nothing to see here";
-            }
+            TallyMon: function(pAnswerId){
+                //console.log('testing',pAnswerId);
+                for( var idx in this.get('question').answers ){
+                    if( this.get('question').answers[idx].answerId == pAnswerId ){
+                        this.set('answerChoice', this.get('question').answers[idx].answerId);
+                        this.set('answerBit', this.get('question').answers[idx].answerBitpos);
+
+                        NextQuestion(this.get('question').answers[idx].question);
+
+                        break;
+                    }
+                }
+
+            },
         });
 
         var QuestionView = Backbone.View.extend({
             template: _.template($('#question-template').html()),
             initialize: function(){
-                this.model.bind("change",this.render,this);
+                //this.model.bind("change",this.render,this);
             },
             events: {
-                'click .answers li button':'TallyMon'
+                'click .answers li button':'HandleAnswerClick',
+                'click .answers li button.back':'HandleBackClick',
             },
-            NextQuestion: function(){
-                this.model.fetch();
+            HandleAnswerClick: function(evt){
+                this.model.TallyMon($(evt.currentTarget).attr('answerId'));
             },
-            TallyMon: function(evt){
-                console.log('testing',this, evt);
+            HandleBackClick: function(evt){
+                PreviousQuestion();
+            },
+            AddModel: function(pModel){
+                this.model = pModel;
+                this.model.bind("change",this.render,this);
+            },
+            AskQuestion: function(){
+                if( typeof( this.model.get('id') ) != "undefined" ){
+                    this.model.fetch();
+                }else{
+                    this.render();
+                }
             },
             render: function(){
 
@@ -111,24 +140,58 @@ require([
                     //marginLeft: 0
                 }, 500, function(){});
 
-                // this.$('.number').html(this.model.get('question').questionNumber);
-                // this.$('.question').html(this.model.get('question').questionText);
-                //
-                // for(var idx in this.model.get('question').answers){
-                //    var tmpItem = $('<li/>').append($('<button/>').html(this.model.get('question').answers[idx].answerText));
-                //    this.$('.answers').append(tmpItem);
-                // }
-
-
             }
         });
 
-        arrHistory.unshift(new Question({id:4}));
-        console.log(arrHistory[0]);
+        var arrHistory = Array();
+        var arrQuestions = Array();
+        var currentQues = 0;
 
-        var view_question = new QuestionView({ el: $("#question1"), model:arrHistory[0] });
+        // Pop the current question off the history stack and load the last question from memory
+        function PreviousQuestion(){
+          // Remove the current question from the history
+          arrHistory.shift();
+          // Adjust the question pointer to the current history item
+          currentQues=parseInt(arrHistory[0].get('question').questionNumber,10)-1;
+          // Render instead of load since we're working off an existing history
+          view_question.AddModel(arrHistory[0]);
+          view_question.AskQuestion();
+        }
 
-        view_question.NextQuestion();
+        // Increment the question array pointer and load the appropriate panel
+        function NextQuestion(pSub){
+            console.log('pSub', pSub);
+            if( currentQues >= 5 ){
+                // If the quesiton pointer is at the end of the question array
+                //panel['result'].Load();
+                console.log("Loading Result...");
+                var tally = {
+                    bitTotal:0,
+                    arrAnswers:[],
+                };
+                for( var idx in arrHistory ){
+                    tally.bitTotal += parseInt(arrHistory[idx].get('answerBit'),10);
+                    tally.arrAnswers.push(arrHistory[idx].get('answerChoice'));
+                    console.log('tally',tally);
+                }
+
+            }else{
+                // Load up the latest question
+                if(pSub){
+                    arrHistory.unshift(new Question({'question':pSub}));
+                }else{
+                    currentQues++;
+                    arrHistory.unshift(new Question({id:currentQues}));
+                }
+
+                view_question.AddModel(arrHistory[0]);
+                view_question.AskQuestion();
+            }
+        }
+
+        var view_question = new QuestionView({ el: $("#question") });
+
+        NextQuestion();
 
     });
 });

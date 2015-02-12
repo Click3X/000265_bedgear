@@ -54,20 +54,8 @@
 
             <div id="page-container">
                 <div id="page-content">
-                    <div id="question1" class="panel">
-                    <script type="text/template" id="question-template">
-                        <a href="#" class="start">Start</a>
-                        <div class="questiongroup">
-                            <p class="number"><%= questionNumber %></p>
-                            <p class="question"><%= questionText %></p>
-                            <ul class="answers">
-                            <% for( answer in answers ){ %>
-                                <li style="display: list-item; margin-left: 0px;"><button><%=answers[answer].answerText%></button></li>
-                            <% } %>
-                            </ul>
-                        </div>
-                    </script>
-                    </div>
+                    <div id="question" class="panel"></div>
+                    <div id="result" class="panel"></div>
                 </div>
             </div>
 
@@ -75,6 +63,19 @@
 
             </div>
         </div>
+
+        <script type="text/template" id="question-template">
+            <a href="#" class="start">Start</a>
+            <div class="questiongroup">
+                <p class="number"><%= questionNumber %></p>
+                <p class="question"><%= questionText %></p>
+                <ul class="answers">
+                <% for( answer in answers ){ %>
+                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                <% } %>
+                </ul>
+            </div>
+        </script>
 
         <script data-main="js/main" src="js/vendor/require.min.js"></script>
         <script>
