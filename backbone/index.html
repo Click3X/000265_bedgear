@@ -54,8 +54,8 @@
 
             <div id="page-container">
                 <div id="page-content">
-                    <div id="question" class="panel">
-                        <script type="text/template" id="question-template">
+                    <div id="question" class="panel"></div>
+                        <script type="text/template" id="question1-template">
                             <% if( questionNumber == 1 ){ %>
                             <a href="#" class="start">Start</a>
                             <% }else{ %>
@@ -71,7 +71,104 @@
                                 </ul>
                             </div>
                         </script>
-                    </div>
+                        <script type="text/template" id="question2-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers">
+                                <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                <% } %>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question3-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers">
+                                <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                <% } %>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question4-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers">
+                                <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                <% } %>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question5-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers">
+                                <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                <% } %>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question6-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers">
+                                    <% for( answer in answers ){ %>
+                                    <li class="multichoice" style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
+                                    <% } %>
+                                    <li style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question7-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers">
+                                <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                <% } %>
+                                </ul>
+                            </div>
+                        </script>
+
                     <div id="result" class="panel">
                         <script type="text/template" id="result-template">
                             <h1>Your ideal Bedgear:</h1>
