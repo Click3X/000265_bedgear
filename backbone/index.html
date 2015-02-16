@@ -64,7 +64,7 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <p class="question"><%= questionText %></p>
-                                <ul class="answers">
+                                <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
                                 <% } %>
@@ -80,7 +80,7 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <p class="question"><%= questionText %></p>
-                                <ul class="answers">
+                                <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
                                 <% } %>
@@ -96,7 +96,7 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <p class="question"><%= questionText %></p>
-                                <ul class="answers">
+                                <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
                                 <% } %>
@@ -112,7 +112,7 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <p class="question"><%= questionText %></p>
-                                <ul class="answers">
+                                <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
                                 <% } %>
@@ -128,7 +128,7 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <p class="question"><%= questionText %></p>
-                                <ul class="answers">
+                                <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
                                 <% } %>
@@ -144,9 +144,13 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <p class="question"><%= questionText %></p>
-                                <ul class="answers">
+                                <ul class="yesno">
+                                    <li><button class="yes">Yes</button></li>
+                                    <li><button class="no">No</button></li>
+                                </ul>
+                                <ul class="answers multichoice" style="display:none;">
                                     <% for( answer in answers ){ %>
-                                    <li class="multichoice" style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
+                                    <li style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
                                     <% } %>
                                     <li style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
                                 </ul>
@@ -161,10 +165,15 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <p class="question"><%= questionText %></p>
-                                <ul class="answers">
-                                <% for( answer in answers ){ %>
-                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
-                                <% } %>
+                                <ul class="yesno">
+                                    <li><button class="yes">Yes</button></li>
+                                    <li><button class="no">No</button></li>
+                                </ul>
+                                <ul class="answers multichoice" style="display:none;">
+                                    <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
+                                    <% } %>
+                                    <li style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
                                 </ul>
                             </div>
                         </script>

@@ -8,11 +8,36 @@ define([
             //this.model.bind("change",this.render,this);
         },
         events: {
-            'click .answers li button':'HandleAnswerClick',
+            'click .answers.singlechoice li button':'HandleAnswerClick',
+            'click .answers.multichoice li button':'HandleMultiChoiceClick',
+            'click .yesno button':'HandleYesNo',
             'click .back':'HandleBackClick',
+        },
+        HandleYesNo: function(evt){
+            if($(evt.currentTarget).hasClass('yes')){
+                this.$('.yesno').hide();
+                this.$('.multichoice').show();
+            }else{
+                this.model.set('answerChoice', '');
+                this.model.set('answerBit', 0);
+
+                NextQuestion(false);
+            }
         },
         HandleAnswerClick: function(evt){
             this.model.TallyMon($(evt.currentTarget).attr('answerId'));
+        },
+        HandleMultiChoiceClick: function(evt){
+            var answerList = "";
+            $.each(this.$('.multichoice input:checked'),function(idx,answer){
+                if( answerList != "" ) answerList += ",";
+                answerList += $(answer).val();
+            });
+            console.log(answerList);
+            this.model.set('answerChoice', answerList);
+            this.model.set('answerBit', 0);
+
+            NextQuestion(false);
         },
         HandleBackClick: function(evt){
             PreviousQuestion();

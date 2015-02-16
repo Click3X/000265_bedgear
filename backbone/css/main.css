@@ -58,19 +58,19 @@ button{
   margin-top:30px;
 }
 
-.questiongroup .answers{
+.questiongroup ul{
   margin-top:20px;
 }
 
-.questiongroup .answers li{
+.questiongroup ul li{
   margin-bottom:5px;
 }
 
-.questiongroup .answers li.multichoice{
+.questiongroup .answers.multichoice li{
   margin-bottom:10px;
 }
 
-li.multichoice input[type=checkbox]{
+.multichoice li input[type=checkbox]{
   margin-right: 20px;
   vertical-align: middle;
   transform: scale(2);
