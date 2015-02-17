@@ -322,7 +322,29 @@ input.button{
 	height:39px;
 }
 
+.report #content ul{
+    padding: 0px;
+    margin:25px;
+    list-style:none;
+}
 
+.report #content ul:empty{
+    display:none;
+}
+
+.report #content ul li{
+    padding-left:40px;
+}
+
+.report #content ul li ul{
+    padding: 0px;
+    margin:0px 0px 0px 0px;
+}
+
+.report #content ul li ul li p{
+    margin:5px 0px 0px 0px;
+    font-size: 13px;
+}
 
 /* ==================
    Initializr Theme

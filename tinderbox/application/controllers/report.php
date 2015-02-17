@@ -28,6 +28,7 @@ class Report extends CI_Controller
 			}
 			$tmpAns->questionText = $question->questionText;
 			$tmpAns->questionNumber = $question->questionNumber;
+			$tmpAns->answerId = $question->answerId;
 			array_push($data['questions'],$tmpAns);
 		}
 
