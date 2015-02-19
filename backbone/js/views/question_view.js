@@ -53,6 +53,18 @@ define([
                 this.render();
             }
         },
+        RevealChoice: function(self){
+          return function(){
+              //alert(self.$('.answers li:hidden:first').html());
+              self.$('.answers li:hidden:first').css({
+              opacity: 0,
+              marginLeft: 200
+            }).stop().show().animate({
+              opacity: 1,
+              marginLeft: 0
+          }, 200, self.RevealChoice(self));
+          };
+      },
         render: function(){
 
             console.log(this.model.attributes);
@@ -67,12 +79,12 @@ define([
             this.$el.show();
 
             this.$('.question').css('opacity',0);
-            this.$('.answers li').show();
+            this.$('.answers li').hide();
 
             this.$('.question').animate({
                 opacity: 1
                 //marginLeft: 0
-            }, 500, function(){});
+            }, 500, this.RevealChoice(this));
 
         }
     });
