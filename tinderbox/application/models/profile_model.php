@@ -1,15 +1,14 @@
 <?php
 
-class Survey_Model extends CI_Model
+class Profile_Model extends CI_Model
 {
-	var $table = "tblSurvey";
-	var $pk = "surveyId";
-	var $ds = "surveyTimeStamp";  //Default sortby field
+	var $table = "tblProfile";
+	var $pk = "profileId";
+	var $ds = "profileTimeStamp";  //Default sortby field
 	var $rq = "surveyUUID";		//Required field (you'll need to mod the form validation if there isn't one)
 	var $fields = array(
 		 'surveyUUID' => array('label'=>'UUID','type'=>'varchar','constraint'=>50),
-		 'answerId' => array('label'=>'Answer','type'=>'int','constraint'=>11),
-		 'surveyDetail' => array('label'=>'Detail','type'=>'varchar','constraint'=>200),
+		 'profileEmail' => array('label'=>'Email','type'=>'varchar','constraint'=>200),
 		);
 
 	/** Utility Methods **/

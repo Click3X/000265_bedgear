@@ -78,27 +78,51 @@ class JSONAPI extends CI_Controller {
 
 		$this->_JSONout();
 	}
-	
+
 	function survey(){
 		$this->load->helper('uuid_helper');
 		$this->load->model('survey_model');
-		
+
 		$this->_response->error->type = -1;
 		$this->_response->error->message = "could not add records to table";
-		
-		if( isset($_POST['answerId']) ){
+
+		if( isset($_POST['answers']) ){
 			$uuid = gen_uuid();
-			$arrAnswers = explode(",",$_POST['answerId']);
-			
-			foreach($arrAnswers as $answerId){
-				$this->survey_model->Add(array('surveyUUID'=>$uuid,'answerId'=>$answerId));
+			//$arrAnswers = explode(",",$_POST['answers']);
+			$arrAnswers = json_decode($_POST['answers']);
+			//print_r($arrAnswers);
+			foreach($arrAnswers as $answer){
+				$arrAnswerId = explode(",",$answer->answerId);
+				foreach($arrAnswerId as $answerId){
+					if($answerId != 0 || $answer->surveyDetail != "")
+						$this->survey_model->Add(array('surveyUUID'=>$uuid,'answerId'=>$answerId,'surveyDetail'=>$answer->surveyDetail));
+				}
 			}
-			
+
 			$this->_response->error->type = 0;
 			$this->_response->error->message = "success";
+			$this->_response->data = new stdClass();
+			$this->_response->data->sessionId = $uuid;
 		}else{
 			$this->_response->error->message = "no POST  data";
 		}
+		$this->_JSONout();
+	}
+
+	function profile(){
+		$this->load->model('profile_model');
+
+		$this->_response->error->type = -1;
+		$this->_response->error->message = "could not add records to table";
+
+		$nid = $this->profile_model->Add($_POST);
+
+		$this->_response->error->type = 0;
+		$this->_response->error->message = "success";
+		$this->_response->data = new stdClass();
+		$this->_response->data->sessionId = $_POST['surveyUUID'];
+		$this->_response->data->nid = $nid;
+
 		$this->_JSONout();
 	}
 

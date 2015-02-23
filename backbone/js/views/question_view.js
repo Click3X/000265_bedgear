@@ -21,6 +21,7 @@ define([
             }else{
                 this.model.set('answerChoice', '');
                 this.model.set('answerBit', 0);
+                this.model.set('answerDetail', '');
 
                 NextQuestion(false);
             }
@@ -40,6 +41,7 @@ define([
             console.log(answerList);
             this.model.set('answerChoice', answerList);
             this.model.set('answerBit', 0);
+            this.model.set('answerDetail', '');
 
             NextQuestion(false);
         },

@@ -9,6 +9,7 @@ define([
                 questionText:'loading...',
                 answerChoice:0,
                 answerBit:0,
+                answerDetail:'',
             }
         },
         initialize: function(){
@@ -38,7 +39,7 @@ define([
                 if( this.get('question').answers[idx].answerId == pAnswerId ){
                     this.set('answerChoice', this.get('question').answers[idx].answerId);
                     this.set('answerBit', this.get('question').answers[idx].answerBitpos);
-
+                    this.set('answerDetail', '');
                     NextQuestion(this.get('question').answers[idx].question);
 
                     break;

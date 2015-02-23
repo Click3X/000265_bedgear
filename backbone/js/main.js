@@ -108,14 +108,18 @@ require([
                 };
                 for( var idx in arrHistory ){
                     tally.bitTotal += parseInt(arrHistory[idx].get('answerBit'),10);
-                    tally.arrAnswers.push(arrHistory[idx].get('answerChoice'));
+                    tally.arrAnswers.push({'answerId':arrHistory[idx].get('answerChoice'),'surveyDetail':arrHistory[idx].get('answerDetail')});
                     console.log('tally',tally);
                 }
                 result_model.set('id', tally.bitTotal);
                 result_model.set('bitTotal', tally.bitTotal);
                 result_model.set('arrAnswers', tally.arrAnswers);
-                $.post(API_PATH+'survey/',{'answerId':tally.arrAnswers.join()},function(){console.log('survey data sent');});
-                result_model.fetch();
+                result_model.fetch({success:function(){
+                    $.post(API_PATH+'survey/',{'answers':JSON.stringify(tally.arrAnswers)},function(response){
+                        console.log('survey data sent',response);
+                        result_model.set('sessionId', response.data.sessionId);
+                    });
+                }});
             }else{
                 // Load up the latest question
                 if(pSub){
