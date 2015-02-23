@@ -11,6 +11,7 @@ define([
             'click .answers.singlechoice li button':'HandleAnswerClick',
             'click .answers.multichoice li button':'HandleMultiChoiceClick',
             'click .yesno button':'HandleYesNo',
+            'click .sliderselect button':'HandleTemperature',
             'click .back':'HandleBackClick',
         },
         HandleYesNo: function(evt){
@@ -26,6 +27,9 @@ define([
         },
         HandleAnswerClick: function(evt){
             this.model.TallyMon($(evt.currentTarget).attr('answerId'));
+        },
+        HandleTemperature: function(evt){
+            this.model.TallyMonTemp(this.$('.ui-slider-handle').html());
         },
         HandleMultiChoiceClick: function(evt){
             var answerList = "";
@@ -65,6 +69,13 @@ define([
           }, 200, self.RevealChoice(self));
           };
       },
+      HandleTemperatureSlide: function( self ) {
+          return function( event, ui ){
+              slidx = ui.value;
+              console.log(slidx);
+              self.$('.ui-slider-handle').html(slidx);
+          };
+      },
         render: function(){
 
             console.log(this.model.attributes);
@@ -74,6 +85,15 @@ define([
                 var template = _.template( $(templateid).html(), {} );
             //}
             $(this.el).html(template(this.model.attributes.question));
+
+            this.$('.slider').slider({
+                value:TEMPERATURE_HOT,
+                min: 0,
+                max: 100,
+                step: 1,
+                slide: this.HandleTemperatureSlide(this)
+            });
+            this.$('.ui-slider-handle').html(TEMPERATURE_HOT);
 
             $('.panel').hide();
             this.$el.show();

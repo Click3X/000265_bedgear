@@ -33,6 +33,9 @@
         <meta name="theme-color" content="#ffffff">
         <!-- end icons -->
         <link rel="stylesheet" type="text/css" media="all" href="css/responsiveboilerplate.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.min.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.theme.min.css">
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -128,6 +131,16 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <p class="question"><%= questionText %></p>
+
+                                <div id="tempscale">
+                                	<span style="float:right">Hot</span>
+                                	<span style="float:left">Cold</span>
+                                </div>
+                                <div id="temperature" class="slider"></div>
+                                <ul>
+                                    <li class="sliderselect" style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
+                                </ul>
+
                                 <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>

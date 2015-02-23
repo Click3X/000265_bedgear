@@ -85,3 +85,14 @@ button{
 .answers ul{
   padding-left:20px;
 }
+
+.questiongroup #tempscale{
+	float: left;
+	width: 100%;
+	margin-top:10px;
+}
+
+.questiongroup #temperature{
+	clear: both;
+}
+

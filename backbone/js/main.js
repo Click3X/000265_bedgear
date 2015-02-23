@@ -3,6 +3,7 @@
 var router,pushstate=false,mobile=false,retina=false,mp4=false,ipad=false,iphone=false,ie=false,ie8=false,android=false,firstpage = true;
 
 var LAST_QUESTION_NUMBER = 7;
+var TEMPERATURE_HOT = 60;
 var API_PATH = "../tinderbox/jsonapi/";
 
 var arrHistory = Array();
@@ -15,6 +16,7 @@ require.config({
     baseUrl: base_url,
     paths: {
         jquery:         'js/vendor/jquery.min',
+        jquery_ui:      'js/vendor/jquery-ui.min',
         backbone:       'js/vendor/backbone.min',
         underscore:     'js/vendor/underscore.min',
         question_model: 'js/models/question_model',
@@ -32,6 +34,7 @@ require([
     'result_model',
     'question_view',
     'result_view',
+    'jquery_ui',
 ], function( $, _, Backbone, QuestionModel, ResultModel, QuestionView, ResultView ) {
 
     $(document).ready(function(){
