@@ -24,6 +24,7 @@ class Testr extends CI_Controller
 			$tmpAns = new stdClass();
 			$tmpAns->answers = $this->answer_model->Get(array('questionId'=>$question->questionId,'sortBy'=>'answerNumber','sortDirection'=>'ASC'));
 			$tmpAns->questionText = $question->questionText;
+			$tmpAns->answerId = $question->answerId;
 			array_push($data['questions'],$tmpAns);
 		}
 

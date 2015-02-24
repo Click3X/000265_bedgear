@@ -6,6 +6,32 @@ class Report extends CI_Controller
         'model' => 'survey_model',
         );
 
+
+	function _GetSub($pAnswerId){
+
+		$result = array();
+
+		$rsQuestions = $this->question_model->Get(array('answerId'=>$pAnswerId,'sortBy'=>'questionNumber','sortDirection'=>'ASC'));
+
+		foreach($rsQuestions as $question){
+			$rsAnswers = $this->answer_model->Get(array('questionId'=>$question->questionId));
+			foreach($rsAnswers as $jdx=>$answer){
+				$tmpAnswer = new stdClass();
+				$tmpAnswer->questionNumber = $question->questionNumber;
+				$tmpAnswer->questionText = $question->questionText;
+				$tmpAnswer->answerText = $answer->answerText;
+				$tmpAnswer->answerTally = $this->survey_model->Get(array('answerId'=>$answer->answerId,'count'=>true));
+				if( is_nan($tmpAnswer->answerTally) || $tmpAnswer->answerTally == 0 ) $tmpAnswer->answerTally = "0";
+				array_push($result,$tmpAnswer);
+				if( $answer->questionId > 0 ){
+					$result = array_merge($result, $this->_GetSub($answer->answerId));
+				}
+			}
+		}
+
+		return $result;
+	}
+
     // Retrieve
 	function index($pFormat="html")
 	{
@@ -68,14 +94,31 @@ class Report extends CI_Controller
 
 	function csv($pFormat="html")
 	{
-		$model_ref = $this->profile['model'];
-		$this->load->model($model_ref);
+		$model_ref = 'report_model';
+		$this->load->model('survey_model');
+		$this->load->model('question_model');
+		$this->load->model('answer_model');
 
 
-		$data['total_rows'] = $this->$model_ref->Get(array('count' => true));
-		$data['records'] = $this->$model_ref->Get(array('sortBy'=>$this->$model_ref->_ds(),'sortDirection'=>'ACS'));
-		$data['fields'] = $this->$model_ref->_fields();
-		$data['pk'] = $this->$model_ref->_pk();
+		$data['total_rows'] = $this->survey_model->Get(array('count' => true));
+		//$data['records'] = $this->$model_ref->Get(array('sortBy'=>$this->$model_ref->_ds(),'sortDirection'=>'ACS'));
+		//$data['fields'] = $this->$model_ref->_fields();
+		//$data['pk'] = $this->$model_ref->_pk();
+
+		$data['records'] = array();
+
+		$data['records'] = $this->_GetSub(0);
+
+		// echo "<table>";
+		// foreach($data['records'] as $record){
+		// 	echo "<tr>";
+		// 	foreach($record as $field){
+		// 		echo "<td>".$field."</td>";
+		// 	}
+		// 	echo "</tr>";
+		// }
+		// echo "</table>";
+		// die;
 
 		$header = "";
 		$filedata = "";

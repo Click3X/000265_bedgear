@@ -40,18 +40,4 @@ function HandleResult(response){
 </div>
 <?endif?>
 
-<ul>
-<?php foreach($questions as $question): ?>
-	<li style="margin:25px; list-style:none;">
-		<label><?=$question->questionText?></label>
-		<select class="selanswer">
-			<?php foreach($question->answers as $answer): ?>
-				<option value="<?=$answer->answerBitpos?>"><?=$answer->answerText?></option>
-			<?php endforeach; ?>
-		</select>
-	</li>
-<?php endforeach; ?>
-	<li style="margin:25px; list-style:none;">
-		<button onclick="GetResult();">Submit</button>
-	</li>
-</ul>
+<?php $this->load->view('testr/testr_questionblock', array('questions'=>$questions,'answerId'=>0)); ?>
