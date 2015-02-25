@@ -1,220 +1,247 @@
 <?php
 
-	$host 	=  	$_SERVER['HTTP_HOST'];
+$social = array();
+$social['title'] = "Bedgear Product Selector";
+$social['description'] = "InsertDescriptionHere";
+$social['image'] = "http://staging.click3x.com/bedgear/images/apple-touch-icon-114x114.png";
+$social['link'] = "http://staging.click3x.com/bedgear";
 
-/*
- *---------------------------------------------------------------
- * APPLICATION ENVIRONMENT
- *---------------------------------------------------------------
- *
- * You can load different configurations depending on your
- * current environment. Setting the environment also influences
- * things like logging and error reporting.
- *
- * This can be set to anything, but default usage is:
- *
- *     development
- *     testing
- *     production
- *
- * NOTE: If you change these, also change the error_reporting() code below
- *
- */
+?>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+		<title><?=$social['title']?></title>
+		<meta name="description" content="<?=$social['description']?>">
+		<meta name="author" content="Matthew Wilber">
+		<meta property="og:title" content="<?=$social['title']?>" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="<?=$social['link']?>" />
+		<meta property="og:image" content="<?=$social['image']?>" />
+		<meta property="og:site_name" content="<?=$social['title']?>" />
+		<meta property="fb:admins" content="631337813" />
+		<meta property="og:description" content="<?=$social['description']?>" />
+        <!-- Optimized mobile viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- icons -->
+        <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="icons/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="icons/manifest.json">
+        <link rel="shortcut icon" href="icons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="icons/mstile-144x144.png">
+        <meta name="msapplication-config" content="icons/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+        <!-- end icons -->
+        <link rel="stylesheet" type="text/css" media="all" href="css/responsiveboilerplate.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.min.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
 
-	switch ($host) {
-		case 'boiler.dev':
-		case '192.168.1.5':
-			define('ENVIRONMENT', 'local');
-			break;
-		case 'staging.click3x.com':
-			define('ENVIRONMENT', 'staging');
-			break;
-		default:
-			define('ENVIRONMENT', 'production');
-			break;
-	}
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/master.js"></script>
+        <script type="text/javascript">
+            var base_url    = "";
+            var root_dir    = "";
+            var debug       = "";
+        </script>
+        <!--[if (lt IE 9)]><!--><script src="js/vendor/respond.min.js"></script><!--<![endif]-->
+    </head>
+        <!--[if IE 8 ]><body class="ie8"><![endif]-->
+        <!--[if (gt IE 9)|!(IE)]><!--><body><!--<![endif]-->
 
-/*
- *---------------------------------------------------------------
- * ERROR REPORTING
- *---------------------------------------------------------------
- *
- * Different environments will require different levels of error reporting.
- * By default development will show errors but testing and live will hide them.
- */
+        <div class="site-wrapper">
+            <div id="header-container">
 
-	if (defined('ENVIRONMENT'))
-	{
-		switch (ENVIRONMENT)
-		{
-			case 'local':
-				error_reporting(E_ALL);
-				break;
-			case 'staging':
-			case 'production':
-				error_reporting(0);
-				break;
-			default:
-				exit('The application environment is not set correctly.');
-		}
-	}
+            </div>
 
-/*
- *---------------------------------------------------------------
- * SYSTEM FOLDER NAME
- *---------------------------------------------------------------
- *
- * This variable must contain the name of your "system" folder.
- * Include the path if the folder is not in the same  directory
- * as this file.
- *
- */
+            <div id="page-container">
+                <div id="page-content">
+                    <div id="question" class="panel"></div>
+                        <script type="text/template" id="question1-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers singlechoice">
+                                <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                <% } %>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question2-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers singlechoice">
+                                <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                <% } %>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question3-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers singlechoice">
+                                <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                <% } %>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question4-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="answers singlechoice">
+                                <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                <% } %>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question5-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
 
-	$system_path = 'php/system';
+                                <div id="tempscale">
+                                	<span style="float:right">Hot</span>
+                                	<span style="float:left">Cold</span>
+                                </div>
+                                <div id="temperature" class="slider"></div>
+                                <ul>
+                                    <li class="sliderselect" style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question6-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="yesno">
+                                    <li><button class="yes">Yes</button></li>
+                                    <li><button class="no">No</button></li>
+                                </ul>
+                                <ul class="answers multichoice" style="display:none;">
+                                    <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
+                                    <% } %>
+                                    <li style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
+                                </ul>
+                            </div>
+                        </script>
+                        <script type="text/template" id="question7-template">
+                            <% if( questionNumber == 1 ){ %>
+                            <a href="#" class="start">Start</a>
+                            <% }else{ %>
+                            <a href="#" class="back">Back</a>
+                            <% } %>
+                            <div class="questiongroup">
+                                <p class="number"><%= questionNumber %></p>
+                                <p class="question"><%= questionText %></p>
+                                <ul class="yesno">
+                                    <li><button class="yes">Yes</button></li>
+                                    <li><button class="no">No</button></li>
+                                </ul>
+                                <ul class="answers multichoice" style="display:none;">
+                                    <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
+                                    <% } %>
+                                    <li style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
+                                </ul>
+                            </div>
+                        </script>
 
-/*
- *---------------------------------------------------------------
- * APPLICATION FOLDER NAME
- *---------------------------------------------------------------
- *
- * If you want this front controller to use a different "application"
- * folder then the default one you can set its name here. The folder
- * can also be renamed or relocated anywhere on your server.  If
- * you do, use a full server path. For more info please see the user guide:
- * http://codeigniter.com/user_guide/general/managing_apps.html
- *
- * NO TRAILING SLASH!
- *
- */
+                    <div id="result" class="panel">
+                        <script type="text/template" id="result-template">
+                            <h1>Your ideal Bedgear:</h1>
+                            <ol class="products">
+                                <% for( product in data ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><%=data[product].productName%></li>
+                                <% } %>
+                            </ol>
+                            <div class="profile">
+                            <% if( sessionId == "" ){ %>
+                                <h2>Loading...</h2>
+                            <% }else if( sessionId == "done" ){ %>
+                                <h2>Thank You!</h2>
+                            <% } else { %>
+                                <h2>Sign up for more information:</h2>
+                                <form>
+                                    <input type="hidden" name="surveyUUID" value="<%= sessionId %>"/>
+                                    <input type="text" name="profileEmail"/>
+                                    <input type="submit"/>
+                                </form>
+                            <% } %>
+                            </div>
 
-	$application_folder = 'php/application';
+                        </script>
+                    </div>
+                </div>
+            </div>
 
-/*
- * --------------------------------------------------------------------
- * DEFAULT CONTROLLER
- * --------------------------------------------------------------------
- *
- * Normally you will set your default controller in the routes.php file.
- * You can, however, force a custom routing by hard-coding a
- * specific controller class/function here.  For most applications, you
- * WILL NOT set your routing here, but it's an option for those
- * special instances where you might want to override the standard
- * routing in a specific front controller that shares a common CI installation.
- *
- * IMPORTANT:  If you set the routing here, NO OTHER controller will be
- * callable. In essence, this preference limits your application to ONE
- * specific controller.  Leave the function name blank if you need
- * to call functions dynamically via the URI.
- *
- * Un-comment the $routing array below to use this feature
- *
- */
-	// The directory name, relative to the "controllers" folder.  Leave blank
-	// if your controller is not in a sub-folder within the "controllers" folder
-	// $routing['directory'] = '';
+            <div id="footer-container">
 
-	// The controller class file name.  Example:  Mycontroller
-	// $routing['controller'] = '';
+            </div>
+        </div>
 
-	// The controller function you wish to be called.
-	// $routing['function']	= '';
-
-
-/*
- * -------------------------------------------------------------------
- *  CUSTOM CONFIG VALUES
- * -------------------------------------------------------------------
- *
- * The $assign_to_config array below will be passed dynamically to the
- * config class when initialized. This allows you to set custom config
- * items or override any default config values found in the config.php file.
- * This can be handy as it permits you to share one application between
- * multiple front controller files, with each file containing different
- * config values.
- *
- * Un-comment the $assign_to_config array below to use this feature
- *
- */
-	// $assign_to_config['name_of_config_item'] = 'value of config item';
-
-
-
-// --------------------------------------------------------------------
-// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
-// --------------------------------------------------------------------
-
-/*
- * ---------------------------------------------------------------
- *  Resolve the system path for increased reliability
- * ---------------------------------------------------------------
- */
-
-	// Set the current directory correctly for CLI requests
-	if (defined('STDIN'))
-	{
-		chdir(dirname(__FILE__));
-	}
-
-	if (realpath($system_path) !== FALSE)
-	{
-		$system_path = realpath($system_path).'/';
-	}
-
-	// ensure there's a trailing slash
-	$system_path = rtrim($system_path, '/').'/';
-
-	// Is the system path correct?
-	if ( ! is_dir($system_path))
-	{
-		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
-	}
-
-/*
- * -------------------------------------------------------------------
- *  Now that we know the path, set the main path constants
- * -------------------------------------------------------------------
- */
-	// The name of THIS file
-	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
-
-	// The PHP file extension
-	// this global constant is deprecated.
-	define('EXT', '.php');
-
-	// Path to the system folder
-	define('BASEPATH', str_replace("\\", "/", $system_path));
-
-	// Path to the front controller (this file)
-	define('FCPATH', str_replace(SELF, '', __FILE__));
-
-	// Name of the "system folder"
-	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
-
-
-	// The path to the "application" folder
-	if (is_dir($application_folder))
-	{
-		define('APPPATH', $application_folder.'/');
-	}
-	else
-	{
-		if ( ! is_dir(BASEPATH.$application_folder.'/'))
-		{
-			exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
-		}
-
-		define('APPPATH', BASEPATH.$application_folder.'/');
-	}
-
-/*
- * --------------------------------------------------------------------
- * LOAD THE BOOTSTRAP FILE
- * --------------------------------------------------------------------
- *
- * And away we go...
- *
- */
-require_once BASEPATH.'core/CodeIgniter.php';
-
-/* End of file index.php */
-/* Location: ./index.php */
+        <script data-main="js/main" src="js/vendor/require.min.js"></script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create',"XXXXXXXX");ga('send','pageview');
+        </script>
+    </body>
+</html>
