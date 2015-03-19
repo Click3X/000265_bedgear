@@ -15,6 +15,23 @@
   100% { opacity: 0; }
 }
 
+@-webkit-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 0.5; }
+}
+@-moz-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 0.5; }
+}
+@-o-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 0.5; }
+}
+@keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 0.5; }
+}
+
 @-webkit-keyframes topleft {
   0%   { top:0%; left:0%; width:1%; height:1%; opacity:0;   }
   100% { top:0%; left:0%; width:100%; height:100%; opacity: 1; }
@@ -133,6 +150,10 @@
     background:#002;
 }
 
+#canvas{
+    opacity:0;
+}
+
 #mask0{
 	opacity: 1;
 	left: 0%;
@@ -179,4 +200,11 @@
 	-moz-animation:    swoop 0.5s linear 1s 1 normal forwards;
 	-o-animation:      swoop 0.5s linear 1s 1 normal forwards;
 	animation:         swoop 0.5s linear 1s 1 normal forwards;
+}
+
+#canvas{
+	-webkit-animation: fadein 5s linear 1s 1 normal forwards;
+	-moz-animation:    fadein 5s linear 1s 1 normal forwards;
+	-o-animation:      fadein 5s linear 1s 1 normal forwards;
+	animation:         fadein 5s linear 1s 1 normal forwards;
 }

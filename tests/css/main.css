@@ -61,6 +61,35 @@ button{
     background-size: cover;
 }
 
+#start.panel #canvas{
+    width: 50%;
+    height: 50%;
+    display: block;
+    position: absolute;
+    top:auto;
+    bottom: 0%;
+    left: 0%;
+}
+
+#start.panel span.bubble {
+  background:#fff;
+  width:80px;
+  height:80px;
+  position:absolute;
+  display:block;
+  left:110px;
+  bottom:110px;
+  border-radius:100px;
+  background:-moz-radial-gradient(center 45deg, circle closest-corner, rgba(75,190,200,0), rgba(75,190,200,.1), rgba(75,190,200,.3), rgba(255,255,255,.7));
+  background:-webkit-gradient(radial, center center, 0, center center, 100, from(rgba(75,190,200,.2)), to(rgba(255,255,255,.7)));
+  background:gradient(center 45deg, circle closest-corner, rgba(75,190,200,0), rgba(75,190,200,.1), rgba(75,190,200,.3), rgba(255,255,255,.7));
+  background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0) 0%, rgba(9,133,167,0.1) 51%, rgba(9,133,167,0.3) 71%, rgba(9,133,167,.7) 100%);
+  animation:bubbleUp 4s infinite ease-in-out;
+  -webkit-animation:bubbleUp 4s infinite ease-in-out;
+  -o-animation:bubbleUp 4s infinite ease-in-out;
+  -moz-animation:bubbleUp 4s infinite ease-in-out;
+}
+
 #start.panel #frame1{
     background-image:url('../img/bkg_swoop_1.png');
 }
