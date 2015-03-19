@@ -1,0 +1,136 @@
+html, body{
+  font-size:36px;
+}
+
+button{
+  font-size:24px;
+  margin:10px;
+}
+
+.panel{
+  color:#fff;
+  position:absolute;
+  top:0px;
+  left:0px;
+  background:#298ee2;
+  padding:0% 5%;
+  display: none;
+  width:90%;
+  min-height:100%;
+}
+
+.panel .back, .panel .start {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 30px;
+  margin: 50px 30px 0px 30px;
+  padding: 15px;
+  background: #ddd;
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+}
+.panel .back:after {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	pointer-events: none;
+  border-color: rgba(221, 221, 221, 0);
+  border-right-color: #ddd;
+	border-width: 30px;
+	margin-top: -30px;
+}
+
+#start.panel{
+    display:block;
+    background-color:#002;
+}
+
+#start.panel .swoop{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-size: cover;
+}
+
+#start.panel #frame1{
+    background-image:url('../img/bkg_swoop_1.png');
+}
+
+#start.panel #frame2{
+    background-image:url('../img/bkg_swoop_2.png');
+}
+
+#start.panel #frame3{
+    background-image:url('../img/bkg_swoop_3.png');
+}
+
+#start.panel #frame4{
+    background-image:url('../img/bkg_swoop_4.png');
+}
+
+#start.panel #frame5{
+    background-image:url('../img/bkg_swoop_5.png');
+}
+
+#start.panel #frame6{
+    background-image:url('../img/bkg_swoop_6.png');
+}
+
+.questiongroup{
+  margin-left:30px;
+}
+
+.questiongroup .number{
+  display:none;
+}
+
+.questiongroup .question{
+  margin-top:30px;
+}
+
+.questiongroup ul{
+  margin-top:20px;
+}
+
+.questiongroup ul li{
+  margin-bottom:5px;
+}
+
+.questiongroup .answers.multichoice li{
+  margin-bottom:10px;
+}
+
+.multichoice li input[type=checkbox]{
+  margin-right: 20px;
+  vertical-align: middle;
+  transform: scale(2);
+  -webkit-transform: scale(2);
+}
+
+#resultgroup ol.products{
+  list-style-type: upper-roman;
+  margin:50px;
+}
+
+.answers ul{
+  padding-left:20px;
+}
+
+.questiongroup #tempscale{
+	float: left;
+	width: 100%;
+	margin-top:10px;
+}
+
+.questiongroup #temperature{
+	clear: both;
+}
