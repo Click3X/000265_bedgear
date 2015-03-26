@@ -9,7 +9,7 @@ var API_PATH = "../tinderbox/jsonapi/";
 var arrHistory = Array();
 var arrQuestions = Array();
 var currentQues = 0;
-var result_model,result_view,view_question,NextQuestion,PreviousQuestion;
+var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion;
 
 
 require.config({
@@ -19,10 +19,12 @@ require.config({
         jquery_ui:      'js/vendor/jquery-ui.min',
         backbone:       'js/vendor/backbone.min',
         underscore:     'js/vendor/underscore.min',
+        preloader:     'js/preloader',
         question_model: 'js/models/question_model',
         result_model:   'js/models/result_model',
         question_view:  'js/views/question_view',
         result_view:    'js/views/result_view',
+        intro_view:    'js/views/intro_view',
     }
 });
 
@@ -30,12 +32,14 @@ require([
     'jquery',
     'underscore',
     'backbone',
+    'preloader',
     'question_model',
     'result_model',
     'question_view',
     'result_view',
+    'intro_view',
     'jquery_ui',
-], function( $, _, Backbone, QuestionModel, ResultModel, QuestionView, ResultView ) {
+], function( $, _, Backbone, Preloader, QuestionModel, ResultModel, QuestionView, ResultView, IntroView ) {
 
     $(document).ready(function(){
         /*----- user agent ------*/
@@ -137,7 +141,11 @@ require([
         result_model = new ResultModel();
         result_view = new ResultView({el: $('#result'), model:result_model});
         view_question = new QuestionView({ el: $("#question") });
+        intro_view = new IntroView({ el: $("#intro") });
+        intro_view.render();
 
-        NextQuestion();
+        PreLoader($('body'));
+
+        //NextQuestion();
     });
 });

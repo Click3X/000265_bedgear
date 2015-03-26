@@ -9,14 +9,16 @@ define([
         },
         events: {
             'click .answers.singlechoice li button':'HandleAnswerClick',
-            'click .answers.multichoice li button':'HandleMultiChoiceClick',
-            'click .yesno button':'HandleYesNo',
-            'click .sliderselect button':'HandleTemperature',
+            'click .answers.singlechoice li a':'HandleAnswerClick',
+            'click .answers.singlechoice a.continue':'HandleAnswerClick',
+            'click .answers a.regcontinue':'HandleMultiChoiceClick',
+            'click .yesno a':'HandleYesNo',
+            'click .answers.temperature a.tempcontinue':'HandleTemperature',
             'click .back':'HandleBackClick',
         },
         HandleYesNo: function(evt){
             if($(evt.currentTarget).hasClass('yes')){
-                this.$('.yesno').hide();
+                //this.$('.yesno').hide();
                 this.$('.multichoice').show();
             }else{
                 this.model.set('answerChoice', '');
@@ -30,7 +32,8 @@ define([
             this.model.TallyMon($(evt.currentTarget).attr('answerId'));
         },
         HandleTemperature: function(evt){
-            this.model.TallyMonTemp(this.$('.ui-slider-handle').html());
+            //alert("calling tally mon temp");
+            this.model.TallyMonTemp(this.$('.ui-slider-handle').find('span').html());
         },
         HandleMultiChoiceClick: function(evt){
             var answerList = "";
@@ -75,7 +78,7 @@ define([
           return function( event, ui ){
               slidx = ui.value;
               console.log(slidx);
-              self.$('.ui-slider-handle').html(slidx);
+              self.$('.ui-slider-handle').html("<span>"+slidx+"</span>");
           };
       },
         render: function(){
@@ -88,25 +91,28 @@ define([
             //}
             $(this.el).html(template(this.model.attributes.question));
 
+            // Set the gender context
+            $(this.el).addClass('male')
+
             this.$('.slider').slider({
-                value:TEMPERATURE_HOT,
+                value:50,
                 min: 0,
                 max: 100,
                 step: 1,
                 slide: this.HandleTemperatureSlide(this)
             });
-            this.$('.ui-slider-handle').html(TEMPERATURE_HOT);
+            this.$('.ui-slider-handle').html("<span>50</span>");
 
             $('.panel').hide();
             this.$el.show();
 
             this.$('.question').css('opacity',0);
-            this.$('.answers li').hide();
+            //this.$('.answers li').hide();
 
             this.$('.question').animate({
                 opacity: 1
                 //marginLeft: 0
-            }, 500, this.RevealChoice(this));
+            }, 500);
 
         }
     });

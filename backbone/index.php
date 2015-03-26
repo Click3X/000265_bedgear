@@ -52,9 +52,13 @@ $social['link'] = "http://staging.click3x.com/bedgear";
         <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.min.css">
         <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.structure.min.css">
         <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.theme.min.css">
+        <link rel="stylesheet" href="css/gotham.css">
+        <link rel="stylesheet" href="css/gotham_narrow.css">
+        <link rel="stylesheet" href="css/swoop.css">
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/1.5.2/raphael-min.js"></script>
         <script src="js/master.js"></script>
         <script type="text/javascript">
             var base_url    = "";
@@ -73,131 +77,161 @@ $social['link'] = "http://staging.click3x.com/bedgear";
 
             <div id="page-container">
                 <div id="page-content">
+                    <div id="intro" class="panel">
+                        <script type="text/template" id="intro-template">
+
+                            <div id="frame6" class="swoop" src=""></div>
+                            <div id="mask6" class="mask" src=""></div>
+                            <div id="frame5" class="swoop" src=""></div>
+                            <div id="mask5" class="mask" src=""></div>
+                            <div id="frame4" class="swoop" src=""></div>
+                            <div id="mask4" class="mask" src=""></div>
+                            <div id="frame3" class="swoop" src=""></div>
+                            <div id="mask3" class="mask" src=""></div>
+                            <div id="frame2" class="swoop" src=""></div>
+                            <div id="mask2" class="mask" src=""></div>
+                            <div id="frame1" class="swoop" src=""></div>
+                            <div id="mask1" class="mask" src=""></div>
+                            <!--<span class="bubble">
+                                <span class="glow"> </span>
+                            </span>-->
+                            <div id="canvas"></div>
+                            <div class="questiongroup">
+                                <h1>Discover the ultimate performance pillow<span>Determine the right pillow for you</span></h1>
+                                <a href="#" class="start">Start</a>
+                                <div class="avatargroup">
+                                    <div class="avatar">
+                                        <img src="img/avatar_male.png"/>
+                                    </div>
+                                    <div class="avatar">
+                                        <img src="img/avatar_female.png"/>
+                                    </div>
+                                </div>
+                                <!--<a href="#" class="animate">Animate</a>-->
+                            </div>
+                        </script>
+                    </div>
                     <div id="question" class="panel"></div>
                         <script type="text/template" id="question1-template">
-                            <% if( questionNumber == 1 ){ %>
-                            <a href="#" class="start">Start</a>
-                            <% }else{ %>
-                            <a href="#" class="back">Back</a>
-                            <% } %>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
-                                <p class="question"><%= questionText %></p>
+                                <h1><%= questionText %></h1>
                                 <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
-                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                    <li style="display: list-item; margin-left: 0px;"><a href="#" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
                                 <% } %>
                                 </ul>
                             </div>
                         </script>
                         <script type="text/template" id="question2-template">
-                            <% if( questionNumber == 1 ){ %>
-                            <a href="#" class="start">Start</a>
-                            <% }else{ %>
-                            <a href="#" class="back">Back</a>
-                            <% } %>
+                            <a href="#" class="back">&lt;</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
-                                <p class="question"><%= questionText %></p>
+                                <h1><%= questionText %></h1>
                                 <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
-                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                    <li style="display: list-item; margin-left: 0px;"><a href="#" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
                                 <% } %>
                                 </ul>
                             </div>
                         </script>
                         <script type="text/template" id="question3-template">
-                            <% if( questionNumber == 1 ){ %>
-                            <a href="#" class="start">Start</a>
-                            <% }else{ %>
-                            <a href="#" class="back">Back</a>
-                            <% } %>
+                            <a href="#" class="back">&lt;</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
-                                <p class="question"><%= questionText %></p>
+                                <h1><%= questionText %></h1>
                                 <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
-                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                    <li style="display: list-item; margin-left: 0px;"><a href="#" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
                                 <% } %>
                                 </ul>
                             </div>
                         </script>
                         <script type="text/template" id="question4-template">
-                            <% if( questionNumber == 1 ){ %>
-                            <a href="#" class="start">Start</a>
-                            <% }else{ %>
-                            <a href="#" class="back">Back</a>
-                            <% } %>
+                            <a href="#" class="back">&lt;</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
-                                <p class="question"><%= questionText %></p>
+                                <h1><%= questionText %></h1>
                                 <ul class="answers singlechoice">
                                 <% for( answer in answers ){ %>
-                                    <li style="display: list-item; margin-left: 0px;"><button answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></button></li>
+                                    <li style="display: list-item;"><a href="#" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
                                 <% } %>
                                 </ul>
                             </div>
                         </script>
                         <script type="text/template" id="question5-template">
-                            <% if( questionNumber == 1 ){ %>
-                            <a href="#" class="start">Start</a>
-                            <% }else{ %>
-                            <a href="#" class="back">Back</a>
-                            <% } %>
+                            <a href="#" class="back">&lt;</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
-                                <p class="question"><%= questionText %></p>
+                                <h1><%= questionText %></h1>
+                                <div class="answers temperature">
+                                    <div id="tempscale">
+                                        <img class="flare" src="img/temperature_flare.png"/>
+                                        <table id="temptable" border="1">
+                                            <tr>
+                                                <td colspan="2" width="10%" style="text-align:center;">Cold</td>
+                                                <td colspan="1" width="40%">&nbsp;</td>
+                                                <td colspan="1" width="40%">&nbsp;</td>
+                                                <td colspan="2" width="10%" style="text-align:center;">Hot</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5%" style="border-right:solid 1px #fff;">&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td style="border-right:solid 1px #fff;">&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td style="border-right:solid 1px #fff;">&nbsp;</td>
+                                                <td width="5%">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="6">
+                                                    <div id="temperature" class="slider"></div>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                                <div id="tempscale">
-                                	<span style="float:right">Hot</span>
-                                	<span style="float:left">Cold</span>
+                                    </div>
+                                    <a href="#" class="continue tempcontinue">Continue</a>
                                 </div>
-                                <div id="temperature" class="slider"></div>
-                                <ul>
-                                    <li class="sliderselect" style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
-                                </ul>
                             </div>
                         </script>
                         <script type="text/template" id="question6-template">
-                            <% if( questionNumber == 1 ){ %>
-                            <a href="#" class="start">Start</a>
-                            <% }else{ %>
-                            <a href="#" class="back">Back</a>
-                            <% } %>
+                            <a href="#" class="back">&lt;</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
-                                <p class="question"><%= questionText %></p>
-                                <ul class="yesno">
-                                    <li><button class="yes">Yes</button></li>
-                                    <li><button class="no">No</button></li>
-                                </ul>
-                                <ul class="answers multichoice" style="display:none;">
-                                    <% for( answer in answers ){ %>
-                                    <li style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
-                                    <% } %>
-                                    <li style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
-                                </ul>
+                                <h1><%= questionText %></h1>
+
+                                <div class="answers">
+                                    <ul class="yesno">
+                                        <li><a href="#" class="yes">Yes</a></li>
+                                        <li><a href="#" class="no">No</a></li>
+                                    </ul>
+                                    <ul class="multichoice" style="display:none;">
+                                        <% for( answer in answers ){ %>
+                                        <li style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
+                                        <% } %>
+                                    </ul>
+                                    <a href="#" class="continue regcontinue">Continue</a>
+                                </div>
                             </div>
                         </script>
                         <script type="text/template" id="question7-template">
-                            <% if( questionNumber == 1 ){ %>
-                            <a href="#" class="start">Start</a>
-                            <% }else{ %>
-                            <a href="#" class="back">Back</a>
-                            <% } %>
+                            <a href="#" class="back">&lt;</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
-                                <p class="question"><%= questionText %></p>
-                                <ul class="yesno">
-                                    <li><button class="yes">Yes</button></li>
-                                    <li><button class="no">No</button></li>
-                                </ul>
-                                <ul class="answers multichoice" style="display:none;">
-                                    <% for( answer in answers ){ %>
-                                    <li style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
-                                    <% } %>
-                                    <li style="display: list-item; opacity: 1; margin-left: 0px;"><button>Next</button></li>
-                                </ul>
+                                <h1><%= questionText %></h1>
+
+                                <div class="answers">
+                                    <ul class="yesno">
+                                        <li><a href="#" class="yes">Yes</a></li>
+                                        <li><a href="#" class="no">No</a></li>
+                                    </ul>
+                                    <ul class="multichoice" style="display:none;">
+                                        <% for( answer in answers ){ %>
+                                        <li style="display: list-item; margin-left: 0px;"><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
+                                        <% } %>
+                                    </ul>
+                                    <a href="#" class="continue regcontinue">Continue</a>
+                                </div>
                             </div>
                         </script>
 
@@ -232,6 +266,21 @@ $social['link'] = "http://staging.click3x.com/bedgear";
             <div id="footer-container">
 
             </div>
+        </div>
+
+        <div id="cachebox">
+            <img src="" cache="img/avatar_female.png"/>
+            <img src="" cache="img/avatar_male.png"/>
+            <img src="" cache="img/bkg_male.jpg"/>
+            <img src="" cache="img/bkg_swoop_1.png"/>
+            <img src="" cache="img/bkg_swoop_2.png"/>
+            <img src="" cache="img/bkg_swoop_3.png"/>
+            <img src="" cache="img/bkg_swoop_4.png"/>
+            <img src="" cache="img/bkg_swoop_5.png"/>
+            <img src="" cache="img/bkg_swoop_6.png"/>
+            <img src="" cache="img/bodytype_male.png"/>
+            <img src="" cache="img/temperature_flare.png"/>
+            <img src="" cache="img/temperature_tab.png"/>
         </div>
 
         <script data-main="js/main" src="js/vendor/require.min.js"></script>
