@@ -1,5 +1,5 @@
 html, body{
-    font-family: 'Gotham A', 'Gotham B';
+    font-family: 'Gotham A';
     font-weight: 400;
     font-style: normal;
     font-size:36px;
@@ -64,147 +64,15 @@ body div#cachebox{
 	margin-top: -30px;
 }*/
 
-#intro.panel{
-    display:block;
-    background-color:transparent;
-}
-
-#intro.panel .swoop{
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    background-size: cover;
-    z-index:-1;
-}
-
-#intro.panel #canvas{
-    width: 50%;
-    height: 50%;
-    display: block;
-    position: absolute;
-    top:auto;
-    bottom: 0%;
-    left: 0%;
-}
-
-#intro.panel span.bubble {
-  background:#fff;
-  width:80px;
-  height:80px;
-  position:absolute;
-  display:block;
-  left:110px;
-  bottom:110px;
-  border-radius:100px;
-  background:-moz-radial-gradient(center 45deg, circle closest-corner, rgba(75,190,200,0), rgba(75,190,200,.1), rgba(75,190,200,.3), rgba(255,255,255,.7));
-  background:-webkit-gradient(radial, center center, 0, center center, 100, from(rgba(75,190,200,.2)), to(rgba(255,255,255,.7)));
-  background:gradient(center 45deg, circle closest-corner, rgba(75,190,200,0), rgba(75,190,200,.1), rgba(75,190,200,.3), rgba(255,255,255,.7));
-  background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0) 0%, rgba(9,133,167,0.1) 51%, rgba(9,133,167,0.3) 71%, rgba(9,133,167,.7) 100%);
-  animation:bubbleUp 4s infinite ease-in-out;
-  -webkit-animation:bubbleUp 4s infinite ease-in-out;
-  -o-animation:bubbleUp 4s infinite ease-in-out;
-  -moz-animation:bubbleUp 4s infinite ease-in-out;
-}
-
-#intro.panel #mask1{
-    z-index:0;
-}
-
-#intro.panel #frame1{
-    background-image:url('../img/bkg_swoop_1.png');
-    z-index:-1;
-}
-
-#intro.panel #mask2{
-    z-index:-2;
-}
-
-#intro.panel #frame2{
-    background-image:url('../img/bkg_swoop_2.png');
-    z-index:-3;
-}
-
-#intro.panel #mask3{
-    z-index:-4;
-}
-
-#intro.panel #frame3{
-    background-image:url('../img/bkg_swoop_3.png');
-    z-index:-5;
-}
-
-#intro.panel #mask4{
-    z-index:-6;
-}
-
-#intro.panel #frame4{
-    background-image:url('../img/bkg_swoop_4.png');
-    z-index:-7;
-}
-
-#intro.panel #mask5{
-    z-index:-8;
-}
-
-#intro.panel #frame5{
-    background-image:url('../img/bkg_swoop_5.png');
-    z-index:-9;
-}
-
-#intro.panel #mask6{
-    z-index:-10;
-}
-
-#intro.panel #frame6{
-    background-image:url('../img/bkg_swoop_6.png');
-    z-index:-11;
-}
-
-#intro .questiongroup{
-    text-align: center;
-    width: 80%;
-    margin: 50px 10%;
-}
-
-#intro .questiongroup h1{
-    font-weight:300;
-    margin-bottom:20px;
-}
-
-#intro .questiongroup h1 span{
-    line-height:50px;
-}
-
-#intro a{
-    font-weight: 300;
-    background: #5da6f5;
-    color: #fff;
-    border-radius: 0px;
-    width: auto;
-    display: block;
-    padding: 5px 50px;
-    border:none;
-    text-transform:uppercase;
-    font-size:20px;
-
-}
-
-#intro a.start{
-    display: initial;
-}
-
-#intro .avatargroup{
+.panel .avatargroup{
     position:absolute;
     bottom:5%;
     width:100%;
-    margin-left: -10%;
+    margin-left: 0%;
     z-index:-1;
 }
 
-#intro .avatar{
+.panel .avatar{
     width:50%;
     float:left;
 }

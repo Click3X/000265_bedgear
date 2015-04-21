@@ -9,7 +9,7 @@ define([
         },
         events: {
             'click .answers.singlechoice li button':'HandleAnswerClick',
-            'click .answers.singlechoice li a':'HandleAnswerClick',
+            'click .answers.singlechoice a':'HandleAnswerClick',
             'click .answers.singlechoice a.continue':'HandleAnswerClick',
             'click .answers a.regcontinue':'HandleMultiChoiceClick',
             'click .yesno a':'HandleYesNo',
@@ -92,7 +92,15 @@ define([
             $(this.el).html(template(this.model.attributes.question));
 
             // Set the gender context
-            $(this.el).addClass('male')
+            $(this.el).addClass('male');
+            if( this.model.get('question').questionNumber == 1 ){
+                $(this.el).addClass('q1');
+                this.$('.avatar').addClass('embiggen');
+            }else{
+                $(this.el).removeClass('q1');
+            }
+
+
 
             this.$('.slider').slider({
                 value:50,

@@ -56,6 +56,8 @@ $social['link'] = "http://staging.click3x.com/bedgear";
         <link rel="stylesheet" href="css/gotham_narrow.css">
         <link rel="stylesheet" href="css/swoop.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/panel_intro.css">
+        <link rel="stylesheet" href="css/panel_one.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/1.5.2/raphael-min.js"></script>
@@ -113,14 +115,24 @@ $social['link'] = "http://staging.click3x.com/bedgear";
                     </div>
                     <div id="question" class="panel"></div>
                         <script type="text/template" id="question1-template">
+                            <div id="frame6" class="swoop" src=""></div>
+                            <div id="frame5" class="swoop" src=""></div>
+                            <div id="frame4" class="swoop" src=""></div>
+                            <div id="frame3" class="swoop" src=""></div>
+                            <div id="frame2" class="swoop" src=""></div>
+                            <div id="frame1" class="swoop" src=""></div>
+
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
-                                <ul class="answers singlechoice">
-                                <% for( answer in answers ){ %>
-                                    <li style="display: list-item; margin-left: 0px;"><a href="#" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
-                                <% } %>
-                                </ul>
+                                <div class="answers singlechoice avatargroup">
+                                    <a href="#" class="avatar male" style="background-image:url('img/avatar_male.png')" answerSelected="false" answerId="<%=answers[0].answerId%>" answerBitpos="<%=answers[0].answerBitpos%>">
+                                        <span><%=answers[0].answerText%></span>
+                                    </a>
+                                    <a href="#" class="avatar female" style="background-image:url('img/avatar_female.png')" answerSelected="false" answerId="<%=answers[1].answerId%>" answerBitpos="<%=answers[1].answerBitpos%>">
+                                        <span><%=answers[1].answerText%></span>
+                                    </a>
+                                </div>
                             </div>
                         </script>
                         <script type="text/template" id="question2-template">
