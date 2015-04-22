@@ -8,7 +8,7 @@ var API_PATH = "../tinderbox/jsonapi/";
 
 var arrHistory = Array();
 var arrQuestions = Array();
-var currentQues = 0;
+var currentQues = 2;
 var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion;
 
 
@@ -146,6 +146,6 @@ require([
 
         PreLoader($('body'));
 
-        //NextQuestion();
+        NextQuestion();
     });
 });

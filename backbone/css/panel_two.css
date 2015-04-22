@@ -1,0 +1,56 @@
+#question.panel.q2 .questiongroup{
+    position: absolute;
+    top: 10%;
+    bottom: 0%;
+    width: 100%;
+    height: 90%;
+    padding: 0px;
+    margin: 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#question.panel.q2.male .questiongroup{
+    background-image:url('../img/bodytype_male.png');
+}
+
+#question.panel.q2.female .questiongroup{
+    background-image:url('../img/bodytype_female.png');
+}
+
+#question.panel.q2 .questiongroup h1{
+    left: 0%;
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+}
+
+#question.panel.q2 .questiongroup .answers {
+    min-height: 100px;
+    width: 70%;
+    margin: 0% 0%;
+}
+
+#question.panel.q2 .questiongroup ul li{
+  float: left;
+  width: 25%;
+  margin: 0px 0% 20px 10%;
+  border-bottom: solid 1px transparent;
+}
+
+#question.panel.q2 .questiongroup ul li a{
+    color: #5da6f5;
+    text-align:center;
+    font-size: 22px;
+}
+
+#question.panel.q2 .questiongroup ul li a span {
+  font-size: 18px;
+  display: block;
+  margin-top: 30px;
+}
+
+#question.panel.q2 .questiongroup ul li a:hover{
+    color: #fff;
+}

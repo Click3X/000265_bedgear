@@ -58,6 +58,7 @@ $social['link'] = "http://staging.click3x.com/bedgear";
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/panel_intro.css">
         <link rel="stylesheet" href="css/panel_one.css">
+        <link rel="stylesheet" href="css/panel_two.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/1.5.2/raphael-min.js"></script>

@@ -93,14 +93,12 @@ define([
 
             // Set the gender context
             $(this.el).addClass('male');
-            if( this.model.get('question').questionNumber == 1 ){
-                $(this.el).addClass('q1');
-                this.$('.avatar').addClass('embiggen');
-            }else{
-                $(this.el).removeClass('q1');
+
+            for( var idx=0; idx <= this.model.get('question').questionNumber+1; idx++ ){
+                $(this.el).removeClass('q'+idx);
             }
-
-
+            $(this.el).addClass('q'+this.model.get('question').questionNumber);
+            this.$('.avatar').addClass('embiggen');
 
             this.$('.slider').slider({
                 value:50,

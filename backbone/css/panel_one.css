@@ -40,7 +40,7 @@
     text-decoration:none;
     color:#fff;
     font-family: "Gotham Narrow A";
-    border-bottom:solid 1px #fff;
+    border-bottom:solid 1px rgba(0,0,0,0.3);
     font-size:42px;
 }
 
@@ -52,7 +52,7 @@
 #question.panel.q1 .avatar.male{
     text-align:right;
     color:#ccf;
-    border-color:#ccf;
+    border-color:rgba(200,200,255,0.3);
 }
 
 #question.panel.q1 .avatar.male span{
@@ -62,7 +62,7 @@
 #question.panel.q1 .avatar.female{
     text-align:left;
     color:#fcc;
-    border-color:#fcc;
+    border-color:rgba(255,200,200,0.3);
     margin: 0% 2% 0% 8%;
 }
 
