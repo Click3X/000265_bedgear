@@ -11,6 +11,8 @@ define([
             'click .answers.singlechoice li button':'HandleAnswerClick',
             'click .answers.singlechoice a':'HandleAnswerClick',
             'click .answers.singlechoice a.continue':'HandleAnswerClick',
+            'click .answers.sleeppos a.spadvance':'HandleAnswerClick',
+            'click .answers.sleeppos a.spsub':'HandleSubClick',
             'click .answers a.regcontinue':'HandleMultiChoiceClick',
             'click .yesno a':'HandleYesNo',
             'click .answers.temperature a.tempcontinue':'HandleTemperature',
@@ -30,6 +32,12 @@ define([
         },
         HandleAnswerClick: function(evt){
             this.model.TallyMon($(evt.currentTarget).attr('answerId'));
+        },
+        HandleSubClick: function(evt){
+            if( $(evt.target).parent().parent().hasClass('alpha') ){
+                this.$('.alpha').hide();
+                this.$('.beta').show();
+            }
         },
         HandleTemperature: function(evt){
             //alert("calling tally mon temp");
@@ -108,6 +116,27 @@ define([
                 slide: this.HandleTemperatureSlide(this)
             });
             this.$('.ui-slider-handle').html("<span>50</span>");
+
+            this.$('#sidepos').hover(function(){
+                $('.answers').addClass('side');
+            },function(){
+                $('.answers').removeClass('side')
+            });
+            this.$('#backpos').hover(function(){
+                $('.answers').addClass('backpos');
+            },function(){
+                $('.answers').removeClass('backpos')
+            });
+            this.$('#stomachpos').hover(function(){
+                $('.answers').addClass('stomach');
+            },function(){
+                $('.answers').removeClass('stomach')
+            });
+            this.$('#multiplepos').hover(function(){
+                $('.answers').addClass('multiple');
+            },function(){
+                $('.answers').removeClass('multiple')
+            });
 
             $('.panel').hide();
             this.$el.show();

@@ -30,6 +30,10 @@
     min-height: 100px;
     width: 70%;
     margin: 0% 0%;
+    background-image:url('../img/bodytype_flare.png');
+    background-repeat:no-repeat;
+    background-position-y:30%;
+    background-position-x:35%;
 }
 
 #question.panel.q2 .questiongroup ul li{

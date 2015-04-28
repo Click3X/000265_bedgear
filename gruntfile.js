@@ -47,7 +47,7 @@ module.exports = function(grunt) {
                 ext: '.min.js'
             }
         },
-/*		recess: {
+		recess: {
 			options: {
 				compile: true,
 				banner: '<%= banner %>'
@@ -63,12 +63,12 @@ module.exports = function(grunt) {
 				src: ['less/responsiveboilerplate.less'],
 				dest: 'css/<%= pkg.name %>.min.css'
 			}
-		},*/
+		},
         express: {
             all: {
                 options: {
-                    bases: ['.'],
-                    port: 3001,
+                    bases: ['backbone'],
+                    port: 9000,
                     hostname: "0.0.0.0",
                     livereload: true
                 }
@@ -76,16 +76,16 @@ module.exports = function(grunt) {
         },
 		watch: {
 			scripts: {
-				files: ['Gruntfile.js', 'js/**/*.js', 'libs/**/*.js', 'css/**/*.css'],
+				files: ['index.html', 'js/**/*.js', 'libs/**/*.js', 'css/**/*.css'],
 				tasks: ['jshint','uglify'],
 				options: {
 					debounceDelay: 250
 				}
 			},
-			/*recess: {
+			recess: {
 				files: 'less/*.less',
 				tasks: ['recess']
-			}*/
+			}
 		},
         open: {
             all: {
@@ -98,10 +98,10 @@ module.exports = function(grunt) {
     grunt.loadTasks('tasks');
 
     // Register tasks for development and production
-	grunt.registerTask('default', ['jshint','uglify']);
+	grunt.registerTask('default', ['jshint','uglify','recess']);
 	// Register tasks for development using watch
-    grunt.registerTask('dev', ['watch']);
+    grunt.registerTask('dev', ['express','watch']);
 
     // Register task to see the Demo page using localhost:3001
-    grunt.registerTask('demo', ['express','open','watch']);
+    grunt.registerTask('demo', ['express','watch']);
 };
