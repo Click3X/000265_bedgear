@@ -24,10 +24,12 @@ body div#cachebox{
   display: none;
   width:100%;
   min-height:100%;
+  background:#002 url('../img/bkg_male.jpg');
+  background-size: cover;
 }
 
-.panel.male{
-    background:#002 url('../img/bkg_male.jpg');
+.female .panel{
+    background:#002 url('../img/bkg_female.jpg');
     background-size: cover;
 }
 
@@ -49,6 +51,11 @@ body div#cachebox{
   top: 20px;
   left: 1%;
 }
+
+.female .panel .back{
+    border-color: rgba(252,138,252,0.9);
+}
+
 /*.panel .back:after {
 	right: 100%;
 	top: 50%;
@@ -94,10 +101,22 @@ body div#cachebox{
   font-size: 60px;
 }
 
+.questiongroup h2{
+    margin-top: 30px;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .questiongroup h1 span{
     font-size:18px;
     color:#5da6f5;
     display:block;
+}
+
+.female .questiongroup h1 span{
+    color:#fc8afc;
 }
 
 .questiongroup .answers{

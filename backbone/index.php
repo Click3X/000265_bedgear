@@ -145,7 +145,9 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
-                                <ul class="multichoice" style="/*display:none;*/">
+                                <h2 class="beta">In which position do you usually fall asleep?</h2>
+                                <h2 class="gamma">In which position do you usually wake up?</h2>
+                                <ul class="multichoice" style="display:none;">
                                     <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><input type="radio" name="sleeppos" answerText="<%=answers[answer].answerText%>" answerId="<%=answers[answer].answerId%>" value="<%=answers[answer].answerBitpos%>"><label><%=answers[answer].answerText%></label></li>
                                     <% } %>
@@ -156,9 +158,9 @@
                                     <% } %>
                                 </ul>
                                 <ul class="answers sleeppos beta">
-                                    <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach.png'); width: 334px;"></a></li>
-                                    <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_back.png'); width: 220px;"></a></li>
-                                    <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side.png'); width: 348px;"></a></li>
+                                    <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach.png'); width: 334px;"></a></li>
+                                    <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_back.png'); width: 220px;"></a></li>
+                                    <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side.png'); width: 348px;"></a></li>
                                 </ul>
                                 <ul class="answers sleeppos gamma">
                                     <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach.png'); width: 334px;"></a></li>

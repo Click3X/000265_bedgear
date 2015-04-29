@@ -13,6 +13,8 @@ define([
             'click .answers.singlechoice a.continue':'HandleAnswerClick',
             'click .answers.sleeppos a.spadvance':'HandleRadioClick',
             'click .answers.sleeppos a.spsub':'HandleSubClick',
+            'click .answers.sleeppos.beta a':'HandleBetaSubClick',
+            'click .answers.sleeppos.gamma a':'HandleGammaSubClick',
             'click .answers a.regcontinue':'HandleMultiChoiceClick',
             'click a.spcontinue':'HandleSubChoiceClick',
             'click .yesno a':'HandleYesNo',
@@ -32,6 +34,11 @@ define([
             }
         },
         HandleAnswerClick: function(evt){
+            if( $(evt.currentTarget).hasClass('gender') ){
+                if( $(evt.currentTarget).hasClass('female') ){
+                    glgender = "female";
+                }
+            }
             this.model.TallyMon($(evt.currentTarget).attr('answerId'));
         },
         HandleSubClick: function(evt){
@@ -42,13 +49,33 @@ define([
             console.log(this.$('.multichoice input[name="sleeppos"]:checked').val());
             $.each(this.$('.multichoice input[name="sleeppos"]'),function(key, val){
                 console.log("remove",$(val).attr('answerText').toLowerCase());
-                $('.questiongroup .answers').removeClass($(val).attr('answerText').toLowerCase()+"pos");
+                $('.questiongroup').removeClass($(val).attr('answerText').split(" ")[0].toLowerCase()+"pos");
             });
-            this.$('.questiongroup .answers').addClass(this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').toLowerCase()+"pos");
+            this.$('.answers a').css('color',"");
+            if( this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase() == "multiple" ){
+                this.$('.beta').show();
+            }else{
+                this.$('.beta, .gamma').hide();
+                this.$('.questiongroup').addClass(this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase()+"pos");
+            }
+            this.$('.answers a[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').css('color',"#fff");
             //if( $(evt.target).parent().parent().hasClass('alpha') ){
             //    this.$('.alpha').hide();
             //    this.$('.beta').show();
             //}
+        },
+        HandleBetaSubClick: function(evt){
+            if( $(evt.currentTarget).hasClass('dkcontinue') ){
+                this.$('.beta').hide();
+                this.$('.gamma').show();
+            }else{
+                this.$('.beta a').css('opacity','0.6')
+                $(evt.currentTarget).css('opacity','1');
+            }
+        },
+        HandleGammaSubClick: function(evt){
+                this.$('.gamma a').css('opacity','0.6')
+                $(evt.currentTarget).css('opacity','1');
         },
         HandleSubChoiceClick: function(evt){
             this.model.TallyMon(this.$('.multichoice input:checked').attr('answerId'));
@@ -114,7 +141,7 @@ define([
             $(this.el).html(template(this.model.attributes.question));
 
             // Set the gender context
-            $(this.el).addClass('male');
+            $('body').addClass(glgender);
 
             for( var idx=0; idx <= this.model.get('question').questionNumber+1; idx++ ){
                 $(this.el).removeClass('q'+idx);

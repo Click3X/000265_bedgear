@@ -9,14 +9,44 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+    -webkit-transition: all 500ms ease-out 0.25s;
+   -moz-transition: all 500ms ease-out 0.25s;
+   -o-transition: all 500ms ease-out 0.25s;
+   transition: all 500ms ease-out 0.25s;
 }
 
-#question.panel.q2.male .questiongroup{
+#question.panel.q2 .questiongroup{
     background-image:url('../img/bodytype_male.png');
 }
 
-#question.panel.q2.female .questiongroup{
+.female #question.panel.q2 .questiongroup{
     background-image:url('../img/bodytype_female.png');
+}
+
+#question.panel.q2 .petitepos.questiongroup {
+    background-image: url('../img/bodytype_petite_male.png');
+}
+#question.panel.q2 .narrowpos.questiongroup {
+    background-image: url('../img/bodytype_narrow_male.png');
+}
+#question.panel.q2 .mediumpos.questiongroup {
+    background-image: url('../img/bodytype_medium_male.png');
+}
+#question.panel.q2 .broadpos.questiongroup {
+    background-image: url('../img/bodytype_broad_male.png');
+}
+
+.female #question.panel.q2 .petitepos.questiongroup {
+    background-image: url('../img/bodytype_petite_female.png');
+}
+.female #question.panel.q2 .narrowpos.questiongroup {
+    background-image: url('../img/bodytype_narrow_female.png');
+}
+.female #question.panel.q2 .mediumpos.questiongroup {
+    background-image: url('../img/bodytype_medium_female.png');
+}
+.female #question.panel.q2 .broadpos.questiongroup {
+    background-image: url('../img/bodytype_broad_female.png');
 }
 
 #question.panel.q2 .questiongroup h1{
@@ -49,6 +79,10 @@
     font-size: 22px;
 }
 
+.female #question.panel.q2 .questiongroup ul li a{
+    color: #fc8afc;
+}
+
 #question.panel.q2 .questiongroup ul li a span {
   font-size: 18px;
   display: block;
@@ -57,4 +91,8 @@
 
 #question.panel.q2 .questiongroup ul li a:hover{
     color: #fff;
+}
+
+#question.panel.q2 .questiongroup .spcontinue{
+    bottom: 25px;
 }

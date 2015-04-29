@@ -26,24 +26,41 @@
 }
 
 #question.panel.q3 .questiongroup .answers.alpha {
-    background-image: url('../img/sleepposition_stomach.png');
+/*    background-image: url('../img/sleepposition_stomach.png');*/
 }
 
-#question.panel.q3 .questiongroup .answers.backpos {
-    background-image: url('../img/sleepposition_back.png');
+#question.panel.q3 .questiongroup.backpos .answers {
+    background-image: url('../img/sleepposition_back_male.png');
     background-position-x: 100%;
 }
-#question.panel.q3 .questiongroup .answers.sidepos {
-    background-image: url('../img/sleepposition_side.png');
+#question.panel.q3 .questiongroup.sidepos .answers {
+    background-image: url('../img/sleepposition_side_male.png');
     background-position-x: 100%;
 }
-#question.panel.q3 .questiongroup .answers.stomachpos {
-    background-image: url('../img/sleepposition_stomach.png');
+#question.panel.q3 .questiongroup.stomachpos .answers {
+    background-image: url('../img/sleepposition_stomach_male.png');
     background-position-x: 100%;
 }
 
-#question.panel.q3 .questiongroup .answers.multiplepos {
-    background-image: url('../img/sleepposition_multiple.png');
+#question.panel.q3 .questiongroup.multiplepos .answers {
+    background-image: url('../img/sleepposition_multiple_male.png');
+    background-position-x: 100%;
+}
+
+.female #question.panel.q3 .questiongroup.backpos .answers {
+    background-image: url('../img/sleepposition_back_female.png');
+    background-position-x: 100%;
+}
+.female #question.panel.q3 .questiongroup.sidepos .answers {
+    background-image: url('../img/sleepposition_side_female.png');
+    background-position-x: 100%;
+}
+.female #question.panel.q3 .questiongroup.stomachpos .answers {
+    background-image: url('../img/sleepposition_stomach_female.png');
+    background-position-x: 100%;
+}
+.female #question.panel.q3 .questiongroup.multiplepos .answers {
+    background-image: url('../img/sleepposition_multiple_female.png');
     background-position-x: 100%;
 }
 
@@ -67,6 +84,10 @@
     color:#00bbdc;
 }
 
+.female #question.panel.q3 .questiongroup .answers li a{
+    color:#fc8afc;
+}
+
 #question.panel.q3 .questiongroup .answers li a:hover{
     color:#fff;
 }
@@ -74,6 +95,10 @@
 #question.panel.q3 .questiongroup .answers.beta, #question.panel.q3 .questiongroup .answers.gamma{
     width: 902px;
     height: 445px;
+
+}
+
+#question.panel.q3 .questiongroup .beta, #question.panel.q3 .questiongroup .gamma{
     display:none;
 }
 
@@ -87,10 +112,26 @@
 }
 
 #question.panel.q3 .questiongroup .answers.beta li a, #question.panel.q3 .questiongroup .answers.gamma li a{
+    display:block;
+    float:left;
     width:300px;
     height:450px;
     background-repeat: no-repeat;
     background-position-y: top;
     background-position-x: left;
     background-size: contain;
+}
+
+#question.panel.q3 .questiongroup .answers.beta li.dkcontinue, #question.panel.q3 .questiongroup .answers.gamma li.dkcontinue{
+    clear:both;
+    float:right;
+    display:block;
+}
+
+#question.panel.q3 .questiongroup .answers.beta li.dkcontinue a, #question.panel.q3 .questiongroup .answers.gamma li.dkcontinue a{
+    width: auto;
+    height: auto;
+    float: right;
+    clear: both;
+    margin: 55px 25px;
 }

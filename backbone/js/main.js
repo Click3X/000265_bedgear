@@ -5,12 +5,13 @@ var router,pushstate=false,mobile=false,retina=false,mp4=false,ipad=false,iphone
 var LAST_QUESTION_NUMBER = 7;
 var TEMPERATURE_HOT = 60;
 var API_PATH = "../tinderbox/jsonapi/";
-//API_PATH = "http://gibson.loc/c3x-bedgear/tinderbox/jsonapi/"
+API_PATH = "http://gibson.loc/c3x-bedgear/tinderbox/jsonapi/"
 
 var arrHistory = Array();
 var arrQuestions = Array();
 var currentQues = 0;
 var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion;
+var glgender = "male";
 
 
 require.config({
@@ -147,6 +148,6 @@ require([
 
         PreLoader($('body'));
 
-        //NextQuestion();
+        NextQuestion();
     });
 });
