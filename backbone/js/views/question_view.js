@@ -11,9 +11,10 @@ define([
             'click .answers.singlechoice li button':'HandleAnswerClick',
             'click .answers.singlechoice a':'HandleAnswerClick',
             'click .answers.singlechoice a.continue':'HandleAnswerClick',
-            'click .answers.sleeppos a.spadvance':'HandleAnswerClick',
+            'click .answers.sleeppos a.spadvance':'HandleRadioClick',
             'click .answers.sleeppos a.spsub':'HandleSubClick',
             'click .answers a.regcontinue':'HandleMultiChoiceClick',
+            'click a.spcontinue':'HandleSubChoiceClick',
             'click .yesno a':'HandleYesNo',
             'click .answers.temperature a.tempcontinue':'HandleTemperature',
             'click .back':'HandleBackClick',
@@ -34,10 +35,23 @@ define([
             this.model.TallyMon($(evt.currentTarget).attr('answerId'));
         },
         HandleSubClick: function(evt){
-            if( $(evt.target).parent().parent().hasClass('alpha') ){
-                this.$('.alpha').hide();
-                this.$('.beta').show();
-            }
+            console.log('input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]');
+            this.$('.multichoice input:checked').prop('checked', false);
+            this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').prop('checked','checked');
+
+            console.log(this.$('.multichoice input[name="sleeppos"]:checked').val());
+            $.each(this.$('.multichoice input[name="sleeppos"]'),function(key, val){
+                console.log("remove",$(val).attr('answerText').toLowerCase());
+                $('.questiongroup .answers').removeClass($(val).attr('answerText').toLowerCase()+"pos");
+            });
+            this.$('.questiongroup .answers').addClass(this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').toLowerCase()+"pos");
+            //if( $(evt.target).parent().parent().hasClass('alpha') ){
+            //    this.$('.alpha').hide();
+            //    this.$('.beta').show();
+            //}
+        },
+        HandleSubChoiceClick: function(evt){
+            this.model.TallyMon(this.$('.multichoice input:checked').attr('answerId'));
         },
         HandleTemperature: function(evt){
             //alert("calling tally mon temp");
@@ -117,26 +131,26 @@ define([
             });
             this.$('.ui-slider-handle').html("<span>50</span>");
 
-            this.$('#sidepos').hover(function(){
-                $('.answers').addClass('side');
-            },function(){
-                $('.answers').removeClass('side')
-            });
-            this.$('#backpos').hover(function(){
-                $('.answers').addClass('backpos');
-            },function(){
-                $('.answers').removeClass('backpos')
-            });
-            this.$('#stomachpos').hover(function(){
-                $('.answers').addClass('stomach');
-            },function(){
-                $('.answers').removeClass('stomach')
-            });
-            this.$('#multiplepos').hover(function(){
-                $('.answers').addClass('multiple');
-            },function(){
-                $('.answers').removeClass('multiple')
-            });
+            // this.$('#sidepos').hover(function(){
+            //     $('.answers').addClass('side');
+            // },function(){
+            //     $('.answers').removeClass('side')
+            // });
+            // this.$('#backpos').hover(function(){
+            //     $('.answers').addClass('backpos');
+            // },function(){
+            //     $('.answers').removeClass('backpos')
+            // });
+            // this.$('#stomachpos').hover(function(){
+            //     $('.answers').addClass('stomach');
+            // },function(){
+            //     $('.answers').removeClass('stomach')
+            // });
+            // this.$('#multiplepos').hover(function(){
+            //     $('.answers').addClass('multiple');
+            // },function(){
+            //     $('.answers').removeClass('multiple')
+            // });
 
             $('.panel').hide();
             this.$el.show();

@@ -145,17 +145,15 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
-                                <ul class="answers sleeppos">
-                                    <li><a href="#" answerselected="false" answerid="3" answerbitpos="4">Stomach</a></li>
-                                    <li><a href="#" answerselected="false" answerid="4" answerbitpos="8">Back</a></li>
-                                    <li><a href="#" answerselected="false" answerid="5" answerbitpos="16">Side</a></li>
-                                    <li><a href="#" answerselected="false" answerid="6" answerbitpos="32" style="color:#fff;">Multiple</a></li>
+                                <ul class="multichoice" style="/*display:none;*/">
+                                    <% for( answer in answers ){ %>
+                                    <li style="display: list-item; margin-left: 0px;"><input type="radio" name="sleeppos" answerText="<%=answers[answer].answerText%>" answerId="<%=answers[answer].answerId%>" value="<%=answers[answer].answerBitpos%>"><label><%=answers[answer].answerText%></label></li>
+                                    <% } %>
                                 </ul>
                                 <ul class="answers sleeppos alpha">
-                                    <li><a id="stomachpos" class="spadvance" href="#" answerselected="false" answerid="3" answerbitpos="4">Stomach</a></li>
-                                    <li><a id="backpos" class="spadvance" href="#" answerselected="false" answerid="4" answerbitpos="8">Back</a></li>
-                                    <li><a id="sidepos" class="spadvance" href="#" answerselected="false" answerid="5" answerbitpos="16">Side</a></li>
-                                    <li><a id="multiplepos" class="spsub" href="#" answerselected="false" answerid="6" answerbitpos="32">Multiple</a></li>
+                                    <% for( answer in answers ){ %>
+                                        <li style="display: list-item; margin-left: 0px;"><a href="#" class="spsub" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
+                                    <% } %>
                                 </ul>
                                 <ul class="answers sleeppos beta">
                                     <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach.png'); width: 334px;"></a></li>
@@ -167,6 +165,7 @@
                                     <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_back.png'); width: 220px;"></a></li>
                                     <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side.png'); width: 348px;"></a></li>
                                 </ul>
+                                <a href="#" class="continue spcontinue">Continue</a>
                             </div>
                         </script>
                         <script type="text/template" id="question4-template">

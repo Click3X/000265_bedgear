@@ -33,16 +33,16 @@
     background-image: url('../img/sleepposition_back.png');
     background-position-x: 100%;
 }
-#question.panel.q3 .questiongroup .answers.side {
+#question.panel.q3 .questiongroup .answers.sidepos {
     background-image: url('../img/sleepposition_side.png');
     background-position-x: 100%;
 }
-#question.panel.q3 .questiongroup .answers.stomach {
+#question.panel.q3 .questiongroup .answers.stomachpos {
     background-image: url('../img/sleepposition_stomach.png');
     background-position-x: 100%;
 }
 
-#question.panel.q3 .questiongroup .answers.multiple {
+#question.panel.q3 .questiongroup .answers.multiplepos {
     background-image: url('../img/sleepposition_multiple.png');
     background-position-x: 100%;
 }
