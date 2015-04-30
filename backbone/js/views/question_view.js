@@ -131,9 +131,13 @@ define([
                     }(this)});
                 }
             }else{
-                $('#question .fadeout').fadeOut(function(){
+                if(this.$('.fadeout').length > 0){
+                    $('#question .fadeout').fadeOut(function(){
+                        this.render();
+                    });
+                }else{
                     this.render();
-                });
+                }
             }
         },
         RevealChoice: function(self){

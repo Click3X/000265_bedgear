@@ -3,7 +3,7 @@ define([
 ], function (Backbone) {
 
     var ResultModel = Backbone.Model.extend({
-        urlRoot: '../tinderbox/jsonapi/result',
+        urlRoot: API_PATH+'result',
         defaults: {
             bitTotal:0,
             arrAnswers:[],
