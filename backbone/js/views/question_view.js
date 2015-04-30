@@ -37,9 +37,15 @@ define([
             if( $(evt.currentTarget).hasClass('gender') ){
                 if( $(evt.currentTarget).hasClass('female') ){
                     glgender = "female";
+                }else{
+                    glgender = "male";
                 }
+                $(evt.currentTarget).parent().find('.gender').addClass("fadeout");
+                $(evt.currentTarget).removeClass("fadeout");
+                $('body').removeClass('male').removeClass('female').addClass(glgender);
             }
             this.model.TallyMon($(evt.currentTarget).attr('answerId'));
+            return false;
         },
         HandleSubClick: function(evt){
             console.log('input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]');
@@ -102,13 +108,32 @@ define([
         },
         AddModel: function(pModel){
             this.model = pModel;
-            this.model.bind("change",this.render,this);
+            //this.model.bind("change",this.render,this);
         },
         AskQuestion: function(){
+            //if( this.model.get('id') == 2) return false;
             if( typeof( this.model.get('id') ) != "undefined" ){
-                this.model.fetch();
+                if(this.$('.fadeout').length > 0){
+                    this.$('.fadeout').fadeOut(function(self){
+                        return function(){
+                            self.model.fetch({success: function(self){
+                                 return function(){
+                                 self.render();
+                                 };
+                            }(self)});
+                        };
+                    }(this));
+                }else{
+                    this.model.fetch({success: function(self){
+                         return function(){
+                         self.render();
+                         };
+                    }(this)});
+                }
             }else{
-                this.render();
+                $('#question .fadeout').fadeOut(function(){
+                    this.render();
+                });
             }
         },
         RevealChoice: function(self){
@@ -141,7 +166,7 @@ define([
             $(this.el).html(template(this.model.attributes.question));
 
             // Set the gender context
-            $('body').addClass(glgender);
+            $('body').removeClass('male').removeClass('female').addClass(glgender);
 
             for( var idx=0; idx <= this.model.get('question').questionNumber+1; idx++ ){
                 $(this.el).removeClass('q'+idx);

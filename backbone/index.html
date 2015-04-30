@@ -92,14 +92,14 @@
                             </span>-->
                             <div id="canvas"></div>
                             <div class="questiongroup">
-                                <h1>Discover the ultimate performance pillow<span>Determine the right pillow for you</span></h1>
-                                <a href="#" class="start">Start</a>
-                                <div class="avatargroup">
-                                    <div class="avatar">
-                                        <img src="img/avatar_male.png"/>
+                                <h1 class="fadeout">Discover the ultimate performance pillow<span>Determine the right pillow for you</span>
+                                    <a href="#" class="start">Start</a>
+                                </h1>
+
+                                <div class="answers singlechoice avatargroup">
+                                    <div class="avatar male" style="background-image:url('img/avatar_male.png')">
                                     </div>
-                                    <div class="avatar">
-                                        <img src="img/avatar_female.png"/>
+                                    <div class="avatar female" style="background-image:url('img/avatar_female.png')">
                                     </div>
                                 </div>
                                 <!--<a href="#" class="animate">Animate</a>-->
@@ -108,21 +108,21 @@
                     </div>
                     <div id="question" class="panel"></div>
                         <script type="text/template" id="question1-template">
-                            <div id="frame6" class="swoop" src=""></div>
-                            <div id="frame5" class="swoop" src=""></div>
-                            <div id="frame4" class="swoop" src=""></div>
-                            <div id="frame3" class="swoop" src=""></div>
-                            <div id="frame2" class="swoop" src=""></div>
-                            <div id="frame1" class="swoop" src=""></div>
+                            <div id="frame6" class="swoop fadeout" src=""></div>
+                            <div id="frame5" class="swoop fadeout" src=""></div>
+                            <div id="frame4" class="swoop fadeout" src=""></div>
+                            <div id="frame3" class="swoop fadeout" src=""></div>
+                            <div id="frame2" class="swoop fadeout" src=""></div>
+                            <div id="frame1" class="swoop fadeout" src=""></div>
 
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
-                                <h1><%= questionText %></h1>
+                                <h1 class="fadeout"><%= questionText %></h1>
                                 <div class="answers singlechoice avatargroup">
-                                    <a href="#" class="avatar gender male" style="background-image:url('img/avatar_male.png')" answerSelected="false" answerId="<%=answers[0].answerId%>" answerBitpos="<%=answers[0].answerBitpos%>">
+                                    <a href="#" onclick="return false;" class="avatar gender male zoomer" style="background-image:url('img/avatar_male.png')" answerSelected="false" answerId="<%=answers[0].answerId%>" answerBitpos="<%=answers[0].answerBitpos%>">
                                         <span><%=answers[0].answerText%></span>
                                     </a>
-                                    <a href="#" class="avatar gender female" style="background-image:url('img/avatar_female.png')" answerSelected="false" answerId="<%=answers[1].answerId%>" answerBitpos="<%=answers[1].answerBitpos%>">
+                                    <a href="#" onclick="return false;" class="avatar gender female zoomer" style="background-image:url('img/avatar_female.png')" answerSelected="false" answerId="<%=answers[1].answerId%>" answerBitpos="<%=answers[1].answerBitpos%>">
                                         <span><%=answers[1].answerText%></span>
                                     </a>
                                 </div>
@@ -132,13 +132,13 @@
                             <a href="#" class="back">&lt;</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
-                                <h1><%= questionText %></h1>
+                                <h1 class="fadeout"><%= questionText %></h1>
                                 <ul class="multichoice" style="display:none;">
                                     <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><input type="radio" name="sleeppos" answerText="<%=answers[answer].answerText%>" answerId="<%=answers[answer].answerId%>" value="<%=answers[answer].answerBitpos%>"><label><%=answers[answer].answerText%></label></li>
                                     <% } %>
                                 </ul>
-                                <ul class="answers sleeppos">
+                                <ul class="answers sleeppos fadeout">
                                 <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><a href="#" class="spsub" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
                                 <% } %>

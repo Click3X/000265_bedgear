@@ -148,6 +148,6 @@ require([
 
         PreLoader($('body'));
 
-        NextQuestion();
+        //NextQuestion();
     });
 });

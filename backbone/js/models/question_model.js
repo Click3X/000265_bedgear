@@ -35,17 +35,18 @@ define([
         },
         TallyMon: function(pAnswerId){
             //console.log('testing',pAnswerId);
+            //NextQuestion(this.get('question').answers[0].question);
+            //return false;
             for( var idx in this.get('question').answers ){
                 if( this.get('question').answers[idx].answerId == pAnswerId ){
                     this.set('answerChoice', this.get('question').answers[idx].answerId);
                     this.set('answerBit', this.get('question').answers[idx].answerBitpos);
                     this.set('answerDetail', '');
                     NextQuestion(this.get('question').answers[idx].question);
-
                     break;
                 }
             }
-
+            return false;
         },
     });
     return QuestionModel;

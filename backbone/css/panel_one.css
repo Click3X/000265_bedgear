@@ -4,17 +4,19 @@
 
 #question.panel.q1 .questiongroup{
     position: absolute;
-    top: 20%;
+    top: 0%;
     left: 0%;
     width: 100%;
-    height: 50%;
+    height: 100%;
     padding: 0px;
     margin: 0px;
     z-index:100;
 }
 
 #question.panel.q1 .questiongroup h1{
+    position:absolute;
     left: 0%;
+    top:20%;
     width: 100%;
     font-size: 80px;
     text-align: center;
@@ -25,8 +27,9 @@
     border:none;
     background:transparent;
     padding: 0%;
-    width: 100%;
-    top: 0%;
+    width: 1280px;
+    height: 400px;
+    top: 25%;
 }
 
 #question.panel.q1 .avatar{
@@ -35,13 +38,16 @@
     background-repeat: no-repeat;
     height: 100%;
     width: 40%;
-    margin: 0% 8% 0% 2%;
+    margin: 0% 2% 0% 2%;
     text-transform:uppercase;
     text-decoration:none;
     color:#fff;
     font-family: "Gotham Narrow A";
     border-bottom:solid 1px rgba(0,0,0,0.3);
     font-size:42px;
+    -webkit-transform: scale(1) translate(0px,0%);
+    -moz-transform: scale(1) translate(0px,0%);
+    transform: scale(1) translate(0px,0%);
 }
 
 #question.panel.q1 .avatar span{
@@ -56,14 +62,15 @@
 }
 
 #question.panel.q1 .avatar.male span{
-    right: 58%;
+    right:0%;
+
 }
 
 #question.panel.q1 .avatar.female{
     text-align:left;
     color:#fcc;
     border-color:rgba(255,200,200,0.3);
-    margin: 0% 2% 0% 8%;
+    float:right;
 }
 
 /*
@@ -93,3 +100,131 @@
 
 
 */
+
+@-webkit-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes zoomin {
+  0%   {
+      border-color:transparent;
+      color:transparent;
+      -webkit-transform: scale(0.6) translate(0px,20%);
+      -moz-transform: scale(0.6) translate(0px,20%);
+      transform: scale(0.6) translate(0px,20%);
+  }
+  50% {
+      -webkit-transform: scale(1) translate(0px,0%);
+      -moz-transform: scale(1) translate(0px,0%);
+      transform: scale(1) translate(0px,0%);
+  }
+  70% {
+      border-color:transparent;
+      color:transparent;
+
+  }
+  100% {
+      -webkit-transform: scale(1) translate(0px,0%);
+      -moz-transform: scale(1) translate(0px,0%);
+      transform: scale(1) translate(0px,0%);
+  }
+}
+@-moz-keyframes zoomin {
+    0%   {
+        border-color:transparent;
+        color:transparent;
+        -webkit-transform: scale(0.6) translate(0px,20%);
+        -moz-transform: scale(0.6) translate(0px,20%);
+        transform: scale(0.6) translate(0px,20%);
+    }
+    50% {
+        -webkit-transform: scale(1) translate(0px,0%);
+        -moz-transform: scale(1) translate(0px,0%);
+        transform: scale(1) translate(0px,0%);
+    }
+    70% {
+        border-color:transparent;
+        color:transparent;
+
+    }
+    100% {
+        -webkit-transform: scale(1) translate(0px,0%);
+        -moz-transform: scale(1) translate(0px,0%);
+        transform: scale(1) translate(0px,0%);
+    }
+}
+@-o-keyframes zoomin {
+    0%   {
+        border-color:transparent;
+        color:transparent;
+        -webkit-transform: scale(0.6) translate(0px,20%);
+        -moz-transform: scale(0.6) translate(0px,20%);
+        transform: scale(0.6) translate(0px,20%);
+    }
+    50% {
+        -webkit-transform: scale(1) translate(0px,0%);
+        -moz-transform: scale(1) translate(0px,0%);
+        transform: scale(1) translate(0px,0%);
+    }
+    70% {
+        border-color:transparent;
+        color:transparent;
+
+    }
+    100% {
+        -webkit-transform: scale(1) translate(0px,0%);
+        -moz-transform: scale(1) translate(0px,0%);
+        transform: scale(1) translate(0px,0%);
+    }
+}
+@keyframes zoomin {
+    0%   {
+        border-color:transparent;
+        color:transparent;
+        -webkit-transform: scale(0.6) translate(0px,20%) translate(0px,0%);
+        -moz-transform: scale(0.6) translate(0px,20%) translate(0px,0%);
+        transform: scale(0.6) translate(0px,20%) translate(0px,0%);
+    }
+    50% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+    70% {
+        border-color:transparent;
+        color:transparent;
+
+    }
+    100% {
+        -webkit-transform: scale(1) translate(0px,0%);
+        -moz-transform: scale(1) translate(0px,0%);
+        transform: scale(1) translate(0px,0%);
+    }
+}
+
+#question.panel.q1 h1{
+	-webkit-animation: fadein 0.25s linear 0s 1 normal forwards;
+	-moz-animation:    fadein 0.25s linear 0s 1 normal forwards;
+	-o-animation:      fadein 0.25s linear 0s 1 normal forwards;
+	animation:         fadein 0.25s linear 0s 1 normal forwards;
+}
+
+#question.panel.q1 .avatar{
+	-webkit-animation: zoomin 0.5s ease-out 0s 1 normal forwards;
+	-moz-animation:    zoomin 0.5s ease-out 0s 1 normal forwards;
+	-o-animation:      zoomin 0.5s ease-out 0s 1 normal forwards;
+	animation:         zoomin 0.5s ease-out 0s 1 normal forwards;
+}

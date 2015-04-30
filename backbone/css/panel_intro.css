@@ -98,15 +98,24 @@
 }
 
 #intro .questiongroup{
-    text-align: center;
+    position: absolute;
+    top: 0%;
+    left: 0%;
     width: 100%;
-    margin: 10px 0%;
     height: 100%;
+    padding: 0px;
+    margin: 0px;
+    z-index:100;
 }
 
 #intro .questiongroup h1{
     font-weight:300;
-    margin-bottom:20px;
+    position:absolute;
+    left: 0%;
+    top:10%;
+    width: 100%;
+    text-align: center;
+    margin: 0px;
 }
 
 #intro .questiongroup h1 span{
@@ -129,4 +138,56 @@
 
 #intro a.start{
     display: initial;
+}
+
+#intro.panel .questiongroup .answers {
+    border:none;
+    background:transparent;
+    padding: 0%;
+    top: 25%;
+    width: 1280px;
+    height: 400px;
+}
+
+#intro.panel .avatar{
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 40%;
+    margin: 0% 2% 0% 2%;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:#fff;
+    font-family: "Gotham Narrow A";
+    border-bottom:solid 1px rgba(0,0,0,0.3);
+    font-size:42px;
+    float:left;
+    border:none;
+    -webkit-transform: scale(0.6) translate(100px,100px);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6) translate(0px,20%);
+}
+
+#intro.panel .avatar span{
+    position: absolute;
+    bottom: 0;
+}
+
+#intro.panel .avatar.male{
+    text-align:right;
+    color:#ccf;
+    /*border-color:rgba(200,200,255,0.3);*/
+
+}
+
+#intro.panel .avatar.male span{
+    right: 58%;
+}
+
+#intro.panel .avatar.female{
+    text-align:left;
+    color:#fcc;
+    /*border-color:rgba(255,200,200,0.3);*/
+    float:right;
 }

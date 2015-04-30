@@ -13,7 +13,12 @@ define([
         },
         HandleStart: function(evt){
             console.log('starting quiz');
-            NextQuestion();
+            this.$('.fadeout').fadeOut(function(self){
+                return function(){
+                    NextQuestion();
+                };
+            }(this));
+
             return false;
         },
         HandleAnimate: function(evt){

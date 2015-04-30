@@ -5,6 +5,15 @@ html, body{
     font-size:36px;
 }
 
+body{
+    background:#002 url('../img/bkg_male.jpg');
+    background-size: cover;
+}
+body.female{
+    background:#002 url('../img/bkg_female.jpg');
+    background-size: cover;
+}
+
 button{
   font-size:24px;
   margin:10px;
@@ -19,18 +28,11 @@ body div#cachebox{
   position:absolute;
   top:0px;
   left:0px;
-  background:#002;
+  background:transparent;
   padding:0%;
   display: none;
   width:100%;
   min-height:100%;
-  background:#002 url('../img/bkg_male.jpg');
-  background-size: cover;
-}
-
-.female .panel{
-    background:#002 url('../img/bkg_female.jpg');
-    background-size: cover;
 }
 
 .panel .back, .panel .start {
