@@ -150,8 +150,8 @@
 }
 
 #intro.panel .avatar{
-    background-position: center center;
-    background-size: contain;
+    background-position: left center;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
     width: 40%;
@@ -177,6 +177,10 @@
 #intro.panel .avatar.male{
     text-align:right;
     color:#ccf;
+    animation:         play 3.3s steps(33) infinite;
+    -webkit-animation: play 3.3s steps(33) infinite;
+	-moz-animation:    play 3.3s steps(33) infinite;
+	-o-animation:      play 3.3s steps(33) infinite;
     /*border-color:rgba(200,200,255,0.3);*/
 
 }
@@ -190,4 +194,18 @@
     color:#fcc;
     /*border-color:rgba(255,200,200,0.3);*/
     float:right;
+}
+
+
+@-webkit-keyframes play {
+    100% { background-position: -9098px; }
+}
+@-moz-keyframes play {
+    100% { background-position: -9098px; }
+}
+@-o-keyframes play {
+    100% { background-position: -9098px; }
+}
+@keyframes play {
+   100% { background-position: -9098px; }
 }
