@@ -40,8 +40,8 @@ define([
                 }else{
                     glgender = "male";
                 }
-                $(evt.currentTarget).parent().find('.gender').addClass("fadeout");
-                $(evt.currentTarget).removeClass("fadeout");
+                $(evt.currentTarget).parent().parent().find('.zoomer').addClass("fadeout");
+                $(evt.currentTarget).parent().removeClass("fadeout");
                 $('body').removeClass('male').removeClass('female').addClass(glgender);
             }
             this.model.TallyMon($(evt.currentTarget).attr('answerId'));

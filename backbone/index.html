@@ -97,9 +97,15 @@
                                 </h1>
 
                                 <div class="answers singlechoice avatargroup">
-                                    <div class="avatar male" style="background-image:url('img/rotation_male_10fps.png')">
+                                    <div class="zoomer male">
+                                        <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/rotation_male_10fps.png')">
+                                            <span></span>
+                                        </a>
                                     </div>
-                                    <div class="avatar female" style="background-image:url('img/avatar_female.png')">
+                                    <div class="zoomer female">
+                                        <a href="#" onclick="return false;" class="avatar gender female" style="background-image:url('img/rotation_female_10fps.png')">
+                                            <span></span>
+                                        </a>
                                     </div>
                                 </div>
                                 <!--<a href="#" class="animate">Animate</a>-->
@@ -119,18 +125,35 @@
                                 <p class="number"><%= questionNumber %></p>
                                 <h1 class="fadeout"><%= questionText %></h1>
                                 <div class="answers singlechoice avatargroup">
-                                    <a href="#" onclick="return false;" class="avatar gender male zoomer" style="background-image:url('img/avatar_male.png')" answerSelected="false" answerId="<%=answers[0].answerId%>" answerBitpos="<%=answers[0].answerBitpos%>">
-                                        <span><%=answers[0].answerText%></span>
-                                    </a>
-                                    <a href="#" onclick="return false;" class="avatar gender female zoomer" style="background-image:url('img/avatar_female.png')" answerSelected="false" answerId="<%=answers[1].answerId%>" answerBitpos="<%=answers[1].answerBitpos%>">
-                                        <span><%=answers[1].answerText%></span>
-                                    </a>
+                                    <div class="zoomer male">
+                                        <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/rotation_male_10fps.png')" answerSelected="false" answerId="<%=answers[0].answerId%>" answerBitpos="<%=answers[0].answerBitpos%>">
+                                            <span><%=answers[0].answerText%></span>
+                                        </a>
+                                    </div>
+                                    <div class="zoomer female">
+                                        <a href="#" onclick="return false;" class="avatar gender female" style="background-image:url('img/rotation_female_10fps.png')" answerSelected="false" answerId="<%=answers[1].answerId%>" answerBitpos="<%=answers[1].answerBitpos%>">
+                                            <span><%=answers[1].answerText%></span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </script>
                         <script type="text/template" id="question2-template">
                             <a href="#" class="back">&lt;</a>
+                            <div class="avatargroup">
+                                <div class="zoomer male">
+                                    <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/zoom_male_10fps.png')">
+                                        <span></span>
+                                    </a>
+                                </div>
+                                <div class="zoomer female">
+                                    <a href="#" onclick="return false;" class="avatar gender female" style="background-image:url('img/zoom_female_10fps.png')">
+                                        <span></span>
+                                    </a>
+                                </div>
+                            </div>
                             <div class="questiongroup">
+                                <div class="background fadeout"></div>
                                 <p class="number"><%= questionNumber %></p>
                                 <h1 class="fadeout"><%= questionText %></h1>
                                 <ul class="multichoice" style="display:none;">
@@ -300,7 +323,7 @@
         </div>
 
         <div id="cachebox">
-            <img src="" cache="img/avatar_female.png"/>
+            <img src="" cache="img/zoom_female_10fps.png"/>
             <img src="" cache="img/avatar_male.png"/>
             <img src="" cache="img/bkg_male.jpg"/>
             <img src="" cache="img/bkg_female.jpg"/>
