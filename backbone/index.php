@@ -129,7 +129,8 @@
                             </div>
                         </script>
                         <script type="text/template" id="question2-template">
-                            <a href="#" class="back">&lt;</a>
+                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
+
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -141,7 +142,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question3-template">
-                            <a href="#" class="back">&lt;</a>
+                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -171,7 +172,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question4-template">
-                            <a href="#" class="back">&lt;</a>
+                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -183,7 +184,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question5-template">
-                            <a href="#" class="back">&lt;</a>
+                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -218,7 +219,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question6-template">
-                            <a href="#" class="back">&lt;</a>
+                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -238,7 +239,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question7-template">
-                            <a href="#" class="back">&lt;</a>
+                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
