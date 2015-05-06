@@ -3,6 +3,8 @@ html, body{
     font-weight: 400;
     font-style: normal;
     font-size:36px;
+    width: 100%;
+    height: 100%;
 }
 
 body{
@@ -23,6 +25,19 @@ body div#cachebox{
     display:none;
 }
 
+#helpbox{
+    position:absolute;
+    top:15%;
+    left:15%;
+    width:66%;
+    height:64%;
+    background: rgba(0,0,0,0.85);
+    font-size:18px;
+    padding:2% 3%;
+    z-index:10000;
+    overflow:auto;
+}
+
 .panel{
   color:#fff;
   position:absolute;
@@ -35,9 +50,9 @@ body div#cachebox{
   min-height:100%;
 }
 
-.panel .back, .panel .start {
+.panel .back, .panel .help, .panel .start {
     display: block;
-  position: relative;
+  position: absolute;
   width: 40px;
   height: 40px;
   margin: 0px;
@@ -54,7 +69,12 @@ body div#cachebox{
   left: 1%;
 }
 
-.female .panel .back{
+.panel .help{
+    left:auto;
+    right:1%;
+}
+
+.female .panel .back, .female .panel .help{
     border-color: rgba(252,138,252,0.9);
 }
 
@@ -308,4 +328,19 @@ width: 100%;
 margin-top: 10px;
 position: absolute;
 bottom: 300px;
+}
+
+#result a.buy{
+    display: initial;
+    font-weight: 300;
+    background: transparent;
+    color: #fff;
+    border-radius: 0px;
+    width: auto;
+    padding: 5px 50px;
+    border:solid 1px #5da6f5;
+    text-transform:uppercase;
+    text-decoration:none;
+    font-size:20px;
+
 }

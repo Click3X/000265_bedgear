@@ -9,6 +9,8 @@ class Product_Model extends CI_Model
 	var $fields = array(
 		 'productName' => array('label'=>'Name','type'=>'varchar','constraint'=>100),
 		 'productText' => array('label'=>'Text','type'=>'varchar','constraint'=>255),
+		'productImage' => array('label'=>'Image','type'=>'varchar','constraint'=>200),
+		'productUrl' => array('label'=>'Url','type'=>'varchar','constraint'=>200),
 		);
 
 

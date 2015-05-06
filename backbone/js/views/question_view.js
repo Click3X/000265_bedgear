@@ -20,6 +20,7 @@ define([
             'click .yesno a':'HandleYesNo',
             'click .answers.temperature a.tempcontinue':'HandleTemperature',
             'click .back':'HandleBackClick',
+            'click .help':'HandleHelpClick',
         },
         HandleYesNo: function(evt){
             if($(evt.currentTarget).hasClass('yes')){
@@ -40,8 +41,8 @@ define([
                 }else{
                     glgender = "male";
                 }
-                $(evt.currentTarget).parent().find('.gender').addClass("fadeout");
-                $(evt.currentTarget).removeClass("fadeout");
+                $(evt.currentTarget).parent().parent().find('.zoomer').addClass("fadeout");
+                $(evt.currentTarget).parent().removeClass("fadeout");
                 $('body').removeClass('male').removeClass('female').addClass(glgender);
             }
             this.model.TallyMon($(evt.currentTarget).attr('answerId'));
@@ -106,6 +107,14 @@ define([
         HandleBackClick: function(evt){
             PreviousQuestion();
         },
+        HandleHelpClick: function(evt){
+            if( this.$('#helpbox').length > 0 ){
+                this.$('#helpbox').remove();
+            }else{
+                $(this.el).append($('<div>').attr('id','helpbox').html(this.model.get('question').questionHelp));
+            }
+
+        },
         AddModel: function(pModel){
             this.model = pModel;
             //this.model.bind("change",this.render,this);
@@ -168,6 +177,13 @@ define([
                 var template = _.template( $(templateid).html(), {} );
             //}
             $(this.el).html(template(this.model.attributes.question));
+
+            // Show / Hide help button
+            if( this.model.get('question').questionHelp != "" ){
+                this.$('.help').show();
+            }else{
+                this.$('.help').hide();
+            }
 
             // Set the gender context
             $('body').removeClass('male').removeClass('female').addClass(glgender);

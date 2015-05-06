@@ -9,6 +9,7 @@ class Question_Model extends CI_Model
 	var $fields = array(
 		 'questionNumber' => array('label'=>'Number','type'=>'int','constraint'=>11),
 		 'questionText' => array('label'=>'Text','type'=>'varchar','constraint'=>255),
+		'questionHelp' => array('label'=>'Help','type'=>'longtext'),
 		 'answerId' => array('label'=>'Answer','type'=>'int','constraint'=>11),
 		);
 

@@ -122,13 +122,13 @@
     line-height:50px;
 }
 
-#intro a{
+#intro a.start{
+    display: initial;
     font-weight: 300;
     background: #5da6f5;
     color: #fff;
     border-radius: 0px;
     width: auto;
-    display: block;
     padding: 5px 50px;
     border:none;
     text-transform:uppercase;
@@ -137,7 +137,7 @@
 }
 
 #intro a.start{
-    display: initial;
+
 }
 
 #intro.panel .questiongroup .answers {
@@ -149,12 +149,21 @@
     height: 400px;
 }
 
+#intro.panel .questiongroup .avatargroup .zoomer {
+    float:left;
+    width: 460px;
+    height: 400px;
+    -webkit-transform: scale(0.666) translate(0%,0%);
+    -moz-transform: scale(1) translate(0%,0%);
+    transform: scale(0.666) translate(0%,0%);
+}
+
 #intro.panel .avatar{
-    background-position: center center;
-    background-size: contain;
+    background-position: left center;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    width: 40%;
+    width: 460px;
+    height: 400px;
     margin: 0% 2% 0% 2%;
     text-transform:uppercase;
     text-decoration:none;
@@ -164,14 +173,19 @@
     font-size:42px;
     float:left;
     border:none;
-    -webkit-transform: scale(0.6) translate(100px,100px);
-    -moz-transform: scale(0.6);
-    transform: scale(0.6) translate(0px,20%);
+    animation:         play 3.3s steps(33) infinite;
+    -webkit-animation: play 3.3s steps(33) infinite;
+	-moz-animation:    play 3.3s steps(33) infinite;
+	-o-animation:      play 3.3s steps(33) infinite;
 }
 
 #intro.panel .avatar span{
     position: absolute;
     bottom: 0;
+}
+
+#intro.panel .zoomer.male{
+    margin-left:5%;
 }
 
 #intro.panel .avatar.male{
@@ -185,9 +199,28 @@
     right: 58%;
 }
 
+#intro.panel .avatargroup .zoomer.female{
+    float:right;
+    margin-right:5%;
+}
+
 #intro.panel .avatar.female{
     text-align:left;
     color:#fcc;
     /*border-color:rgba(255,200,200,0.3);*/
     float:right;
+}
+
+
+@-webkit-keyframes play {
+    100% { background-position: -15180px; }
+}
+@-moz-keyframes play {
+    100% { background-position: -15180px; }
+}
+@-o-keyframes play {
+    100% { background-position: -15180px; }
+}
+@keyframes play {
+   100% { background-position: -15180px; }
 }

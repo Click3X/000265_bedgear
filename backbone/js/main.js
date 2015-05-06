@@ -5,7 +5,7 @@ var router,pushstate=false,mobile=false,retina=false,mp4=false,ipad=false,iphone
 var LAST_QUESTION_NUMBER = 7;
 var TEMPERATURE_HOT = 60;
 var API_PATH = "../tinderbox/jsonapi/";
-//API_PATH = "http://gibson.loc/c3x-bedgear/tinderbox/jsonapi/"
+API_PATH = "http://gibson.loc/c3x-bedgear/tinderbox/jsonapi/"
 
 var arrHistory = Array();
 var arrQuestions = Array();
@@ -21,7 +21,7 @@ require.config({
         jquery_ui:      'js/vendor/jquery-ui.min',
         backbone:       'js/vendor/backbone.min',
         underscore:     'js/vendor/underscore.min',
-        preloader:     'js/preloader',
+        preloader:      'js/preloader',
         question_model: 'js/models/question_model',
         result_model:   'js/models/result_model',
         question_view:  'js/views/question_view',
@@ -148,6 +148,6 @@ require([
 
         PreLoader($('body'));
 
-        //NextQuestion();
+        NextQuestion();
     });
 });

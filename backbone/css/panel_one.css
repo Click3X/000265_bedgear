@@ -32,27 +32,41 @@
     top: 25%;
 }
 
+#question.panel.q1 .questiongroup .avatargroup .zoomer {
+    float:left;
+    width: 460px;
+    height: 400px;
+    -webkit-transform: scale(1) translate(0%,0%);
+    -moz-transform: scale(1) translate(0%,0%);
+    transform: scale(1) translate(0%,0%);
+}
+
 #question.panel.q1 .avatar{
-    background-position: center center;
-    background-size: contain;
+    background-position: left center;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    width: 40%;
+    height: 400px;
+    width: 460px;
     margin: 0% 2% 0% 2%;
     text-transform:uppercase;
     text-decoration:none;
     color:#fff;
     font-family: "Gotham Narrow A";
     border-bottom:solid 1px rgba(0,0,0,0.3);
-    font-size:42px;
-    -webkit-transform: scale(1) translate(0px,0%);
-    -moz-transform: scale(1) translate(0px,0%);
-    transform: scale(1) translate(0px,0%);
+    font-size:36px;
+    animation:         play 3.3s steps(33) infinite;
+    -webkit-animation: play 3.3s steps(33) infinite;
+	-moz-animation:    play 3.3s steps(33) infinite;
+	-o-animation:      play 3.3s steps(33) infinite;
 }
 
 #question.panel.q1 .avatar span{
     position: absolute;
     bottom: 0;
+}
+
+#question.panel.q1 .zoomer.male{
+    margin-left:5%;
 }
 
 #question.panel.q1 .avatar.male{
@@ -66,11 +80,16 @@
 
 }
 
+#question.panel.q1 .avatargroup .zoomer.female{
+    float:right;
+    margin-right:5%;
+}
+
 #question.panel.q1 .avatar.female{
     text-align:left;
     color:#fcc;
     border-color:rgba(255,200,200,0.3);
-    float:right;
+
 }
 
 /*
@@ -101,6 +120,19 @@
 
 */
 
+@-webkit-keyframes play {
+    100% { background-position: -15180px; }
+}
+@-moz-keyframes play {
+    100% { background-position: -15180px; }
+}
+@-o-keyframes play {
+    100% { background-position: -15180px; }
+}
+@keyframes play {
+   100% { background-position: -15180px; }
+}
+
 @-webkit-keyframes fadein {
   0%   { opacity: 0; }
   100% { opacity: 1; }
@@ -122,14 +154,14 @@
   0%   {
       border-color:transparent;
       color:transparent;
-      -webkit-transform: scale(0.6) translate(0px,20%);
-      -moz-transform: scale(0.6) translate(0px,20%);
-      transform: scale(0.6) translate(0px,20%);
+      -webkit-transform: scale(0.66) translate(0%,0%);
+      -moz-transform: scale(0.66) translate(0%,0%);
+      transform: scale(0.66) translate(0%,0%);
   }
   50% {
-      -webkit-transform: scale(1) translate(0px,0%);
-      -moz-transform: scale(1) translate(0px,0%);
-      transform: scale(1) translate(0px,0%);
+      -webkit-transform: scale(1) translate(0%,0%);
+      -moz-transform: scale(1) translate(0%,0%);
+      transform: scale(1) translate(0%,0%);
   }
   70% {
       border-color:transparent;
@@ -137,82 +169,19 @@
 
   }
   100% {
-      -webkit-transform: scale(1) translate(0px,0%);
-      -moz-transform: scale(1) translate(0px,0%);
-      transform: scale(1) translate(0px,0%);
+      -webkit-transform: scale(1) translate(0%,0%);
+      -moz-transform: scale(1) translate(0%,0%);
+      transform: scale(1) translate(0%,0%);
   }
 }
 @-moz-keyframes zoomin {
-    0%   {
-        border-color:transparent;
-        color:transparent;
-        -webkit-transform: scale(0.6) translate(0px,20%);
-        -moz-transform: scale(0.6) translate(0px,20%);
-        transform: scale(0.6) translate(0px,20%);
-    }
-    50% {
-        -webkit-transform: scale(1) translate(0px,0%);
-        -moz-transform: scale(1) translate(0px,0%);
-        transform: scale(1) translate(0px,0%);
-    }
-    70% {
-        border-color:transparent;
-        color:transparent;
 
-    }
-    100% {
-        -webkit-transform: scale(1) translate(0px,0%);
-        -moz-transform: scale(1) translate(0px,0%);
-        transform: scale(1) translate(0px,0%);
-    }
 }
 @-o-keyframes zoomin {
-    0%   {
-        border-color:transparent;
-        color:transparent;
-        -webkit-transform: scale(0.6) translate(0px,20%);
-        -moz-transform: scale(0.6) translate(0px,20%);
-        transform: scale(0.6) translate(0px,20%);
-    }
-    50% {
-        -webkit-transform: scale(1) translate(0px,0%);
-        -moz-transform: scale(1) translate(0px,0%);
-        transform: scale(1) translate(0px,0%);
-    }
-    70% {
-        border-color:transparent;
-        color:transparent;
 
-    }
-    100% {
-        -webkit-transform: scale(1) translate(0px,0%);
-        -moz-transform: scale(1) translate(0px,0%);
-        transform: scale(1) translate(0px,0%);
-    }
 }
 @keyframes zoomin {
-    0%   {
-        border-color:transparent;
-        color:transparent;
-        -webkit-transform: scale(0.6) translate(0px,20%) translate(0px,0%);
-        -moz-transform: scale(0.6) translate(0px,20%) translate(0px,0%);
-        transform: scale(0.6) translate(0px,20%) translate(0px,0%);
-    }
-    50% {
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        transform: scale(1);
-    }
-    70% {
-        border-color:transparent;
-        color:transparent;
 
-    }
-    100% {
-        -webkit-transform: scale(1) translate(0px,0%);
-        -moz-transform: scale(1) translate(0px,0%);
-        transform: scale(1) translate(0px,0%);
-    }
 }
 
 #question.panel.q1 h1{
@@ -222,7 +191,7 @@
 	animation:         fadein 0.25s linear 0s 1 normal forwards;
 }
 
-#question.panel.q1 .avatar{
+#question.panel.q1 .avatargroup .zoomer{
 	-webkit-animation: zoomin 0.5s ease-out 0s 1 normal forwards;
 	-moz-animation:    zoomin 0.5s ease-out 0s 1 normal forwards;
 	-o-animation:      zoomin 0.5s ease-out 0s 1 normal forwards;
