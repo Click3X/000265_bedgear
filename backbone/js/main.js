@@ -112,6 +112,7 @@ require([
                     bitTotal:0,
                     arrAnswers:[],
                 };
+                if(arrHistory.length <= 0) tally.bitTotal = 33040;
                 for( var idx in arrHistory ){
                     tally.bitTotal += parseInt(arrHistory[idx].get('answerBit'),10);
                     tally.arrAnswers.push({'answerId':arrHistory[idx].get('answerChoice'),'surveyDetail':arrHistory[idx].get('answerDetail')});

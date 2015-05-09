@@ -8,7 +8,21 @@ define([
             this.model.bind("change",this.render,this);
         },
         events: {
+            'click .products li':'HandleProductClick',
+            'click .product .email':'HandleEmailClick',
             'submit .profile form':'HandleProfileSubmit',
+        },
+        HandleProductClick: function(evt){
+            //alert(this.$('.product').css());
+            this.$('.product').css('background-image',"url('img/products/"+$(evt.currentTarget).attr('pimg')+"')");
+            this.$('.product strong').html($(evt.currentTarget).attr('pname'));
+            this.$('.product .buy').attr('href',$(evt.currentTarget).attr('purl'));
+            this.$('.products li').removeClass('selected');
+            $(evt.currentTarget).addClass('selected');
+        },
+        HandleEmailClick: function(evt){
+            this.$('.profile').toggle();
+            return false;
         },
         HandleProfileSubmit: function(evt){
             console.log('submitting profile');
@@ -26,6 +40,7 @@ define([
             $(this.el).html(this.template(this.model.attributes));
             $('.panel').hide();
             this.$el.show();
+            this.$('.products li:first-child').click();
         },
     });
 
