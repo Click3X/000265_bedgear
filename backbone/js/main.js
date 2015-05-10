@@ -10,7 +10,7 @@ API_PATH = "http://gibson.loc/c3x-bedgear/tinderbox/jsonapi/"
 var arrHistory = Array();
 var arrQuestions = Array();
 var currentQues = 0;
-var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion;
+var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion,SetWindowZoom;
 var glgender = "male";
 
 
@@ -88,6 +88,14 @@ require([
         //router = new Router();
 
 
+        SetWindowZoom = function(){
+            $('#windowzoom').remove();
+            var scaleval = ($(window).width()/1280);
+            if(scaleval > 1) scaleval = 1;
+            var style = $('<style id="windowzoom">.panel .windowzoom{-ms-transform: scale('+scaleval+');-webkit-transform: scale('+scaleval+');-moz-transform: scale('+scaleval+');transform: scale('+scaleval+');}</style>');
+            $('html > head').append(style);
+        };
+
         // Pop the current question off the history stack and load the last question from memory
         PreviousQuestion = function(){
             console.log('ck1',arrHistory.length, arrHistory);
@@ -147,8 +155,12 @@ require([
         intro_view = new IntroView({ el: $("#intro") });
         intro_view.render();
 
+        SetWindowZoom();
+        $( window ).resize(SetWindowZoom);
+
         PreLoader($('body'));
 
         NextQuestion();
+
     });
 });

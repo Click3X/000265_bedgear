@@ -330,6 +330,12 @@ position: absolute;
 bottom: 300px;
 }
 
+.panel .windowzoom{
+    width: 1280px;
+    left:50%;
+    margin-left:-640px;
+}
+
 #result a.buy, #result a.email{
     display: block;
   font-weight: 300;
