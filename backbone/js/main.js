@@ -5,7 +5,7 @@ var router,pushstate=false,mobile=false,retina=false,mp4=false,ipad=false,iphone
 var LAST_QUESTION_NUMBER = 7;
 var TEMPERATURE_HOT = 60;
 var API_PATH = "../tinderbox/jsonapi/";
-API_PATH = "http://gibson.loc/c3x-bedgear/tinderbox/jsonapi/"
+API_PATH = "http://192.168.1.135/c3x-bedgear/tinderbox/jsonapi/"
 
 var arrHistory = Array();
 var arrQuestions = Array();
@@ -149,6 +149,10 @@ require([
             }
         };
 
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            $('html').addClass('mobile');
+        }
+
         result_model = new ResultModel();
         result_view = new ResultView({el: $('#result'), model:result_model});
         view_question = new QuestionView({ el: $("#question") });
@@ -159,8 +163,9 @@ require([
         $( window ).resize(SetWindowZoom);
 
         PreLoader($('body'));
+        //intro_view.HandleAnimate();
 
-        NextQuestion();
+        //NextQuestion();
 
     });
 });

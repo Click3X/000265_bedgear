@@ -1,0 +1,58 @@
+/* Turn off transition animation */
+.mobile .introanim #mask1,
+.mobile .introanim #mask2,
+.mobile .introanim #mask3,
+.mobile .introanim #mask4,
+.mobile .introanim #mask5,
+.mobile .introanim #mask6{
+    display:none;
+    -webkit-animation: inherit;
+    -moz-animation:    inherit;
+	-o-animation:      inherit;
+	animation:         inherit;
+}
+
+.mobile .introanim .questiongroup, .mobile .introanim .avatargroup{
+	-webkit-animation: fadeinmax 1s linear 0s 1 normal forwards;
+	-moz-animation:    fadeinmax 1s linear 0s 1 normal forwards;
+	-o-animation:      fadeinmax 1s linear 0s 1 normal forwards;
+	animation:         fadeinmax 1s linear 0s 1 normal forwards;
+}
+
+.mobile .introanim #canvas{
+	-webkit-animation: fadein 5s linear 0s 1 normal forwards;
+	-moz-animation:    fadein 5s linear 0s 1 normal forwards;
+	-o-animation:      fadein 5s linear 0s 1 normal forwards;
+	animation:         fadein 5s linear 0s 1 normal forwards;
+}
+
+.mobile #question.panel.q1 .avatargroup .zoomer{
+	-webkit-animation: inherit;
+	-moz-animation:    inherit;
+	-o-animation:      inherit;
+	animation:         inherit;
+}
+
+.mobile #question.panel.q2 .zoomer.male, .mobile #question.panel.q2 .avatargroup .zoomer.female{
+    -webkit-animation: inherit;
+	-moz-animation:    inherit;
+	-o-animation:      inherit;
+	animation:         inherit;
+    display:none;
+}
+
+.mobile #question.panel.q2 .questiongroup .background,
+.mobile #question.panel.q2 .questiongroup h1,
+.mobile #question.panel.q2 .questiongroup .answers{
+   -webkit-animation: fadein 1s ease-out 0s 1 normal forwards;
+   -moz-animation:    fadein 1s ease-out 0s 1 normal forwards;
+   -o-animation:      fadein 1s ease-out 0s 1 normal forwards;
+   animation:         fadein 1s ease-out 0s 1 normal forwards;
+}
+
+.mobile #question.panel.q2 .questiongroup .spcontinue{
+    -webkit-animation: fadein 1s ease-out 1s 1 normal forwards;
+    -moz-animation:    fadein 1s ease-out 1s 1 normal forwards;
+    -o-animation:      fadein 1s ease-out 1s 1 normal forwards;
+    animation:         fadein 1s ease-out 1s 1 normal forwards;
+}

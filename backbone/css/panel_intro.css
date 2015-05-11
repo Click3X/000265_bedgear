@@ -123,6 +123,7 @@
 }
 
 #intro a.start{
+    position:static;
     display: initial;
     font-weight: 300;
     background: #5da6f5;
