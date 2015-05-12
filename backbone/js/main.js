@@ -5,12 +5,12 @@ var router,pushstate=false,mobile=false,retina=false,mp4=false,ipad=false,iphone
 var LAST_QUESTION_NUMBER = 7;
 var TEMPERATURE_HOT = 60;
 var API_PATH = "../tinderbox/jsonapi/";
-API_PATH = "http://gibson.loc/c3x-bedgear/tinderbox/jsonapi/"
+API_PATH = "http://192.168.1.135/c3x-bedgear/tinderbox/jsonapi/"
 
 var arrHistory = Array();
 var arrQuestions = Array();
 var currentQues = 0;
-var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion;
+var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion,SetWindowZoom;
 var glgender = "male";
 
 
@@ -88,6 +88,14 @@ require([
         //router = new Router();
 
 
+        SetWindowZoom = function(){
+            $('#windowzoom').remove();
+            var scaleval = ($(window).width()/1280);
+            if(scaleval > 1) scaleval = 1;
+            var style = $('<style id="windowzoom">.panel .windowzoom{-ms-transform: scale('+scaleval+');-webkit-transform: scale('+scaleval+');-moz-transform: scale('+scaleval+');transform: scale('+scaleval+');}</style>');
+            $('html > head').append(style);
+        };
+
         // Pop the current question off the history stack and load the last question from memory
         PreviousQuestion = function(){
             console.log('ck1',arrHistory.length, arrHistory);
@@ -112,6 +120,7 @@ require([
                     bitTotal:0,
                     arrAnswers:[],
                 };
+                if(arrHistory.length <= 0) tally.bitTotal = 33040;
                 for( var idx in arrHistory ){
                     tally.bitTotal += parseInt(arrHistory[idx].get('answerBit'),10);
                     tally.arrAnswers.push({'answerId':arrHistory[idx].get('answerChoice'),'surveyDetail':arrHistory[idx].get('answerDetail')});
@@ -140,14 +149,23 @@ require([
             }
         };
 
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            $('html').addClass('mobile');
+        }
+
         result_model = new ResultModel();
         result_view = new ResultView({el: $('#result'), model:result_model});
         view_question = new QuestionView({ el: $("#question") });
         intro_view = new IntroView({ el: $("#intro") });
         intro_view.render();
 
-        PreLoader($('body'));
+        SetWindowZoom();
+        $( window ).resize(SetWindowZoom);
 
-        NextQuestion();
+        PreLoader($('body'));
+        //intro_view.HandleAnimate();
+
+        //NextQuestion();
+
     });
 });
