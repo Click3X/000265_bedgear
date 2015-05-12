@@ -56,3 +56,91 @@
     -o-animation:      fadein 1s ease-out 1s 1 normal forwards;
     animation:         fadein 1s ease-out 1s 1 normal forwards;
 }
+
+/* Portrait */
+@media only screen
+  and (max-device-width: 800px){
+
+      #helpbox {
+          font-size:12px;
+          line-height:14px;
+          width:80%;
+          left:5%;
+          padding:5%;
+      }
+
+      .panel .windowzoom {
+          width: 640;
+          height: 100%;
+          left: 0%;
+          margin-left: 0px;
+      }
+
+      .questiongroup h1{
+          font-size:40px;
+      }
+
+      #question.q1.panel .questiongroup h1{
+          font-size:40px;
+      }
+
+      #intro .questiongroup h1{
+          top:37%;
+      }
+
+      #question.q1.panel .questiongroup h1{
+          top:45%;
+      }
+
+      #intro .questiongroup h1 span, #question.q1.panel .questiongroup h1 span {
+          font-size:12px;
+          line-height: 40px;
+      }
+
+      #intro.panel .questiongroup .answers, #question.q1.panel .questiongroup .answers {
+          height:100%;
+          top:0%;
+      }
+
+      #intro.panel .questiongroup .avatargroup .zoomer, #question.q1.panel .questiongroup .avatargroup .zoomer{
+          position:absolute;
+          float:left;
+          margin:0px;
+          padding:0px;
+      }
+
+      #intro.panel .questiongroup .avatargroup .zoomer.male, #question.q1.panel .questiongroup .avatargroup .zoomer.male{
+          top:0%;
+          left:0%;
+          transform-origin: 30% 10%;
+      }
+
+      #intro.panel .questiongroup .avatargroup .zoomer.female, #question.q1.panel .questiongroup .avatargroup .zoomer.female{
+          bottom:0%;
+          left:0%;
+          transform-origin: 30% 90%;
+      }
+
+      #question.panel.q2 .questiongroup ul li a {
+          font-size: 12px;
+      }
+
+      .questiongroup .answers {
+          width:94%;
+          padding: 10px 3% 15px 3%;
+      }
+
+      #question.panel.q2 .questiongroup .answers {
+          width:94%;
+          background-image:none;
+      }
+
+      #question.panel.q2 .questiongroup ul li a span{
+          margin-top:10px;
+      }
+
+      #question.panel.q2 .questiongroup ul li {
+          margin: 0px 0% 40px 10%;
+      }
+
+}

@@ -51,6 +51,7 @@
         <link rel="stylesheet" href="css/panel_one.css">
         <link rel="stylesheet" href="css/panel_two.css">
         <link rel="stylesheet" href="css/panel_three.css">
+        <link rel="stylesheet" href="css/mobile.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/1.5.2/raphael-min.js"></script>
@@ -96,7 +97,7 @@
                                     <a href="#" class="start">Start</a>
                                 </h1>
 
-                                <div class="answers singlechoice avatargroup">
+                                <div class="answers singlechoice avatargroup windowzoom">
                                     <div class="zoomer male">
                                         <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/rotation_male_10fps.png')">
                                             <span></span>
@@ -124,7 +125,7 @@
                             <div class="questiongroup">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1 class="fadeout"><%= questionText %></h1>
-                                <div class="answers singlechoice avatargroup">
+                                <div class="answers singlechoice avatargroup windowzoom">
                                     <div class="zoomer male">
                                         <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/rotation_male_10fps.png')" answerSelected="false" answerId="<%=answers[0].answerId%>" answerBitpos="<%=answers[0].answerBitpos%>">
                                             <span><%=answers[0].answerText%></span>
@@ -140,7 +141,7 @@
                         </script>
                         <script type="text/template" id="question2-template">
                             <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
-                            <div class="avatargroup">
+                            <div class="avatargroup windowzoom">
                                 <div class="zoomer male">
                                     <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/zoom_male_10fps.png')">
                                         <span></span>
@@ -181,18 +182,18 @@
                                     <li style="display: list-item; margin-left: 0px;"><input type="radio" name="sleeppos" answerText="<%=answers[answer].answerText%>" answerId="<%=answers[answer].answerId%>" value="<%=answers[answer].answerBitpos%>"><label><%=answers[answer].answerText%></label></li>
                                     <% } %>
                                 </ul>
-                                <ul class="answers sleeppos alpha">
+                                <ul class="answers sleeppos windowzoom alpha">
                                     <% for( answer in answers ){ %>
                                         <li style="display: list-item; margin-left: 0px;"><a href="#" class="spsub" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
                                     <% } %>
                                 </ul>
-                                <ul class="answers sleeppos beta">
+                                <ul class="answers sleeppos windowzoom beta">
                                     <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach_<%=glgender%>.png'); width: 334px;"></a></li>
                                     <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_back_<%=glgender%>.png'); width: 220px;"></a></li>
                                     <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side_<%=glgender%>.png'); width: 348px;"></a></li>
                                     <li class="dkcontinue"><a href="#" class="continue dkcontinue">Don't Know</a></li>
                                 </ul>
-                                <ul class="answers sleeppos gamma">
+                                <ul class="answers sleeppos windowzoom gamma">
                                     <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach_<%=glgender%>.png'); width: 334px;"></a></li>
                                     <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_back_<%=glgender%>.png'); width: 220px;"></a></li>
                                     <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side_<%=glgender%>.png'); width: 348px;"></a></li>
@@ -294,12 +295,15 @@
                             <div class="questiongroup">
                                 <h1><span>Your</span> Ideal Bedgear</h1>
                                 <div class="product">
-                                    <img src=""/>
+                                    <strong>&nbsp;</strong>
                                     <a href="" class="buy" target="_blank">Buy Now</a>
+                                    <a href="#" class="email" target="_blank">Email Me Results</a>
                                 </div>
                                 <ol class="products">
                                     <% for( product in data ){ %>
-                                        <li style="display: list-item; margin-left: 0px;" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>"><%=data[product].productName%></li>
+                                        <li style="display: list-item; background-image:url('img/products/<%=data[product].productImage%>');" pname="<%=data[product].productName%>" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>">
+                                            <%=data[product].productName%>
+                                        </li>
                                     <% } %>
                                 </ol>
                                 <div class="profile">
@@ -328,8 +332,7 @@
         </div>
 
         <div id="cachebox">
-            <img src="" cache="img/zoom_female_10fps.png"/>
-            <img src="" cache="img/avatar_male.png"/>
+
             <img src="" cache="img/bkg_male.jpg"/>
             <img src="" cache="img/bkg_female.jpg"/>
             <img src="" cache="img/bkg_swoop_1.png"/>
@@ -338,28 +341,23 @@
             <img src="" cache="img/bkg_swoop_4.png"/>
             <img src="" cache="img/bkg_swoop_5.png"/>
             <img src="" cache="img/bkg_swoop_6.png"/>
-            <img src="" cache="img/bodytype_male.png"/>
-            <img src="" cache="img/temperature_flare.png"/>
-            <img src="" cache="img/temperature_tab.png"/>
-            <img src="" cache="img/bodytype_flare.png"/>
-            <img src="" cache="img/bodytype_female.png"/>
-            <img src="" cache="img/bodytype_male.png"/>
-            <img src="" cache="img/bodytype_broad_male.png"/>
             <img src="" cache="img/bodytype_broad_female.png"/>
             <img src="" cache="img/bodytype_broad_male.png"/>
+            <img src="" cache="img/bodytype_flare.png"/>
+            <img src="" cache="img/bodytype_medium_female.png"/>
+            <img src="" cache="img/bodytype_medium_male.png"/>
             <img src="" cache="img/bodytype_narrow_female.png"/>
             <img src="" cache="img/bodytype_narrow_male.png"/>
             <img src="" cache="img/bodytype_petite_female.png"/>
             <img src="" cache="img/bodytype_petite_male.png"/>
-            <img src="" cache="img/bodytype_medium_female.png"/>
-            <img src="" cache="img/bodytype_medium_male.png"/>
+            <img src="" cache="img/rotation_female_10fps.png"/>
+            <img src="" cache="img/rotation_male_10fps.png"/>
             <img src="" cache="img/sleeppos_multiple_back_female.png"/>
             <img src="" cache="img/sleeppos_multiple_back_male.png"/>
             <img src="" cache="img/sleeppos_multiple_side_female.png"/>
             <img src="" cache="img/sleeppos_multiple_side_male.png"/>
             <img src="" cache="img/sleeppos_multiple_stomach_female.png"/>
             <img src="" cache="img/sleeppos_multiple_stomach_male.png"/>
-
             <img src="" cache="img/sleepposition_back_female.png"/>
             <img src="" cache="img/sleepposition_back_male.png"/>
             <img src="" cache="img/sleepposition_multiple_female.png"/>
@@ -368,6 +366,10 @@
             <img src="" cache="img/sleepposition_side_male.png"/>
             <img src="" cache="img/sleepposition_stomach_female.png"/>
             <img src="" cache="img/sleepposition_stomach_male.png"/>
+            <img src="" cache="img/temperature_flare.png"/>
+            <img src="" cache="img/temperature_tab.png"/>
+            <img src="" cache="img/zoom_female_10fps.png"/>
+            <img src="" cache="img/zoom_male_10fps.png"/>
         </div>
 
         <script data-main="js/main" src="js/vendor/require.min.js"></script>
