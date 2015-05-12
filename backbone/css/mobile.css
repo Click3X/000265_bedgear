@@ -86,6 +86,7 @@
 
       #intro .questiongroup h1{
           top:37%;
+          font-size: 20px;
       }
 
       #question.q1.panel .questiongroup h1{
@@ -141,6 +142,27 @@
 
       #question.panel.q2 .questiongroup ul li {
           margin: 0px 0% 40px 10%;
+      }
+
+      #question.panel.q3 .questiongroup .answers {
+            width:100%;
+            margin:0px;
+            left:0%;
+      }
+
+      #question.panel.q3 .questiongroup .answers li {
+          width: 30%;
+          padding-right:0px;
+          margin-right:0px;
+          float:left;
+      }
+
+      #question.panel.q3 .questiongroup .answers a {
+          width: 30%;
+          font-size:14px;
+          float:right;
+          text-align:right;
+
       }
 
 }
