@@ -86,6 +86,6 @@ function DisplayLoader(pTarget){
 	divLoader.css('color','#5da6f5');
 	divLoader.css('backgroundColor','rgba(0,0,0,0.9)');
 	divLoader.css('z-index','2000');
-	divLoader.append('<div style="text-align:center; margin-top:300px; width:100%; font-size:30px; font-weight:bold;">Loading...<br/><h2 style="margin-top:5px; font-size:60px;">0%</h2></div>');
+	divLoader.append('<div style="text-align:center; margin-top:40%; width:100%; font-size:30px; font-weight:bold;">Loading...<br/><h2 style="margin-top:5px; font-size:60px;">0%</h2></div>');
 	pTarget.prepend(divLoader);
 }

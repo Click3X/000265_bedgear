@@ -47,6 +47,14 @@ module.exports = function(grunt) {
                 ext: '.min.js'
             }
         },
+        copy: {
+          main: {
+            files: [
+              // includes files within path
+              {expand: true, src: 'bedgear/index.html', dest: 'bedgear/index.php'},
+            ],
+          },
+        },
 		recess: {
 			options: {
 				compile: true,
@@ -101,6 +109,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['jshint','uglify','recess']);
 	// Register tasks for development using watch
     grunt.registerTask('dev', ['express','watch']);
+    grunt.registerTask('build', ['jshint','uglify','copy']);
 
     // Register task to see the Demo page using localhost:3001
     grunt.registerTask('demo', ['express','watch']);
