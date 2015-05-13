@@ -61,6 +61,10 @@
 @media only screen
   and (max-device-width: 800px){
 
+      body{
+          background-position:center center;
+      }
+
       #helpbox {
           font-size:12px;
           line-height:14px;
@@ -76,8 +80,67 @@
           margin-left: 0px;
       }
 
+      .questiongroup {
+        width: 90%;
+        margin: 10px 5%;
+        }
+
+      .questiongroup .yesno {
+          margin: -42px 0px 0px 0px;
+      }
+
       .questiongroup h1{
-          font-size:40px;
+          margin-top:50px;
+          font-size:25px;
+      }
+      .questiongroup h1 span{
+          font-size:12px;
+          line-height: 20px;
+      }
+
+      .questiongroup .answers {
+          width:94%;
+          padding: 10px 3% 25px 3%;
+      }
+
+      .questiongroup ul li {
+          width: 100%;
+          margin: 0px 0% 1px 5%;
+      }
+
+      .questiongroup ul.yesno li a, .questiongroup li a, .questiongroup .answers li label {
+          padding: 12px 0px;
+          font-weight: 300;
+          font-style: normal;
+          font-size: 12px;
+      }
+
+      .questiongroup ul.yesno li{
+          padding:0px;
+          margin:0px;
+      }
+
+      .questiongroup .answers .multichoice {
+          margin-top: 50px;
+          padding-left:2%;
+      }
+
+      .questiongroup .answers .multichoice li {
+          width: 100%;
+          padding-bottom:5px;
+      }
+
+      .questiongroup .answers .multichoice li input[type=checkbox] {
+      margin-right: 10px;
+      vertical-align: middle;
+      transform: scale(1.5);
+      -webkit-transform: scale(1.5);
+      }
+
+      .questiongroup a.continue {
+          padding: 5px 50px;
+          font-size: 18px;
+          bottom: 20px;
       }
 
       #question.q1.panel .questiongroup h1{
@@ -126,11 +189,6 @@
           font-size: 12px;
       }
 
-      .questiongroup .answers {
-          width:94%;
-          padding: 10px 3% 15px 3%;
-      }
-
       #question.panel.q2 .questiongroup .answers {
           width:94%;
           background-image:none;
@@ -148,21 +206,94 @@
             width:100%;
             margin:0px;
             left:0%;
+            top: 30%;
+            height: 45%;
+            background-position-y: center;
       }
 
       #question.panel.q3 .questiongroup .answers li {
           width: 30%;
           padding-right:0px;
           margin-right:0px;
+          margin-top: 40px;
           float:left;
       }
 
+      #question.panel.q3 .questiongroup .answers li:first-child {
+          margin-top: 20px;
+      }
+
       #question.panel.q3 .questiongroup .answers a {
-          width: 30%;
+          width: 100%;
           font-size:14px;
           float:right;
           text-align:right;
+          margin:0px;
+          padding:0px;
+          display:block;
+      }
 
+      #question.panel.q3 .questiongroup .beta, #question.panel.q3 .questiongroup .gamma {
+          font-size:10px;
+          width:140%;
+          margin: 10px 0% 0px -20%;
+      }
+
+      #question.panel.q3 .questiongroup .answers.beta{
+          width:100%;
+          height:45%;
+          margin:0%;
+      }
+
+      #question.panel.q3 .questiongroup .answers.beta li{
+          width:100%;
+          height:50%;
+          margin-top:-10%;
+      }
+
+      #question.panel.q3 .questiongroup .answers.beta li:first-child{
+          margin-top:0%;
+      }
+
+      #question.panel.q3 .questiongroup .answers.beta li a{
+          height:100%;
+          background-position-x:90%;
+      }
+
+
+
+
+      #result .product {
+          font-size: 18px;
+          padding-top: 140px;
+          background-position: center 0px;
+      }
+
+      #result .product strong {
+          font-size: 24px;
+      }
+
+      #result a.buy, #result a.email {
+          width: 46%;
+          padding: 5px 0px;
+          font-size: 11px;
+          float: left;
+          text-align: center;
+          margin-left: 2%;
+      }
+
+      #result .products li {
+          width: 32%;
+          height: 20px;
+          float: left;
+          margin-left: 2%;
+          background-size: contain;
+          background-repeat: no-repeat;
+          text-align: center;
+          font-size: 11px;
+          font-weight: normal;
+          padding-top: 60px;
+          opacity: 0.5;
       }
 
 }

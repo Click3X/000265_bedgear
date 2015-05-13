@@ -100,7 +100,7 @@ require([
             }else{
                 var scaleval = ($(window).width()/1024);
                 if(scaleval > 1) scaleval = 1;
-                var style = $('<style id="windowzoom">#intro.panel .questiongroup .avatargroup .zoomer, #question.panel.q1 .questiongroup .avatargroup .zoomer{-ms-transform: scale('+scaleval+');-webkit-transform: scale('+scaleval+');-moz-transform: scale('+scaleval+');transform: scale('+scaleval+');}</style>');
+                var style = $('<style id="windowzoom">#intro.panel .questiongroup .avatargroup .zoomer, #question.panel.q1 .questiongroup .avatargroup .zoomer, #question.panel.q3 .betas.windowzoom, #question.panel.q3 .gammas.windowzoom{-ms-transform: scale('+scaleval+');-webkit-transform: scale('+scaleval+');-moz-transform: scale('+scaleval+');transform: scale('+scaleval+');}</style>');
                 $('html > head').append(style);
             }
         };
@@ -174,7 +174,7 @@ require([
         PreLoader($('body'));
         //intro_view.HandleAnimate();
 
-        //NextQuestion();
+        NextQuestion();
 
     });
 });

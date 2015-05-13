@@ -206,8 +206,8 @@ define([
 
             //if(this.model.get('question').questionNumber == 2)
             //    this.$('.answers.sleeppos li:nth-child(3) a.spsub').click();
-            //if(this.model.get('question').questionNumber == 3)
-            //    this.$('.answers.sleeppos.alpha li:first-child a.spsub').click();
+            if(this.model.get('question').questionNumber == 3)
+                this.$('.answers.sleeppos.alpha li:first-child a.spsub').click();
 
             // this.$('#sidepos').hover(function(){
             //     $('.answers').addClass('side');
