@@ -260,7 +260,59 @@
           background-position-x:90%;
       }
 
+      .ui-widget-content .ui-state-default {
+          width: 100px;
+          height: 100px;
+          background-scale:contain;
+          margin: -40px 0px 0px -50px;
+      }
 
+      .questiongroup .answers.temperature #tempscale {
+          width:100%;
+          top:-100%;
+      }
+
+      .questiongroup .answers.temperature {
+      width: 100%;
+      height:auto;
+      min-height:100px;
+      padding: 20px 0% 50px 0%;
+      background:none;
+      border:none;
+      }
+
+      .questiongroup .answers.temperature #temptable tr td.cold, .questiongroup .answers.temperature #temptable tr td.hot {
+          font-size:14px;
+      }
+
+      .questiongroup .answers.temperature #temptable tr td{
+          text-transform:uppercase;
+      }
+
+      .questiongroup .answers.temperature #tempscale .flare {
+          top:150%;
+      }
+/*
+      .questiongroup .answers.temperature #tempscale .flare {
+          display:none;
+      }
+
+      .questiongroup .answers.temperature #temptable tr td.cold, .questiongroup .answers.temperature #temptable tr td.hot {
+          transform: rotate(90deg);
+          position:absolute;
+          font-size:14px;
+          text-transform:uppercase;
+      }
+
+      .questiongroup .answers.temperature #temptable tr td.cold{
+          top:-25%;
+          left:-45%;
+      }
+
+      .questiongroup .answers.temperature #temptable tr td.hot{
+          top:140%;
+          left:90%;
+      }*/
 
 
       #result .product {

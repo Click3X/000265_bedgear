@@ -11,7 +11,7 @@ if(window.location.href.indexOf("9000")>0){
 
 var arrHistory = Array();
 var arrQuestions = Array();
-var currentQues = 0;
+var currentQues = 4;
 var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion,SetWindowZoom;
 var glgender = "male";
 
