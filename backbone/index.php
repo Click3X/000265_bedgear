@@ -94,6 +94,7 @@
                             <div id="canvas"></div>
                             <div class="questiongroup">
                                 <h1 class="fadeout">Discover the ultimate performance pillow<span>Determine the right pillow for you</span>
+                                    <a href="#" class="start">Start</a>
                                 </h1>
 
                                 <div class="answers singlechoice avatargroup windowzoom">
