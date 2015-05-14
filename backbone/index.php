@@ -172,7 +172,7 @@
                         </script>
                         <script type="text/template" id="question3-template">
                             <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
-                            <div class="questiongroup">
+                            <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
                                 <h2 class="beta">In which position do you usually fall asleep?</h2>
@@ -188,15 +188,15 @@
                                     <% } %>
                                 </ul>
                                 <ul class="answers sleeppos windowzoom beta">
-                                    <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach_<%=glgender%>.png'); width: 334px;"></a></li>
-                                    <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_back_<%=glgender%>.png'); width: 220px;"></a></li>
-                                    <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side_<%=glgender%>.png'); width: 348px;"></a></li>
+                                    <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach_<%=glgender%>.png');"></a></li>
+                                    <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_back_<%=glgender%>.png');"></a></li>
+                                    <li><a id="" href="#" class="" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side_<%=glgender%>.png');"></a></li>
                                     <li class="dkcontinue"><a href="#" class="continue dkcontinue">Don't Know</a></li>
                                 </ul>
                                 <ul class="answers sleeppos windowzoom gamma">
-                                    <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach_<%=glgender%>.png'); width: 334px;"></a></li>
-                                    <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_back_<%=glgender%>.png'); width: 220px;"></a></li>
-                                    <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side_<%=glgender%>.png'); width: 348px;"></a></li>
+                                    <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_stomach_<%=glgender%>.png');"></a></li>
+                                    <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_back_<%=glgender%>.png');"></a></li>
+                                    <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side_<%=glgender%>.png');"></a></li>
                                     <li class="dkcontinue"><a href="#" class="continue dkcontinue">Don't Know</a></li>
                                 </ul>
                                 <a href="#" class="continue spcontinue">Continue</a>
@@ -204,7 +204,7 @@
                         </script>
                         <script type="text/template" id="question4-template">
                             <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
-                            <div class="questiongroup">
+                            <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
                                 <ul class="answers singlechoice">
@@ -216,7 +216,7 @@
                         </script>
                         <script type="text/template" id="question5-template">
                             <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
-                            <div class="questiongroup">
+                            <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
                                 <div class="answers temperature">
@@ -224,18 +224,16 @@
                                         <img class="flare" src="img/temperature_flare.png"/>
                                         <table id="temptable" border="1">
                                             <tr>
-                                                <td colspan="2" width="10%" style="text-align:center;">Cold</td>
+                                                <td colspan="1" width="10%" class="cold" style="text-align:center;">Cold</td>
                                                 <td colspan="1" width="40%">&nbsp;</td>
                                                 <td colspan="1" width="40%">&nbsp;</td>
-                                                <td colspan="2" width="10%" style="text-align:center;">Hot</td>
+                                                <td colspan="1" width="10%" class="hot" style="text-align:center;">Hot</td>
                                             </tr>
                                             <tr>
-                                                <td width="5%" style="border-right:solid 1px #fff;">&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td style="border-right:solid 1px #fff;">&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td style="border-right:solid 1px #fff;">&nbsp;</td>
-                                                <td width="5%">&nbsp;</td>
+                                                <td width="10%" style="border-left:solid 1px #fff;">&nbsp;</td>
+                                                <td width="40%">&nbsp;</td>
+                                                <td width="40%" style="border-left:solid 1px #fff;">&nbsp;</td>
+                                                <td width="10%" style="border-right:solid 1px #fff;">&nbsp;</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="6">
@@ -251,7 +249,7 @@
                         </script>
                         <script type="text/template" id="question6-template">
                             <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
-                            <div class="questiongroup">
+                            <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
 
@@ -271,7 +269,7 @@
                         </script>
                         <script type="text/template" id="question7-template">
                             <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
-                            <div class="questiongroup">
+                            <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
 
