@@ -6,7 +6,7 @@
 #question.panel.q3 .questiongroup .answers {
     width: 1280px;
     height:450px;
-    bottom: 0%;
+    bottom: 10%;
     padding: 0px 0% 0% 0%;
     float:right;
     border:none;
@@ -93,6 +93,10 @@
 #question.panel.q3 .questiongroup .answers.beta, #question.panel.q3 .questiongroup .answers.gamma{
     width: 902px;
     height: 445px;
+    left: auto;
+    right: 0%;
+    top: 50%;
+    margin-top: -150px;
 
 }
 

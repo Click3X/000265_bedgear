@@ -76,12 +76,12 @@ define([
                 this.$('.beta').hide();
                 this.$('.gamma').show();
             }else{
-                this.$('.beta a').css('opacity','0.6')
+                this.$('.beta a').css('opacity','0.4')
                 $(evt.currentTarget).css('opacity','1');
             }
         },
         HandleGammaSubClick: function(evt){
-                this.$('.gamma a').css('opacity','0.6')
+                this.$('.gamma a').css('opacity','0.4')
                 $(evt.currentTarget).css('opacity','1');
         },
         HandleSubChoiceClick: function(evt){
@@ -121,6 +121,7 @@ define([
         },
         AskQuestion: function(){
             //if( this.model.get('id') == 2) return false;
+            console.log('Ask Question',this.model.get('id'));
             if( typeof( this.model.get('id') ) != "undefined" ){
                 if(this.$('.fadeout').length > 0){
                     this.$('.fadeout').fadeOut(function(self){
@@ -141,9 +142,9 @@ define([
                 }
             }else{
                 if(this.$('.fadeout').length > 0){
-                    $('#question .fadeout').fadeOut(function(){
-                        this.render();
-                    });
+                    $('#question .fadeout').fadeOut(function(self){
+                        self.render();
+                    }(this));
                 }else{
                     this.render();
                 }
@@ -204,10 +205,10 @@ define([
             this.$('.ui-slider-handle').html("<span>50</span>");
 
 
-            //if(this.model.get('question').questionNumber == 2)
-            //    this.$('.answers.sleeppos li:nth-child(3) a.spsub').click();
+            if(this.model.get('question').questionNumber == 2)
+                this.$('.answers.sleeppos li:nth-child(3) a.spsub').click();
             if(this.model.get('question').questionNumber == 3)
-                this.$('.answers.sleeppos.alpha li:first-child a.spsub').click();
+                this.$('.answers.sleeppos.alpha li:nth-child(2) a.spsub').click();
 
             // this.$('#sidepos').hover(function(){
             //     $('.answers').addClass('side');
@@ -231,13 +232,15 @@ define([
             // });
 
             $('.panel').hide();
-            this.$el.show();
 
-            this.$('.question').css('opacity',0);
+
+            this.$('.questiongroup').css('opacity',0);
             //this.$('.answers li').hide();
 
-            this.$('.question').animate({
-                opacity: 1
+            this.$el.show();
+
+            this.$('.questiongroup').animate({
+                opacity: 1,
                 //marginLeft: 0
             }, 500);
 
