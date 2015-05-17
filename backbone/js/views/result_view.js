@@ -38,9 +38,14 @@ define([
         render: function(){
             console.log(this.model.get('data'));
             $(this.el).html(this.template(this.model.attributes));
+            //this.$('.questiongroup').css('opacity',0);
             $('.panel').hide();
-            this.$el.show();
             this.$('.products li:first-child').click();
+            this.$el.show();
+            // this.$('.questiongroup').animate({
+            //     opacity: 1,
+            //     //marginLeft: 0
+            // }, 500);
         },
     });
 

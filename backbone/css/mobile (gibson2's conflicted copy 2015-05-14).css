@@ -59,7 +59,7 @@
 
 /* Portrait */
 @media only screen
-  and (max-width: 800px){
+  and (max-device-width: 800px){
 
       body{
           background-position:center center;
@@ -239,45 +239,29 @@
           margin: 10px 0% 0px 0%;
       }
 
-      #question.panel.q3 .questiongroup .answers.beta, #question.panel.q3 .questiongroup .answers.gamma{
+      #question.panel.q3 .questiongroup .answers.beta{
           width:100%;
-          height:60%;
+          height:45%;
           margin:0%;
       }
 
-      #question.panel.q3 .questiongroup .answers.beta li, #question.panel.q3 .questiongroup .answers.gamma li{
+      #question.panel.q3 .questiongroup .answers.beta li{
           width:100%;
-          height:47%;
-          margin-top:-20%;
-      }
-
-      #question.panel.q3 .questiongroup .answers.beta li:first-child, #question.panel.q3 .questiongroup .answers.gamma li:first-child{
+          height:50%;
           margin-top:0%;
       }
 
-      #question.panel.q3 .questiongroup .answers.beta li a, #question.panel.q3 .questiongroup .answers.gamma li a{
+      #question.panel.q3 .questiongroup .answers.beta li:first-child{
+          margin-top:0%;
+      }
+
+      #question.panel.q3 .questiongroup .answers.beta li a{
           height:100%;
           background-position-x:100%;
       }
 
       #question.panel.q3 .questiongroup .answers.beta, #question.panel.q3 .questiongroup .answers.gamma {
           top: 25%;
-      }
-
-      #question.panel.q3 .questiongroup .answers.beta li a, #question.panel.q3 .questiongroup .answers.gamma li a {
-          width: 100%;
-          height: 90px;
-      }
-
-      #question.panel.q3 .questiongroup .answers.beta li.dkcontinue a, #question.panel.q3 .questiongroup .answers.gamma li.dkcontinue a {
-          left: 0%;
-          width: auto;
-          height: auto;
-          float: left;
-          clear: both;
-          margin: 10% 5px;
-          position: static;
-          padding: 5px;
       }
 
       .ui-widget-content .ui-state-default {

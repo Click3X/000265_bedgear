@@ -92,7 +92,7 @@ require([
 
         SetWindowZoom = function(){
             $('#windowzoom').remove();
-            if($(window).width() > 700){
+            if($(window).width() > 800){
                 var scaleval = ($(window).width()/1280);
                 if(scaleval > 1) scaleval = 1;
                 var style = $('<style id="windowzoom">.panel .windowzoom{-ms-transform: scale('+scaleval+');-webkit-transform: scale('+scaleval+');-moz-transform: scale('+scaleval+');transform: scale('+scaleval+');}</style>');
@@ -124,26 +124,28 @@ require([
             if( currentQues >= LAST_QUESTION_NUMBER ){
                 // If the quesiton pointer is at the end of the question array
                 //panel['result'].Load();
-                console.log("Loading Result...");
-                var tally = {
-                    bitTotal:0,
-                    arrAnswers:[],
-                };
-                if(arrHistory.length <= 0) tally.bitTotal = 33040;
-                for( var idx in arrHistory ){
-                    tally.bitTotal += parseInt(arrHistory[idx].get('answerBit'),10);
-                    tally.arrAnswers.push({'answerId':arrHistory[idx].get('answerChoice'),'surveyDetail':arrHistory[idx].get('answerDetail')});
-                    console.log('tally',tally);
-                }
-                result_model.set('id', tally.bitTotal);
-                result_model.set('bitTotal', tally.bitTotal);
-                result_model.set('arrAnswers', tally.arrAnswers);
-                result_model.fetch({success:function(){
-                    $.post(API_PATH+'survey/',{'answers':JSON.stringify(tally.arrAnswers)},function(response){
-                        console.log('survey data sent',response);
-                        result_model.set('sessionId', response.data.sessionId);
-                    });
-                }});
+                $('#question .fadeout').fadeOut(function(){
+                    console.log("Loading Result...");
+                    var tally = {
+                        bitTotal:0,
+                        arrAnswers:[],
+                    };
+                    if(arrHistory.length <= 0) tally.bitTotal = 33040;
+                    for( var idx in arrHistory ){
+                        tally.bitTotal += parseInt(arrHistory[idx].get('answerBit'),10);
+                        tally.arrAnswers.push({'answerId':arrHistory[idx].get('answerChoice'),'surveyDetail':arrHistory[idx].get('answerDetail')});
+                        console.log('tally',tally);
+                    }
+                    result_model.set('id', tally.bitTotal);
+                    result_model.set('bitTotal', tally.bitTotal);
+                    result_model.set('arrAnswers', tally.arrAnswers);
+                    result_model.fetch({success:function(){
+                        $.post(API_PATH+'survey/',{'answers':JSON.stringify(tally.arrAnswers)},function(response){
+                            console.log('survey data sent',response);
+                            result_model.set('sessionId', response.data.sessionId);
+                        });
+                    }});
+                });
             }else{
                 // Load up the latest question
                 if(pSub){
@@ -158,7 +160,7 @@ require([
             }
         };
 
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width()<800 ) {
             $('html').addClass('mobile');
         }
 
