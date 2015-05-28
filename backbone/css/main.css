@@ -5,6 +5,11 @@ html, body{
     font-size:36px;
     width: 100%;
     height: 100%;
+    /*-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select:none;
+    user-select:none;
+    -o-user-select:none;*/
 }
 
 body{
@@ -199,6 +204,8 @@ border: none;
     -o-user-select: none;
     user-select: none;
 }
+
+/*.ui-widget-content .ui-state-default:focus {outline:0;}*/
 
 /* selected link */
 .ui-widget-content .ui-state-default:link,
