@@ -57,6 +57,42 @@
     animation:         fadein 1s ease-out 1s 1 normal forwards;
 }
 
+@media only screen
+  and (max-width: 1024px){
+
+      .questiongroup h1 {
+          margin-top: 50px;
+          font-size: 50px;
+      }
+
+      .questiongroup .yesno {
+          margin: -52px 0px 0px 0px;
+      }
+
+      .questiongroup ul.yesno li a, .questiongroup li a, .questiongroup .answers li label {
+          padding: 12px 0px;
+          font-weight: 300;
+          font-style: normal;
+          font-size: 12px;
+      }
+
+      .questiongroup ul.yesno li{
+          padding:0px;
+          margin:0px;
+      }
+
+      .questiongroup .answers .multichoice {
+          margin-top: 70px;
+      }
+
+      .questiongroup .answers {
+          width:80%;
+          min-height: 250px;
+          padding: 20px 10% 30px 10%;
+    }
+
+}
+
 /* Portrait */
 @media only screen
   and (max-width: 800px){
@@ -171,18 +207,19 @@
           float:left;
           margin:0px;
           padding:0px;
+          left:50%;
       }
 
       #intro.panel .questiongroup .avatargroup .zoomer.male, #question.q1.panel .questiongroup .avatargroup .zoomer.male{
           top:0%;
           left:0%;
-          transform-origin: 30% 10%;
+          transform-origin: 50% 10%;
       }
 
       #intro.panel .questiongroup .avatargroup .zoomer.female, #question.q1.panel .questiongroup .avatargroup .zoomer.female{
           bottom:0%;
           left:0%;
-          transform-origin: 30% 90%;
+          transform-origin: 50% 90%;
       }
 
       #question.panel.q2 .questiongroup ul li a {

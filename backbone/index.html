@@ -175,8 +175,8 @@
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
-                                <h2 class="beta">In which position do you usually fall asleep?</h2>
-                                <h2 class="gamma">In which position do you usually wake up?</h2>
+                                <h2 class="beta">In which position do you fall asleep?</h2>
+                                <h2 class="gamma">In which position do you wake up?</h2>
                                 <ul class="multichoice" style="display:none;">
                                     <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><input type="radio" name="sleeppos" answerText="<%=answers[answer].answerText%>" answerId="<%=answers[answer].answerId%>" value="<%=answers[answer].answerBitpos%>"><label><%=answers[answer].answerText%></label></li>
