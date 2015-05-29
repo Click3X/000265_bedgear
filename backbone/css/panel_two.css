@@ -43,10 +43,10 @@
     -webkit-transform: scale(1.5) translate(47%,-4%);
     -moz-transform: scale(1.5) translate(47%,-4%);
     transform: scale(1.5) translate(47%,-4%);
-    -webkit-animation: bodyzoommale 1.7s ease-out 0s 1 normal forwards;
-	-moz-animation:    bodyzoommale 1.7s ease-out 0s 1 normal forwards;
-	-o-animation:      bodyzoommale 1.7s ease-out 0s 1 normal forwards;
-	animation:         bodyzoommale 1.7s ease-out 0s 1 normal forwards;
+    -webkit-animation: bodyzoommale 1.7s ease-out 1s 1 normal forwards;
+	-moz-animation:    bodyzoommale 1.7s ease-out 1s 1 normal forwards;
+	-o-animation:      bodyzoommale 1.7s ease-out 1s 1 normal forwards;
+	animation:         bodyzoommale 1.7s ease-out 1s 1 normal forwards;
 }
 
 #question.panel.q2 .avatar.male{
@@ -174,7 +174,7 @@
 
 #question.panel.q2 .questiongroup .answers {
     min-height: 100px;
-    width: 70%;
+    width: 80%;
     margin: 0% 0%;
     background-image:url('../img/bodytype_flare.png');
     background-repeat:no-repeat;

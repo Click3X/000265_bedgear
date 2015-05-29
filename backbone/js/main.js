@@ -176,7 +176,7 @@ require([
         PreLoader($('body'));
         //intro_view.HandleAnimate();
 
-        NextQuestion();
+        //NextQuestion();
 
     });
 });
