@@ -92,17 +92,18 @@ require([
 
         SetWindowZoom = function(){
             $('#windowzoom').remove();
-            if($(window).width() > 800){
+            //alert($(window).width()/1280);
+            //if($(window).width() > 800){
                 var scaleval = ($(window).width()/1280);
                 if(scaleval > 1) scaleval = 1;
                 var style = $('<style id="windowzoom">.panel .windowzoom{-ms-transform: scale('+scaleval+');-webkit-transform: scale('+scaleval+');-moz-transform: scale('+scaleval+');transform: scale('+scaleval+');}</style>');
                 $('html > head').append(style);
-            }else{
-                var scaleval = ($(window).width()/1024);
-                if(scaleval > 1) scaleval = 1;
-                var style = $('<style id="windowzoom">#intro.panel .questiongroup .avatargroup .zoomer, #question.panel.q1 .questiongroup .avatargroup .zoomer, #question.panel.q3 .betas.windowzoom, #question.panel.q3 .gammas.windowzoom{-ms-transform: scale('+scaleval+');-webkit-transform: scale('+scaleval+');-moz-transform: scale('+scaleval+');transform: scale('+scaleval+');}</style>');
-                $('html > head').append(style);
-            }
+            //}else{
+            //    var scaleval = ($(window).width()/1024);
+            //    if(scaleval > 1) scaleval = 1;
+            //    var style = $('<style id="windowzoom">#intro.panel .questiongroup .avatargroup .zoomer, #question.panel.q1 .questiongroup .avatargroup .zoomer, #question.panel.q3 .betas.windowzoom, #question.panel.q3 .gammas.windowzoom{-ms-transform: scale('+scaleval+');-webkit-transform: scale('+scaleval+');-moz-transform: scale('+scaleval+');transform: scale('+scaleval+');}</style>');
+            //    $('html > head').append(style);
+            //}
         };
 
         // Pop the current question off the history stack and load the last question from memory
