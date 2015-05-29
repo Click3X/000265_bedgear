@@ -33,7 +33,7 @@
 	animation:         inherit;
 }
 
-.mobile #question.panel.q2 .zoomer.male, .mobile #question.panel.q2 .avatargroup .zoomer.female{
+/*.mobile #question.panel.q2 .zoomer.male, .mobile #question.panel.q2 .avatargroup .zoomer.female{
     -webkit-animation: inherit;
 	-moz-animation:    inherit;
 	-o-animation:      inherit;
@@ -55,7 +55,7 @@
     -moz-animation:    fadein 1s ease-out 1s 1 normal forwards;
     -o-animation:      fadein 1s ease-out 1s 1 normal forwards;
     animation:         fadein 1s ease-out 1s 1 normal forwards;
-}
+}*/
 
 @media only screen
   and (max-width: 1024px){
@@ -95,7 +95,7 @@
 
 /* Portrait */
 @media only screen
-  and (max-width: 800px){
+  and (max-width: 700px){
 
       body{
           background-position:center center;
@@ -110,10 +110,10 @@
       }
 
       .panel .windowzoom {
-          width: 640;
+          /*width: 640;
           height: 100%;
           left: 0%;
-          margin-left: 0px;
+          margin-left: 0px;*/
       }
 
       .questiongroup {
@@ -184,12 +184,12 @@
       }
 
       #intro .questiongroup h1{
-          top:37%;
+          top:27%;
           font-size: 20px;
       }
 
       #question.q1.panel .questiongroup h1{
-          top:45%;
+          top:30%;
       }
 
       #intro .questiongroup h1 span, #question.q1.panel .questiongroup h1 span {
@@ -198,19 +198,19 @@
       }
 
       #intro.panel .questiongroup .answers, #question.q1.panel .questiongroup .answers {
-          height:100%;
-          top:0%;
+          /*height:100%;
+          top:0%;*/
       }
 
-      #intro.panel .questiongroup .avatargroup .zoomer, #question.q1.panel .questiongroup .avatargroup .zoomer{
+      /*#intro.panel .questiongroup .avatargroup .zoomer, #question.q1.panel .questiongroup .avatargroup .zoomer{
           position:absolute;
           float:left;
           margin:0px;
           padding:0px;
           left:50%;
-      }
+      }*/
 
-      #intro.panel .questiongroup .avatargroup .zoomer.male, #question.q1.panel .questiongroup .avatargroup .zoomer.male{
+      /*#intro.panel .questiongroup .avatargroup .zoomer.male, #question.q1.panel .questiongroup .avatargroup .zoomer.male{
           top:0%;
           left:0%;
           transform-origin: 50% 10%;
@@ -220,7 +220,7 @@
           bottom:0%;
           left:0%;
           transform-origin: 50% 90%;
-      }
+      }*/
 
       #question.panel.q2 .questiongroup ul li a {
           font-size: 12px;
@@ -260,7 +260,7 @@
           margin-top: 20px;
       }
 
-      #question.panel.q3 .questiongroup .answers a {
+      #question.panel.q3 .questiongroup .answers li a {
           width: 100%;
           font-size:14px;
           float:right;
@@ -405,4 +405,86 @@
           opacity: 0.5;
       }
 
+}
+
+@media only screen
+  and (max-height: 500px){
+
+      .questiongroup ul li, .yesno li {
+      width: 40%;
+     }
+
+     ul.yesno li a, .questiongroup li a, .questiongroup .answers li label {
+      padding: 6px 0px;
+      font-size: 12px;
+    }
+
+    .questiongroup .answers.temperature #temptable {
+  margin: 0% 5% 0% 5%;
+}
+
+.questiongroup .answers.temperature #tempscale {
+  top: 0%;
+}
+
+.questiongroup .answers.temperature #tempscale .flare {
+  top: 0%;
+}
+
+.questiongroup .answers.temperature {
+  padding: 40px 0% 50px 0%;
+}
+
+    .questiongroup .answers {
+      min-height: 130px;
+    }
+
+    .questiongroup h1 {
+  margin-top: 10px;
+}
+
+.questiongroup .answers .multichoice li {
+  width: 50%;
+  }
+
+  ul.yesno li a, .questiongroup .answers li label {
+  padding: 0px 0px;
+  font-size: 10px;
+}
+
+.questiongroup .answers .multichoice li .customcheck {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  }
+
+      #question.panel.q1 .questiongroup h1 {
+      top: 17%;
+    }
+
+    #intro .questiongroup h1 {
+    top: 17%;
+  }
+
+    #intro.panel .questiongroup .answers {
+  top: 15%;
+}
+
+#question.panel.q1 .questiongroup .answers, #question.panel.q2 .avatargroup {
+  top: 5%;
+}
+
+    #question.panel.q3 .questiongroup .answers li {
+        margin-top: 10px;
+    }
+
+    #result .product {
+        font-size: 14px;
+        padding-top: 80px;
+  }
+
+  #result .product strong {
+  margin-bottom: 10px;
+  margin-top:0px;
+  }
 }
