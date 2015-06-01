@@ -59,12 +59,12 @@ define([
                 $('.questiongroup').removeClass($(val).attr('answerText').split(" ")[0].toLowerCase()+"pos");
             });
             this.$('.answers a').css('color',"");
-            if( this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase() == "multiple" ){
-                this.$('.beta').show();
-            }else{
+            //if( this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase() == "multiple" ){
+            //    this.$('.beta').show();
+            //}else{
                 this.$('.beta, .gamma').hide();
                 this.$('.questiongroup').addClass(this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase()+"pos");
-            }
+            //}
             this.$('.answers a[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').css('color',"#fff");
             //if( $(evt.target).parent().parent().hasClass('alpha') ){
             //    this.$('.alpha').hide();

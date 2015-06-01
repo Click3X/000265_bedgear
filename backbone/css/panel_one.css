@@ -175,13 +175,76 @@
   }
 }
 @-moz-keyframes zoomin {
+    0%   {
+        border-color:transparent;
+        color:transparent;
+        -webkit-transform: scale(0.66) translate(0%,0%);
+        -moz-transform: scale(0.66) translate(0%,0%);
+        transform: scale(0.66) translate(0%,0%);
+    }
+    50% {
+        -webkit-transform: scale(1) translate(0%,0%);
+        -moz-transform: scale(1) translate(0%,0%);
+        transform: scale(1) translate(0%,0%);
+    }
+    70% {
+        border-color:transparent;
+        color:transparent;
 
+    }
+    100% {
+        -webkit-transform: scale(1) translate(0%,0%);
+        -moz-transform: scale(1) translate(0%,0%);
+        transform: scale(1) translate(0%,0%);
+    }
 }
 @-o-keyframes zoomin {
+    0%   {
+        border-color:transparent;
+        color:transparent;
+        -webkit-transform: scale(0.66) translate(0%,0%);
+        -moz-transform: scale(0.66) translate(0%,0%);
+        transform: scale(0.66) translate(0%,0%);
+    }
+    50% {
+        -webkit-transform: scale(1) translate(0%,0%);
+        -moz-transform: scale(1) translate(0%,0%);
+        transform: scale(1) translate(0%,0%);
+    }
+    70% {
+        border-color:transparent;
+        color:transparent;
 
+    }
+    100% {
+        -webkit-transform: scale(1) translate(0%,0%);
+        -moz-transform: scale(1) translate(0%,0%);
+        transform: scale(1) translate(0%,0%);
+    }
 }
 @keyframes zoomin {
+    0%   {
+        border-color:transparent;
+        color:transparent;
+        -webkit-transform: scale(0.66) translate(0%,0%);
+        -moz-transform: scale(0.66) translate(0%,0%);
+        transform: scale(0.66) translate(0%,0%);
+    }
+    50% {
+        -webkit-transform: scale(1) translate(0%,0%);
+        -moz-transform: scale(1) translate(0%,0%);
+        transform: scale(1) translate(0%,0%);
+    }
+    70% {
+        border-color:transparent;
+        color:transparent;
 
+    }
+    100% {
+        -webkit-transform: scale(1) translate(0%,0%);
+        -moz-transform: scale(1) translate(0%,0%);
+        transform: scale(1) translate(0%,0%);
+    }
 }
 
 #question.panel.q1 h1{

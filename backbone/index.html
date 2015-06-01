@@ -143,12 +143,12 @@
                             <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
                             <div class="avatargroup windowzoom">
                                 <div class="zoomer male">
-                                    <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/zoom_male_10fps.png')">
+                                    <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/zoom_male_static.png')">
                                         <span></span>
                                     </a>
                                 </div>
                                 <div class="zoomer female">
-                                    <a href="#" onclick="return false;" class="avatar gender female" style="background-image:url('img/zoom_female_10fps.png')">
+                                    <a href="#" onclick="return false;" class="avatar gender female" style="background-image:url('img/zoom_female_static.png')">
                                         <span></span>
                                     </a>
                                 </div>
@@ -182,7 +182,7 @@
                                     <li style="display: list-item; margin-left: 0px;"><input type="radio" name="sleeppos" answerText="<%=answers[answer].answerText%>" answerId="<%=answers[answer].answerId%>" value="<%=answers[answer].answerBitpos%>"><label><%=answers[answer].answerText%></label></li>
                                     <% } %>
                                 </ul>
-                                <ul class="answers sleeppos windowzoom alpha">
+                                <ul class="answers sleeppos alpha">
                                     <% for( answer in answers ){ %>
                                         <li style="display: list-item; margin-left: 0px;"><a href="#" class="spsub" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
                                     <% } %>
@@ -366,8 +366,8 @@
             <img src="" cache="img/sleepposition_stomach_male.png"/>
             <img src="" cache="img/temperature_flare.png"/>
             <img src="" cache="img/temperature_tab.png"/>
-            <img src="" cache="img/zoom_female_10fps.png"/>
-            <img src="" cache="img/zoom_male_10fps.png"/>
+            <img src="" cache="img/zoom_female_static.png"/>
+            <img src="" cache="img/zoom_male_static.png"/>
         </div>
 
         <script data-main="js/main" src="js/vendor/require.min.js"></script>
