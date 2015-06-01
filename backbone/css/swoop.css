@@ -226,7 +226,7 @@
 	animation:         fadeinmax 1s linear 2s 1 normal forwards;
 }
 
-.introanim #canvas{
+#canvas{
 	-webkit-animation: fadein 5s linear 2s 1 normal forwards;
 	-moz-animation:    fadein 5s linear 2s 1 normal forwards;
 	-o-animation:      fadein 5s linear 2s 1 normal forwards;

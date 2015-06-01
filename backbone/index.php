@@ -70,9 +70,9 @@
             <div id="header-container">
 
             </div>
-
             <div id="page-container">
                 <div id="page-content">
+                    <div id="canvas"></div>
                     <div id="intro" class="panel">
                         <script type="text/template" id="intro-template">
 
@@ -91,7 +91,6 @@
                             <!--<span class="bubble">
                                 <span class="glow"> </span>
                             </span>-->
-                            <div id="canvas"></div>
                             <div class="questiongroup">
                                 <h1 class="fadeout">Discover the ultimate performance pillow<span>Determine the right pillow for you</span>
                                     <a href="#" class="start">Start</a>
@@ -369,7 +368,78 @@
             <img src="" cache="img/zoom_female_static.png"/>
             <img src="" cache="img/zoom_male_static.png"/>
         </div>
+        <script type="text/javascript">
 
+            var paper, circs, i, nowX, nowY, timer, props = {}, toggler = 0, elie, dx, dy, rad, cur, opa;
+            // Returns a random integer between min and max
+            // Using Math.round() will give you a non-uniform distribution!
+            function ran(min, max)
+            {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function moveIt()
+            {
+                for(i = 0; i < circs.length; ++i)
+                {
+                      // Reset when time is at zero
+                    if (! circs[i].time)
+                    {
+                        circs[i].time  = 10000;
+                        circs[i].deg   = ran(-179, 180);
+                        circs[i].vel   = ran(1, 2);
+                        circs[i].curve = ran(0, 1);
+                        circs[i].fade  = ran(0, 0.5);
+                        circs[i].grow  = ran(-20, 20);
+                    }
+                        // Get position
+                    nowX = circs[i].attr("cx");
+                    nowY = circs[i].attr("cy");
+                       // Calc movement
+                    dx = circs[i].vel * Math.cos(circs[i].deg * Math.PI/180);
+                    dy = circs[i].vel * Math.sin(circs[i].deg * Math.PI/180);
+                        // Calc new position
+                    nowX += dx;
+                    nowY += dy;
+                        // Calc wrap around
+                    //if (nowX < 0) nowX = ((window.innerWidth*.75)-20) + nowX;
+                    //else          nowX = nowX % ((window.innerWidth*.25)-20);
+                    //if (nowY < 0) nowY = ((window.innerHeight*.75)-20) + nowY;
+                    //else          nowY = nowY % ((window.innerHeight*.25)-20);
+
+                        // Render moved particle
+                    circs[i].attr({cx: nowX, cy: nowY});
+
+                        // Calc growth
+                    rad = circs[i].attr("r");
+                    if (circs[i].grow > 0) circs[i].attr("r", Math.min(10, rad +  .1));
+                    else                   circs[i].attr("r", Math.max(1,  rad -  .1));
+
+                        // Calc curve
+                    if (circs[i].curve > 0) circs[i].deg = circs[i].deg + ran(0, 2);
+                    else                    circs[i].deg = circs[i].deg - ran(0, 2);
+
+                        // Calc opacity
+                    opa = circs[i].attr("fill-opacity");
+                    if (circs[i].fade > 0) {
+                        circs[i].attr("fill-opacity", Math.max(.1, opa -  .05));
+                        circs[i].attr("stroke-opacity", Math.max(.05, opa -  .01)); }
+                    else {
+                        circs[i].attr("fill-opacity", Math.min(.1, opa +  .05));
+                        circs[i].attr("stroke-opacity", Math.min(.05, opa +  .01)); }
+
+                    // Progress timer for particle
+                    circs[i].time = circs[i].time - 1;
+
+                        // Calc damping
+                    //if (circs[i].vel < 1) circs[i].time = 0;
+                    //else circs[i].vel = circs[i].vel - .05;
+
+                }
+                timer = setTimeout(moveIt, 60);
+            }
+
+        </script>
         <script data-main="js/main" src="js/vendor/require.min.js"></script>
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
