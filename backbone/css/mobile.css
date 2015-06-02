@@ -382,13 +382,12 @@
           font-size: 24px;
       }
 
-      #result a.buy, #result a.email {
-          width: 46%;
+      #result a.buy, #result a.email, #result a.detail {
+          width: 33%;
           padding: 5px 0px;
           font-size: 11px;
           float: left;
           text-align: center;
-          margin-left: 2%;
       }
 
       #result .products li {

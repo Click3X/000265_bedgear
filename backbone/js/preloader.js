@@ -74,6 +74,7 @@ function ShowImages(){
 function HideLoader(){
 	$('#preloader').remove();
 	intro_view.HandleAnimate();
+	//NextQuestion();
 }
 
 function DisplayLoader(pTarget){

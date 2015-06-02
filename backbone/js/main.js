@@ -11,7 +11,7 @@ if(window.location.href.indexOf("9000")>0){
 
 var arrHistory = Array();
 var arrQuestions = Array();
-var currentQues = 0;
+var currentQues = 7;
 var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion,SetWindowZoom;
 var glgender = "male";
 
@@ -121,11 +121,12 @@ require([
 
         // Increment the question array pointer and load the appropriate panel
         NextQuestion = function(pSub){
-            console.log('pSub', pSub);
+            console.log("NEXT!");
+            //console.log('pSub', pSub);
             if( currentQues >= LAST_QUESTION_NUMBER ){
                 // If the quesiton pointer is at the end of the question array
                 //panel['result'].Load();
-                $('#question .fadeout').fadeOut(function(){
+//                $('#question .fadeout').fadeOut(function(){
                     console.log("Loading Result...");
                     var tally = {
                         bitTotal:0,
@@ -146,7 +147,7 @@ require([
                             result_model.set('sessionId', response.data.sessionId);
                         });
                     }});
-                });
+//                });
             }else{
                 // Load up the latest question
                 if(pSub){
@@ -177,7 +178,7 @@ require([
         PreLoader($('body'));
         //intro_view.HandleAnimate();
 
-        //NextQuestion();
+        NextQuestion();
 
     });
 });

@@ -1,21 +1,17 @@
 <?php
 
-class Product_Model extends CI_Model
+class Benefit_Model extends CI_Model
 {
-	var $table = "tblProduct";
-	var $pk = "productId";
-	var $ds = "productTimeStamp";  //Default sortby field
-	var $rq = "productName";		//Required field (you'll need to mod the form validation if there isn't one)
+	var $table = "tblBenefit";
+	var $pk = "benefitId";
+	var $ds = "benefitTimeStamp";  //Default sortby field
+	var $rq = "benefitName";		//Required field (you'll need to mod the form validation if there isn't one)
 	var $fields = array(
-		 'productName' => array('label'=>'Name','type'=>'varchar','constraint'=>100),
-		 'productText' => array('label'=>'Text','type'=>'varchar','constraint'=>255),
-		'productImage' => array('label'=>'Image','type'=>'varchar','constraint'=>200),
-		'productUrl' => array('label'=>'Url','type'=>'varchar','constraint'=>200),
-		'productStoreUrl' => array('label'=>'Url','type'=>'varchar','constraint'=>200),
+		 'benefitName' => array('label'=>'Name','type'=>'varchar','constraint'=>200),
+		 'productId' => array('label'=>'Product','type'=>'int','constraint'=>11),
+		 'benefitX' => array('label'=>'X Pos','type'=>'varchar','constraint'=>20),
+		 'benefitY' => array('label'=>'Y Pos','type'=>'varchar','constraint'=>20),
 		);
-
-
-
 
 	/** Utility Methods **/
 	function _required($required, $data)

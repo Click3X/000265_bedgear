@@ -16,7 +16,8 @@ define([
             //alert(this.$('.product').css());
             this.$('.product').css('background-image',"url('img/products/"+$(evt.currentTarget).attr('pimg')+"')");
             this.$('.product strong').html($(evt.currentTarget).attr('pname'));
-            this.$('.product .buy').attr('href',$(evt.currentTarget).attr('purl'));
+            this.$('.product .buy').attr('href',$(evt.currentTarget).attr('psurl'));
+            this.$('.product .detail').attr('href',$(evt.currentTarget).attr('purl'));
             this.$('.products li').removeClass('selected');
             $(evt.currentTarget).addClass('selected');
         },
