@@ -26,11 +26,13 @@ define([
                         $('<span>').html(benes[idx].benefitName).hide()
 
                     ).append(
-                        $('<a>').attr('href','#').html('&nbsp;')
-                            .mouseenter(function(){
+                        $('<a>').attr('href','#').append(
+                                $('<img>').attr('src','img/hotspot.png')
+                            )
+                            .mouseover(function(){
                                 $(this).parent().find('span').show();
                             })
-                            .mouseleave(function(){
+                            .mouseout(function(){
                                 $(this).parent().find('span').hide();
                             })
                     ).css('margin-top',benes[idx].benefitY+'px')
