@@ -38,6 +38,7 @@
         <meta name="msapplication-TileImage" content="icons/mstile-144x144.png">
         <meta name="msapplication-config" content="icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <!-- end icons -->
         <link rel="stylesheet" type="text/css" media="all" href="css/responsiveboilerplate.css">
         <link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui.min.css">
@@ -55,6 +56,7 @@
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/1.5.2/raphael-min.js"></script>
+
         <script src="js/master.js"></script>
         <script type="text/javascript">
             var base_url    = "";
@@ -92,7 +94,7 @@
                                 <span class="glow"> </span>
                             </span>-->
                             <div class="questiongroup">
-                                <h1 class="fadeout">Discover the ultimate performance pillow<span>Determine the right pillow for you</span>
+                                <h1 class="fadeout">Discover the ultimate<br/>performance pillow<span>Determine the right pillow for you</span>
                                     <a href="#" class="start">Start</a>
                                 </h1>
 
@@ -139,7 +141,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question2-template">
-                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
+                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="avatargroup windowzoom">
                                 <div class="zoomer male">
                                     <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/zoom_male_static.png')">
@@ -170,7 +172,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question3-template">
-                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
+                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -202,7 +204,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question4-template">
-                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
+                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -214,13 +216,12 @@
                             </div>
                         </script>
                         <script type="text/template" id="question5-template">
-                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
+                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
                                 <div class="answers temperature">
                                     <div id="tempscale">
-                                        <img class="flare" src="img/temperature_flare.png"/>
                                         <table id="temptable" border="1">
                                             <tr>
                                                 <td colspan="1" width="10%" class="cold" style="text-align:center;">Cold</td>
@@ -247,7 +248,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question6-template">
-                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
+                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -267,7 +268,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question7-template">
-                            <a href="#" class="back">&lt;</a><a href="#" class="help">?</a>
+                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -353,12 +354,12 @@
             <img src="" cache="img/bodytype_petite_male.png"/>
             <img src="" cache="img/rotation_female_10fps.png"/>
             <img src="" cache="img/rotation_male_10fps.png"/>
-            <img src="" cache="img/sleeppos_multiple_back_female.png"/>
+            <!--<img src="" cache="img/sleeppos_multiple_back_female.png"/>
             <img src="" cache="img/sleeppos_multiple_back_male.png"/>
             <img src="" cache="img/sleeppos_multiple_side_female.png"/>
             <img src="" cache="img/sleeppos_multiple_side_male.png"/>
             <img src="" cache="img/sleeppos_multiple_stomach_female.png"/>
-            <img src="" cache="img/sleeppos_multiple_stomach_male.png"/>
+            <img src="" cache="img/sleeppos_multiple_stomach_male.png"/>-->
             <img src="" cache="img/sleepposition_back_female.png"/>
             <img src="" cache="img/sleepposition_back_male.png"/>
             <img src="" cache="img/sleepposition_multiple_female.png"/>
