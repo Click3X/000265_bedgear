@@ -370,71 +370,114 @@ bottom: 300px;
     margin-left:-640px;
 }
 
+#result.panel .questiongroup{
+    width: 100%;
+  margin: 10px 0%;
+}
+
 #result a.buy, #result a.email, #result a.detail{
     position:absolute;
     display: block;
-  font-weight: 300;
-  background: transparent;
-  color: #fff;
-  border-radius: 0px;
-  width: 33%;
-  padding: 5px 0px;
-  border: solid 1px #5da6f5;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 20px;
-  float: left;
-  text-align: center;
-  margin: 0%;
+    font-weight: 300;
+    background: transparent;
+    color: #fff;
+    border-radius: 0px;
+    width: 26%;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 9px 0px;
+    border: solid 1px #5da6f5;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    float: left;
+    text-align: center;
+    margin: 0%;
 
 }
 
 #result a.buy{
-    left:10%;
-    margin-top:100px;
+    left:8%;
+    margin-top:60px;
 }
 
 #result a.email{
-    right:10%;
-    margin-top:100px;
+    right:8%;
+    margin-top:60px;
 }
 
 #result a.detail{
-    left:33%;
-    margin-top:50px;
+    left:37%;
+    margin-top:60px;
 }
 
 .female #result a.buy, .female #result a.email{
     border-color: rgba(252,138,252,0.9);
 }
 
-#result .product{
-    width: 100%;
+#result .hero{
+    position: absolute;
+    width: 1280px;
+    height: 400px;
+    top: 10%;
+}
+
+#result div.product{
+    width: 1280px;
+    height: 400px;
     float: left;
     background-size: contain;
     background-repeat: no-repeat;
     text-align: center;
     font-size: 20px;
     font-weight: normal;
-    padding-top: 200px;
-    background-position: center -40px;
+    padding: 0px;
+    background-position: center center;
 }
 
-#result .product strong{
+#result div.product .hotspot{
+    width:400px;
+    position:absolute;
+}
+
+#result div.product .hotspot a{
+    display:block;
+    float:right;
+    width:50px;
+    height:50px;
+    border:solid 1px #f00;
+}
+
+#result div.product .hotspot span{
+    display:block;
+    float:left;
+    width:330px;
+    font-size:24px;
+}
+
+#result strong.product{
     display:block;
     width:100%;
     text-align:center;
     font-size:36px;
     float:left;
     clear:both;
-    margin-bottom:40px;
+    margin-bottom:50px;
     font-weight:normal;
 }
 
+#result .controlgroup{
+    width: 100%;
+    /* float: left; */
+    position: absolute;
+    bottom: 30%;
+}
+
 #result .products{
-    width:100%;
-    float:left;
-    margin-top:100px;
+    width: 100%;
+    /* float: left; */
+    position: absolute;
+    bottom: 5%;
 }
 
 #result .products li{
@@ -444,10 +487,11 @@ bottom: 300px;
     margin-left: 2%;
     background-size: contain;
     background-repeat: no-repeat;
+    background-position:center center;
     text-align: center;
     font-size: 20px;
     font-weight: normal;
-    padding-top: 150px;
+    padding-top: 125px;
     opacity: 0.5;
 }
 

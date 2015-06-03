@@ -14,8 +14,32 @@ define([
         },
         HandleProductClick: function(evt){
             //alert(this.$('.product').css());
-            this.$('.product').css('background-image',"url('img/products/"+$(evt.currentTarget).attr('pimg')+"')");
-            this.$('.product strong').html($(evt.currentTarget).attr('pname'));
+
+            this.$('div.product').empty();
+
+            console.log("DATA",this.model.get('data')[$(evt.currentTarget).attr('pidx')].benefits);
+
+            var benes = this.model.get('data')[$(evt.currentTarget).attr('pidx')].benefits;
+            for( idx in benes ){
+                this.$('div.product').append(
+                    $('<div>').addClass('hotspot').append(
+                        $('<span>').html(benes[idx].benefitName).hide()
+
+                    ).append(
+                        $('<a>').attr('href','#').html('&nbsp;')
+                            .mouseenter(function(){
+                                $(this).parent().find('span').show();
+                            })
+                            .mouseleave(function(){
+                                $(this).parent().find('span').hide();
+                            })
+                    ).css('margin-top',benes[idx].benefitY+'px')
+                    .css('margin-left',benes[idx].benefitX+'px'));
+
+            }
+
+            this.$('div.product').css('background-image',"url('img/products/"+$(evt.currentTarget).attr('pimg')+"')");
+            this.$('strong.product').html($(evt.currentTarget).attr('pname'));
             this.$('.product .buy').attr('href',$(evt.currentTarget).attr('psurl'));
             this.$('.product .detail').attr('href',$(evt.currentTarget).attr('purl'));
             this.$('.products li').removeClass('selected');

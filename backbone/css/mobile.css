@@ -378,9 +378,11 @@
           background-position: center 0px;
       }
 
-      #result .product strong {
+      #result strong.product  {
           font-size: 24px;
       }
+
+      
 
       #result a.buy, #result a.email, #result a.detail {
           width: 33%;
@@ -388,6 +390,21 @@
           font-size: 11px;
           float: left;
           text-align: center;
+      }
+
+      #result a.buy{
+          left:10%;
+          margin-top:100px;
+      }
+
+      #result a.email{
+          right:10%;
+          margin-top:100px;
+      }
+
+      #result a.detail{
+          left:33%;
+          margin-top:50px;
       }
 
       #result .products li {
