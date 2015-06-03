@@ -14,17 +14,17 @@ function PreLoader(pTarget)
 {
 	if( $(pTarget).find('img').length > 0 ){
 		imgCt += $(pTarget).find('img').length;
-		console.log('imgCt: '+imgCt);
+		//console.log('imgCt: '+imgCt);
 		DisplayLoader(pTarget);
 		ErrCk();
 		$(pTarget).find('img').each(function(index) {
-	    	console.log(index + ': ' + $(this).attr('cache'));
+	    	//console.log(index + ': ' + $(this).attr('cache'));
 	    	var _image = new Image();
-	    	console.log('loading image: '+$(this).attr('cache'));
+	    	//console.log('loading image: '+$(this).attr('cache'));
 	        _image.src = $(this).attr('cache');
 	        $(_image).error(function(e) {
 	        	// There needs to be a way to handle a required image on error
-	        	//console.log(e.target.html);
+	        	////console.log(e.target.html);
 	        	//input[value="Hot Fuzz"]
 	    		CheckImageLoad();
 	  		}).load( function(){CheckImageLoad(pTarget)} );
@@ -36,7 +36,7 @@ function PreLoader(pTarget)
 function ErrCk(){
 	//alert("ErrCk: "+ctCk+":"+imgCt);
 	if( ctCk === imgCt){
-		ShowImages();
+		//ShowImages();
 	}else{
 		ctCk = imgCt;
 		timeoutCk = setTimeout(ErrCk, 8000);
@@ -46,16 +46,16 @@ function ErrCk(){
 }
 
 function CheckImageLoad(pTarget){
-	console.log('Checking against '+$(pTarget).find('img').length+' images');
+	//console.log('Checking against '+$(pTarget).find('img').length+' images');
 	if($(pTarget).find('img').length > 0){
-		console.log(Math.floor((($(pTarget).find('img').length-(imgCt-1))/$(pTarget).find('img').length)*100)+'%');
+		//console.log(Math.floor((($(pTarget).find('img').length-(imgCt-1))/$(pTarget).find('img').length)*100)+'%');
 		$('#preloader h2').html(Math.floor((($(pTarget).find('img').length-(imgCt-1))/$(pTarget).find('img').length)*100)+'%');
 	}
 	if( imgCt > 1 ){
-    	console.log('imgCt: '+imgCt);
+    	//console.log('imgCt: '+imgCt);
     	imgCt--;
     }else{
-    	console.log('load set');
+    	//console.log('load set');
     	imgCt=0;
     	ShowImages();
     }
@@ -64,7 +64,7 @@ function CheckImageLoad(pTarget){
 function ShowImages(){
 	$('img').each(function(index) {
 		if($(this).attr('cache')){
-			console.log(index + ': ' + $(this).attr('cache'));
+			//console.log(index + ': ' + $(this).attr('cache'));
 			$(this).attr('src', $(this).attr('cache'));
 		}
 	});
@@ -78,7 +78,7 @@ function HideLoader(){
 }
 
 function DisplayLoader(pTarget){
-	console.log('Loading: '+pTarget.css('height')+', '+pTarget.css('width'));
+	//console.log('Loading: '+pTarget.css('height')+', '+pTarget.css('width'));
 	var divLoader = $('<div></div>');
 	divLoader.attr('id','preloader');
 	divLoader.css('position','absolute');

@@ -61,7 +61,7 @@
   and (max-width: 1024px){
 
       .questiongroup h1 {
-          margin-top: 50px;
+          margin-top: 100px;
           font-size: 50px;
       }
 
@@ -126,9 +126,14 @@
       }
 
       .questiongroup h1{
-          margin-top:50px;
+          margin-top:100px;
           font-size:25px;
       }
+
+      #question.panel.q2 .questiongroup h1{
+          margin-top:50px;
+      }
+
       .questiongroup h1 span{
           font-size:12px;
           line-height: 20px;
@@ -326,17 +331,25 @@
 
       .questiongroup .answers.temperature #tempscale {
           width:100%;
-          top:-100%;
+          top:0%;
       }
 
       .questiongroup .answers.temperature {
       width: 100%;
-      height:auto;
+      height:50%;
       min-height:100px;
       padding: 20px 0% 50px 0%;
       background:none;
       border:none;
       }
+
+      .questiongroup .answers.temperature #tempscale{
+          height:150px;
+      }
+
+      .questiongroup .answers.temperature #temptable {
+          margin: 30px 5% 0% 5%;
+        }
 
       .questiongroup .answers.temperature #temptable tr td.cold, .questiongroup .answers.temperature #temptable tr td.hot {
           font-size:14px;
@@ -439,17 +452,9 @@
       font-size: 12px;
     }
 
-    .questiongroup .answers.temperature #temptable {
-  margin: 0% 5% 0% 5%;
-}
-
-.questiongroup .answers.temperature #tempscale {
-  top: 0%;
-}
-
-.questiongroup .answers.temperature #tempscale .flare {
-  top: 0%;
-}
+    .questiongroup .answers.temperature #tempscale{
+        margin-top: 15px;
+    }
 
 .questiongroup .answers.temperature {
   padding: 40px 0% 50px 0%;
@@ -460,7 +465,11 @@
     }
 
     .questiongroup h1 {
-  margin-top: 10px;
+  margin-top: 30px;
+}
+
+#question.panel.q2 .questiongroup h1{
+    margin-top:10px;
 }
 
 .questiongroup .answers .multichoice li {

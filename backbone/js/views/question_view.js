@@ -54,17 +54,31 @@ define([
             this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').prop('checked','checked');
 
             console.log(this.$('.multichoice input[name="sleeppos"]:checked').val());
-            $.each(this.$('.multichoice input[name="sleeppos"]'),function(key, val){
-                console.log("remove",$(val).attr('answerText').toLowerCase());
-                $('.questiongroup').removeClass($(val).attr('answerText').split(" ")[0].toLowerCase()+"pos");
-            });
+
             this.$('.answers a').css('color',"");
             //if( this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase() == "multiple" ){
             //    this.$('.beta').show();
             //}else{
-                this.$('.beta, .gamma').hide();
-                this.$('.questiongroup').addClass(this.$('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase()+"pos");
-            //}
+
+
+            this.$('.beta, .gamma').hide();
+
+            this.$('.questiongroup .answers').animate(
+                {
+                    'background-position-x': '100%',
+                }, 400, 'linear', function(){
+                    $.each($('.multichoice input[name="sleeppos"]'),function(key, val){
+                        console.log("remove",$(val).attr('answerText').toLowerCase());
+                        $('.questiongroup').removeClass($(val).attr('answerText').split(" ")[0].toLowerCase()+"pos");
+                    });
+                    $('.questiongroup').addClass($('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase()+"pos");
+                    $('.questiongroup .answers').animate(
+                        {
+                            'background-position-x': '100%',
+                        }, 400, 'linear');
+              });
+
+                            //}
             this.$('.answers a[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').css('color',"#fff");
             //if( $(evt.target).parent().parent().hasClass('alpha') ){
             //    this.$('.alpha').hide();

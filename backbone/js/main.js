@@ -13,7 +13,7 @@ var arrHistory = Array();
 var arrQuestions = Array();
 var arrQCache = Array();
 var currentQues = 0;
-var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion,SetWindowZoom;
+var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion,SetWindowZoom,DevSkip;
 var glgender = "male";
 
 
@@ -22,6 +22,7 @@ require.config({
     paths: {
         jquery:         'js/vendor/jquery.min',
         jquery_ui:      'js/vendor/jquery-ui.min',
+        jquery_touch_punch:      'js/vendor/jquery.ui.touch-punch.min',
         backbone:       'js/vendor/backbone.min',
         underscore:     'js/vendor/underscore.min',
         preloader:      'js/preloader',
@@ -44,6 +45,7 @@ require([
     'result_view',
     'intro_view',
     'jquery_ui',
+    'jquery_touch_punch',
 ], function( $, _, Backbone, Preloader, QuestionModel, ResultModel, QuestionView, ResultView, IntroView ) {
 
     $(document).ready(function(){
@@ -173,6 +175,11 @@ require([
             }
         };
 
+        DevSkip = function(){
+            currentQues = 2;
+            NextQuestion();
+        };
+
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width()<800 ) {
             $('html').addClass('mobile');
         }
@@ -188,8 +195,6 @@ require([
 
         PreLoader($('body'));
         //intro_view.HandleAnimate();
-
-        //NextQuestion();
 
     });
 });

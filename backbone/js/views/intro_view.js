@@ -22,8 +22,9 @@ define([
             return false;
         },
         HandleAnimate: function(evt){
-            console.log('starting quiz');
-            $(this.el).addClass('introanim')
+            console.log('animating intro');
+            $(this.el).addClass('introanim');
+            DevSkip();
             return false;
         },
         HandleProfileResponse: function(self){

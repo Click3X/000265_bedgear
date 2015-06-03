@@ -63,6 +63,7 @@ body div#cachebox{
   height: 40px;
   margin: 0px;
   line-height: 40px;
+  font-size:33px;
   padding: 0px;
   background: transparent;
   color: #fff;
@@ -73,6 +74,14 @@ body div#cachebox{
   border-radius: 45px;
   top: 20px;
   left: 1%;
+}
+
+.panel .back {
+  width: 43px;
+  height: 43px;
+  line-height: 40px;
+  font-size:40px;
+  letter-spacing:3px;
 }
 
 .panel .help{
@@ -123,11 +132,15 @@ body div#cachebox{
 }
 
 .questiongroup h1{
-    margin-top: 30px;
+    margin-top: 80px;
   text-align: center;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 60px;
+}
+
+#question.panel.q2 .questiongroup h, #result .questiongroup h1{
+    margin-top:30px;
 }
 
 .questiongroup h2{
@@ -150,6 +163,7 @@ body div#cachebox{
 
 .questiongroup .answers{
     width: 80%;
+    height:50%;
     min-height:250px;
     margin: 0%;
     background: rgba(0,0,0,0.3);
@@ -168,18 +182,21 @@ body div#cachebox{
 }
 
 .questiongroup .answers.temperature #tempscale{
-
-}
-
-.questiongroup .answers.temperature #tempscale .flare{
+    position:absolute;
+    background: transparent url('../img/temperature_flare.png') center center no-repeat;
+    background-size: cover;
     width:100%;
-    position: absolute;
+    height:250px;
+    margin-top:-25px;
+    top:0%;
 }
 
 .questiongroup .answers.temperature #temptable{
     width: 90%;
-margin: 10% 5% 0% 5%;
-position: relative;
+    margin: 100px 5% 0% 5%;
+    position: relative;
+
+    height: auto;
 }
 
 .questiongroup #temperature{
@@ -204,7 +221,79 @@ border: none;
     -ms-user-select: none; /* IE10+ */
     -o-user-select: none;
     user-select: none;
+
+    /*animation:rotate 20s infinite linear;
+    -webkit-animation:rotate 20s infinite linear;
+    -o-animation:rotate 20s infinite linear;
+    -moz-animation:rotate 20s infinite linear;*/
 }
+
+@-webkit-keyframes rotate {
+    0%{
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@-moz-keyframes rotate {
+    0%{
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@-o-keyframes rotate {
+    0%{
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes rotate {
+    0%{
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+
 
 .ui-widget-content .ui-state-default:focus {outline:0;}
 
@@ -229,11 +318,13 @@ border: none;
     border-radius: 0px;
     width: auto;
     display: block;
-    padding: 5px 50px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 9px 50px;
     border:none;
     text-transform:uppercase;
     text-decoration:none;
-    font-size:20px;
+    /*font-size:20px;*/
     position:absolute;
     bottom:50px;
     left:50%;
@@ -411,7 +502,7 @@ bottom: 300px;
     margin-top:60px;
 }
 
-.female #result a.buy, .female #result a.email{
+.female #result a.buy, .female #result a.email, .female #result a.detail{
     border-color: rgba(252,138,252,0.9);
 }
 

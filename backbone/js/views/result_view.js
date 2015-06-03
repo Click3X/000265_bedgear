@@ -35,6 +35,10 @@ define([
                             .mouseout(function(){
                                 $(this).parent().find('span').hide();
                             })
+                            .click(function(){
+                                $(this).parent().parent().find('span').hide();
+                                $(this).parent().find('span').show();
+                            })
                     ).css('margin-top',benes[idx].benefitY+'px')
                     .css('margin-left',benes[idx].benefitX+'px'));
 
