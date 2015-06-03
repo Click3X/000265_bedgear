@@ -291,14 +291,18 @@
                         <script type="text/template" id="result-template">
                             <div class="questiongroup">
                                 <h1><span>Your</span> Ideal Bedgear</h1>
-                                <div class="product">
-                                    <strong>&nbsp;</strong>
+                                <div class="hero windowzoom">
+                                    <div class="product"></div>
+                                </div>
+                                <div class="controlgroup">
+                                    <strong class="product">&nbsp;</strong>
                                     <a href="" class="buy" target="_blank">Buy Now</a>
+                                    <a href="" class="detail" target="_blank">More Details</a>
                                     <a href="#" class="email" target="_blank">Email Me Results</a>
                                 </div>
                                 <ol class="products">
                                     <% for( product in data ){ %>
-                                        <li style="display: list-item; background-image:url('img/products/<%=data[product].productImage%>');" pname="<%=data[product].productName%>" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>">
+                                        <li style="display: list-item; background-image:url('img/products/<%=data[product].productImage%>');" pidx="<%=product%>" pname="<%=data[product].productName%>" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>"  psurl="<%=data[product].productStoreUrl%>">
                                             <%=data[product].productName%>
                                         </li>
                                     <% } %>
