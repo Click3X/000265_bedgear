@@ -151,12 +151,17 @@ require([
 //                });
             }else{
                 // Load up the latest question
+                //console.log('ck1', pSub);
                 if(pSub){
+                    //console.log('ck2');
                     arrHistory.unshift(new QuestionModel({'question':pSub}));
                 }else{
                     currentQues++;
+                    //console.log('ck3', currentQues, arrQCache);
                     for(idx in arrQCache){
+                        //console.log('looking for', currentQues, arrQCache[idx].questionNumber);
                         if( arrQCache[idx].questionNumber == currentQues ){
+                            //console.log('found question', currentQues );
                             arrHistory.unshift(new QuestionModel({question:arrQCache[idx]}));
                             break;
                         }

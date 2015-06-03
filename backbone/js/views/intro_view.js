@@ -38,10 +38,14 @@ define([
             this.$('a.start').hide();
             this.$el.show();
 
-            $.get(API_PATH+'allquestions/',function(response){
-                //console.log('all questions', response);
+            $.get(API_PATH+'allquestions/',function(self){
+                return function(response){
+                //console.log('response', response);
+                console.log('all questions', response.question);
                 arrQCache = response.question;
+                //console.log('ck0', currentQues, arrQCache);
                 self.$('a.start').show();
+                };
             }(this));
 
             paper = Raphael("canvas", window.innerWidth, window.innerHeight);
