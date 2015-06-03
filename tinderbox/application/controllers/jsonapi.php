@@ -72,6 +72,21 @@ class JSONAPI extends CI_Controller {
 		$this->_JSONout();
 	}
 
+	function allquestions($pNumber = 0){
+		$this->load->model('question_model');
+		$this->load->model('answer_model');
+
+		$this->_response->question = array();
+
+		$qrs = $this->question_model->Get(array('answerId'=>0,'sortBy'=>'questionNumber','sortDirection'=>'ASC'));
+
+		foreach($qrs as $idx=>$question){
+			array_push($this->_response->question, $this->_BuildQuestion($question->questionNumber, 0));
+		}
+
+		$this->_JSONout();
+	}
+
 	function result($pBitInt){
 		$this->load->model('resultproduct_model');
 		$this->load->model('benefit_model');

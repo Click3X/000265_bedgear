@@ -35,7 +35,14 @@ define([
         render: function(){
             $(this.el).html(this.template());
             $('.panel').hide();
+            this.$('a.start').hide();
             this.$el.show();
+
+            $.get(API_PATH+'allquestions/',function(response){
+                //console.log('all questions', response);
+                arrQCache = response.question;
+                self.$('a.start').show();
+            }(this));
 
             paper = Raphael("canvas", window.innerWidth, window.innerHeight);
             circs = paper.set();

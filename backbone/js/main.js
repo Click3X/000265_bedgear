@@ -11,6 +11,7 @@ if(window.location.href.indexOf("9000")>0){
 
 var arrHistory = Array();
 var arrQuestions = Array();
+var arrQCache = Array();
 var currentQues = 0;
 var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion,SetWindowZoom;
 var glgender = "male";
@@ -154,7 +155,12 @@ require([
                     arrHistory.unshift(new QuestionModel({'question':pSub}));
                 }else{
                     currentQues++;
-                    arrHistory.unshift(new QuestionModel({id:currentQues}));
+                    for(idx in arrQCache){
+                        if( arrQCache[idx].questionNumber == currentQues ){
+                            arrHistory.unshift(new QuestionModel({question:arrQCache[idx]}));
+                            break;
+                        }
+                    }
                 }
 
                 view_question.AddModel(arrHistory[0]);

@@ -1,6 +1,8 @@
 #intro.panel{
+    position:absolute;
     display:block;
     background-color:transparent;
+    overflow:hidden;
 }
 
 .panel .swoop{
@@ -108,13 +110,14 @@
     padding: 0px;
     margin: 0px;
     z-index:100;
+    overflow:hidden;
 }
 
 #intro .questiongroup h1{
     font-weight:300;
     position:absolute;
     left: 0%;
-    top:10%;
+    top:15%;
     width: 100%;
     text-align: center;
     margin: 0px;
