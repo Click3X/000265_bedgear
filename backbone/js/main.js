@@ -176,8 +176,9 @@ require([
         };
 
         DevSkip = function(){
-            currentQues = 2;
-            NextQuestion();
+            //currentQues = 2;
+            //NextQuestion();
+            
         };
 
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width()<800 ) {
