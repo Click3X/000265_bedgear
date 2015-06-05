@@ -163,6 +163,7 @@
 #question.panel.q2 .questiongroup h1{
     left: 0%;
     width: 100%;
+    margin-top: 20px;
     text-align: center;
     opacity:0;
     -webkit-animation: fadein 1s ease-out 1.1s 1 normal forwards;
@@ -173,18 +174,51 @@
 
 #question.panel.q2 .questiongroup .answers {
     min-height: 100px;
+    height:auto;
     width: 80%;
     margin: 0% 0%;
-    background-image:url('../img/bodytype_flare.png');
+    background-image:url('../img/bodytype_line.png');
     background-repeat:no-repeat;
-    background-position-y:30%;
-    background-position-x:35%;
+    background-position-y:37%;
+    background-position-x:center;
     opacity:0;
 
     -webkit-animation: fadein 1s ease-out 1.2s 1 normal forwards;
     -moz-animation:    fadein 1s ease-out 1.2s 1 normal forwards;
     -o-animation:      fadein 1s ease-out 1.2s 1 normal forwards;
     animation:         fadein 1s ease-out 1.2s 1 normal forwards;
+}
+
+#question.panel.q2 .questiongroup .answers ul {
+    min-height: 100px;
+    height:auto;
+    width: 100%;
+    margin: 0% 0%;
+    padding:0%;
+    background-image:url('../img/bodytype_flare.png');
+    background-repeat:no-repeat;
+    background-position-y:46%;
+    background-position-x:65%;
+    -webkit-transition: all 500ms ease-in-out 0s;
+   -moz-transition: all 500ms ease-in-out 0s;
+   -o-transition: all 500ms ease-in-out 0s;
+   transition: all 500ms ease-in-out 0s;
+}
+
+#question.panel.q2 .questiongroup.broadpos .answers ul {
+    background-position-x:95%;
+}
+
+#question.panel.q2 .questiongroup.mediumpos .answers ul {
+    background-position-x:65%;
+}
+
+#question.panel.q2 .questiongroup.narrowpos .answers ul {
+    background-position-x:35%;
+}
+
+#question.panel.q2 .questiongroup.petitepos .answers ul {
+    background-position-x:5%;
 }
 
 #question.panel.q2 .questiongroup ul li{

@@ -65,6 +65,10 @@
           font-size: 50px;
       }
 
+      #question.panel.q2 .questiongroup .answers {
+          background-position-y: 40%;
+     }
+
       .questiongroup .yesno {
           margin: -52px 0px 0px 0px;
       }
@@ -233,6 +237,10 @@
 
       #question.panel.q2 .questiongroup .answers {
           width:94%;
+          background-image:none;
+      }
+
+      #question.panel.q2 .questiongroup .answers ul {
           background-image:none;
       }
 

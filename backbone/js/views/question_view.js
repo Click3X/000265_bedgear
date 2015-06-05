@@ -63,9 +63,12 @@ define([
 
             this.$('.beta, .gamma').hide();
 
-            this.$('.questiongroup .answers').animate(
+            console.log("Q#",this.model.get('question').questionNumber);
+
+            if(this.model.get('question').questionNumber == 3){
+                this.$('.questiongroup .answers').animate(
                 {
-                    'background-position-x': '100%',
+                    'background-position-x': '250%',
                 }, 400, 'linear', function(){
                     $.each($('.multichoice input[name="sleeppos"]'),function(key, val){
                         console.log("remove",$(val).attr('answerText').toLowerCase());
@@ -77,6 +80,13 @@ define([
                             'background-position-x': '100%',
                         }, 400, 'linear');
               });
+          }else{
+              $.each($('.multichoice input[name="sleeppos"]'),function(key, val){
+                  console.log("remove",$(val).attr('answerText').toLowerCase());
+                  $('.questiongroup').removeClass($(val).attr('answerText').split(" ")[0].toLowerCase()+"pos");
+              });
+              $('.questiongroup').addClass($('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase()+"pos");
+          }
 
                             //}
             this.$('.answers a[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').css('color',"#fff");
