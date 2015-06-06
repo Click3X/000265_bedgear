@@ -8,7 +8,7 @@ define([
             this.model.bind("change",this.render,this);
         },
         events: {
-            'click .products li':'HandleProductClick',
+            'click .products .prodselection li':'HandleProductClick',
             'click .product .email':'HandleEmailClick',
             'submit .profile form':'HandleProfileSubmit',
         },
@@ -23,21 +23,21 @@ define([
             for( idx in benes ){
                 this.$('div.product').append(
                     $('<div>').addClass('hotspot').append(
-                        $('<span>').html(benes[idx].benefitName).hide()
+                        $('<span>').html(benes[idx].benefitName).css('opacity',0)
 
                     ).append(
                         $('<a>').attr('href','#').append(
                                 $('<img>').attr('src','img/hotspot.png')
                             )
                             .mouseover(function(){
-                                $(this).parent().find('span').show();
+                                $(this).parent().find('span').css('opacity',1);
                             })
                             .mouseout(function(){
-                                $(this).parent().find('span').hide();
+                                $(this).parent().find('span').css('opacity',0);
                             })
                             .click(function(){
-                                $(this).parent().parent().find('span').hide();
-                                $(this).parent().find('span').show();
+                                $(this).parent().parent().find('span').css('opacity',0);
+                                $(this).parent().find('span').css('opacity',1);
                             })
                     ).css('margin-top',benes[idx].benefitY+'px')
                     .css('margin-left',benes[idx].benefitX+'px'));
@@ -46,9 +46,11 @@ define([
 
             this.$('div.product').css('background-image',"url('img/products/"+$(evt.currentTarget).attr('pimg')+"')");
             this.$('strong.product').html($(evt.currentTarget).attr('pname'));
-            this.$('.product .buy').attr('href',$(evt.currentTarget).attr('psurl'));
-            this.$('.product .detail').attr('href',$(evt.currentTarget).attr('purl'));
-            this.$('.products li').removeClass('selected');
+            this.$('.controlgroup .buy').attr('href',$(evt.currentTarget).attr('psurl'));
+            this.$('.hero .detail').attr('href',$(evt.currentTarget).attr('purl'));
+            this.$('.products .prodselection li').removeClass('selected');
+            this.$('.products .dumbell li').removeClass('selected');
+            this.$('.products .dumbell li[pidx="'+$(evt.currentTarget).attr('pidx')+'"]').addClass('selected');
             $(evt.currentTarget).addClass('selected');
         },
         HandleEmailClick: function(evt){
