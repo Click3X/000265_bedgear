@@ -295,21 +295,30 @@
                             <div class="questiongroup">
                                 <h1><span>Your</span> Ideal Bedgear</h1>
                                 <div class="hero windowzoom">
+                                    <a href="" class="detail" target="_blank"><i class="fa fa-play"></i> More Details</a>
                                     <div class="product"></div>
+                                </div>
+                                <div class="products">
+                                    <ul class="dumbell">
+                                        <% for( product in data ){ %>
+                                            <li pidx="<%=product%>">
+                                                <div></div>
+                                            </li>
+                                        <% } %>
+                                    </ul>
+                                    <ol class="prodselection">
+                                        <% for( product in data ){ %>
+                                            <li style="display: list-item; background-image:url('img/products/<%=data[product].productImage%>');" pidx="<%=product%>" pname="<%=data[product].productName%>" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>"  psurl="<%=data[product].productStoreUrl%>">
+                                                <span><%=data[product].productName%></span>
+                                            </li>
+                                        <% } %>
+                                    </ol>
                                 </div>
                                 <div class="controlgroup">
                                     <strong class="product">&nbsp;</strong>
-                                    <a href="" class="buy button--ujarak" target="_blank">Buy Now</a>
-                                    <a href="" class="detail button--ujarak" target="_blank">More Details</a>
                                     <a href="#" class="email button--ujarak" target="_blank">Email Me Results</a>
+                                    <a href="" class="buy button--ujarak" target="_blank">Buy Now</a>
                                 </div>
-                                <ol class="products">
-                                    <% for( product in data ){ %>
-                                        <li style="display: list-item; background-image:url('img/products/<%=data[product].productImage%>');" pidx="<%=product%>" pname="<%=data[product].productName%>" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>"  psurl="<%=data[product].productStoreUrl%>">
-                                            <%=data[product].productName%>
-                                        </li>
-                                    <% } %>
-                                </ol>
                                 <div class="profile">
                                 <% if( sessionId == "" ){ %>
                                     <h2>Loading...</h2>

@@ -542,13 +542,17 @@ bottom: 300px;
     margin-left:-640px;
 }
 
+#result .questiongroup h1 span {
+    color:#fff;
+}
+
 #result.panel .questiongroup{
     width: 100%;
   margin: 10px 0%;
 }
 
-#result a.buy, #result a.email, #result a.detail{
-    position:absolute;
+#result a.detail{
+
     display: block;
     font-weight: 300;
     background: transparent;
@@ -558,29 +562,16 @@ bottom: 300px;
     font-size: 15px;
     letter-spacing: 1px;
     padding: 9px 0px;
-    border: solid 1px #5da6f5;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 14px;
-    float: left;
+    float: right;
     text-align: center;
-    margin: 0%;
 
-}
-
-#result a.buy{
-    left:8%;
-    margin-top:60px;
-}
-
-#result a.email{
-    right:8%;
-    margin-top:60px;
-}
-
-#result a.detail{
-    left:37%;
-    margin-top:60px;
+    position:absolute;
+    right: 0%;
+    margin: 0px;
+    border: none;
 }
 
 .female #result a.buy, .female #result a.email, .female #result a.detail{
@@ -591,12 +582,12 @@ bottom: 300px;
     position: absolute;
     width: 1280px;
     height: 400px;
-    top: 15%;
+    top: 20%;
 }
 
 #result div.product{
     width: 1280px;
-    height: 350px;
+    height: 300px;
     float: left;
     background-size: contain;
     background-repeat: no-repeat;
@@ -608,7 +599,7 @@ bottom: 300px;
 }
 
 #result div.product .hotspot{
-    width:400px;
+    width:300px;
     position:absolute;
 }
 
@@ -617,9 +608,19 @@ bottom: 300px;
     z-index:1000;
     display:block;
     float:right;
-    width:75px;
-    height:75px;
+    width:40px;
+    height:40px;
     /*border:solid 1px #f00;*/
+    background:#5da6f5;
+    border-radius:45px;
+}
+
+.female #result div.product .hotspot a{
+    background: rgba(252,138,252,0.9);
+}
+
+#result div.product .hotspot a img{
+    display:none;
 }
 
 #result div.product .hotspot span{
@@ -641,6 +642,25 @@ bottom: 300px;
 
 }
 
+#result div.product .hotspot span{
+    display:block;
+    float:left;
+    width:220px;
+    font-size:14px;
+    text-align:right;
+    /*text-shadow: 0 0 20px #000000;*/
+    /*color:#C3DDFA;*/
+    font-weight:normal;
+    text-shadow: none;
+    background:#888;
+    padding:10px 15px;
+    text-transform:uppercase;
+    -webkit-transition: all 200ms ease-in-out 0s;
+   -moz-transition: all 200ms ease-in-out 0s;
+   -o-transition: all 200ms ease-in-out 0s;
+   transition: all 200ms ease-in-out 0s;
+}
+
 #result strong.product{
     display:block;
     width:100%;
@@ -650,25 +670,36 @@ bottom: 300px;
     clear:both;
     margin-bottom:50px;
     font-weight:normal;
+    display:none;
 }
 
-#result .controlgroup{
-    width: 100%;
-    /* float: left; */
-    position: absolute;
-    bottom: 30%;
+#result .dumbell{
+    border-top:solid 1px #5da6f5;
+    width:70%;
+    margin-left:15%;
+}
+
+.female #result .dumbell{
+border-color: rgba(252,138,252,0.9);
 }
 
 #result .products{
-    width: 100%;
+    width: 90%;
     /* float: left; */
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
+    left:5%;
+    z-index:1000;
 }
 
-#result .products li{
+#result .products .dumbell{
+    float:left;
+
+}
+
+#result .products .dumbell li{
     width: 32%;
-    height: 20px;
+    height: 0px;
     float: left;
     margin-left: 2%;
     background-size: contain;
@@ -677,16 +708,115 @@ bottom: 300px;
     text-align: center;
     font-size: 20px;
     font-weight: normal;
-    padding-top: 125px;
+    padding: 0px;
+    margin:0px;
+    opacity: 1;
+}
+
+#result .dumbell li div{
+    width:20px;
+    height:20px;
+    background:#5da6f5;
+    position:absolute;
+    left:50%;
+    margin-top:-10px;
+    border-radius:45px;
+    -webkit-transition: all 100ms ease-in-out 0s;
+   -moz-transition: all 100ms ease-in-out 0s;
+   -o-transition: all 100ms ease-in-out 0s;
+   transition: all 100ms ease-in-out 0s;
+
+}
+
+#result .dumbell li.selected div{
+    width:40px;
+    height:40px;
+    margin-top:-20px;
+    margin-left:-10px;
+}
+
+#result .dumbell li:first-child div{
+    left:15%;
+}
+
+#result .dumbell li:last-child div{
+    left:85%;
+}
+
+
+
+.female #result .dumbell li div{
+    background: rgba(252,138,252,0.9);
+}
+
+#result .products .prodselection{
+    float:left;
+    width:100%;
+
+}
+
+#result .products .prodselection li{
+    width: 32%;
+    height: 150px;
+    float: left;
+    margin-left: 2%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:center center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    padding-top: 0px;
     opacity: 0.5;
 }
 
-#result .products li:first-child{
+#result .products .prodselection li:first-child{
     margin-left:0%;
 }
 
-#result .products li.selected{
+#result .products .prodselection li.selected{
         opacity:1;
+}
+
+#result .products .prodselection li span{
+    display:none;
+}
+
+#result .controlgroup{
+    width: 90%;
+    /* float: left; */
+    position: absolute;
+    bottom: 5%;
+    display:block;
+    margin: 0% 5%;
+}
+
+#result a.buy, #result a.email{
+    display: block;
+    font-weight: 300;
+    background: transparent;
+    color: #fff;
+    border-radius: 0px;
+    width: 26%;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 9px 0px;
+    border: solid 1px #5da6f5;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    float: right;
+    text-align: center;
+    margin: 0px 20px 0px 0px;
+
+}
+
+#result a.buy{
+    left:8%;
+}
+
+#result a.email{
+    right:8%;
 }
 
 #result .profile{
