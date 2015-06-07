@@ -163,12 +163,14 @@
                                     <li style="display: list-item; margin-left: 0px;"><input type="radio" name="sleeppos" answerText="<%=answers[answer].answerText%>" answerId="<%=answers[answer].answerId%>" value="<%=answers[answer].answerBitpos%>"><label><%=answers[answer].answerText%></label></li>
                                     <% } %>
                                 </ul>
-                                <ul class="answers sleeppos fadeout">
+                                <div class="answers sleeppos fadeout">
+                                <ul class="">
                                 <% for( answer in answers ){ %>
                                     <li style="display: list-item; margin-left: 0px;"><a href="#" class="spsub" answerSelected="false" answerId="<%=answers[answer].answerId%>" answerBitpos="<%=answers[answer].answerBitpos%>"><%=answers[answer].answerText%></a></li>
                                 <% } %>
                                 </ul>
-                                <a href="#" class="continue spcontinue">Continue</a>
+                            </div>
+                                <a href="#" class="continue spcontinue button--ujarak">Continue</a>
                             </div>
                         </script>
                         <script type="text/template" id="question3-template">
@@ -200,7 +202,7 @@
                                     <li><a id="" href="#" class="spadvance" answerselected="false" answerid="6" answerbitpos="32" style="background-image:url('img/sleeppos_multiple_side_<%=glgender%>.png');"></a></li>
                                     <li class="dkcontinue"><a href="#" class="continue dkcontinue">Don't Know</a></li>
                                 </ul>
-                                <a href="#" class="continue spcontinue">Continue</a>
+                                <a href="#" class="continue spcontinue button--ujarak">Continue</a>
                             </div>
                         </script>
                         <script type="text/template" id="question4-template">
@@ -243,7 +245,7 @@
                                         </table>
 
                                     </div>
-                                    <a href="#" class="continue tempcontinue">Continue</a>
+                                    <a href="#" class="continue tempcontinue button--ujarak">Continue</a>
                                 </div>
                             </div>
                         </script>
@@ -263,7 +265,7 @@
                                         <li style="display: list-item; margin-left: 0px;"><div class="customcheck" onclick="$(this).parent().find('input[type=checkbox]').prop('checked', !$(this).parent().find('input[type=checkbox]').prop('checked')); if($(this).parent().find('input[type=checkbox]').prop('checked')) $(this).addClass('selected'); else $(this).removeClass('selected');"></div><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
                                         <% } %>
                                     </ul>
-                                    <a href="#" class="continue regcontinue">Continue</a>
+                                    <a href="#" class="continue regcontinue button--ujarak">Continue</a>
                                 </div>
                             </div>
                         </script>
@@ -283,7 +285,7 @@
                                         <li style="display: list-item; margin-left: 0px;"><div class="customcheck" onclick="$(this).parent().find('input[type=checkbox]').prop('checked', !$(this).parent().find('input[type=checkbox]').prop('checked')); if($(this).parent().find('input[type=checkbox]').prop('checked')) $(this).addClass('selected'); else $(this).removeClass('selected');"></div><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
                                         <% } %>
                                     </ul>
-                                    <a href="#" class="continue regcontinue">Continue</a>
+                                    <a href="#" class="continue regcontinue button--ujarak">Continue</a>
                                 </div>
                             </div>
                         </script>
@@ -293,21 +295,30 @@
                             <div class="questiongroup">
                                 <h1><span>Your</span> Ideal Bedgear</h1>
                                 <div class="hero windowzoom">
+                                    <a href="" class="detail" target="_blank"><i class="fa fa-play"></i> More Details</a>
                                     <div class="product"></div>
+                                </div>
+                                <div class="products">
+                                    <ul class="dumbell">
+                                        <% for( product in data ){ %>
+                                            <li pidx="<%=product%>">
+                                                <div></div>
+                                            </li>
+                                        <% } %>
+                                    </ul>
+                                    <ol class="prodselection">
+                                        <% for( product in data ){ %>
+                                            <li style="display: list-item; background-image:url('img/products/<%=data[product].productImage%>');" pidx="<%=product%>" pname="<%=data[product].productName%>" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>"  psurl="<%=data[product].productStoreUrl%>">
+                                                <span><%=data[product].productName%></span>
+                                            </li>
+                                        <% } %>
+                                    </ol>
                                 </div>
                                 <div class="controlgroup">
                                     <strong class="product">&nbsp;</strong>
-                                    <a href="" class="buy" target="_blank">Buy Now</a>
-                                    <a href="" class="detail" target="_blank">More Details</a>
-                                    <a href="#" class="email" target="_blank">Email Me Results</a>
+                                    <a href="#" class="email button--ujarak" target="_blank">Email Me Results</a>
+                                    <a href="" class="buy button--ujarak" target="_blank">Buy Now</a>
                                 </div>
-                                <ol class="products">
-                                    <% for( product in data ){ %>
-                                        <li style="display: list-item; background-image:url('img/products/<%=data[product].productImage%>');" pidx="<%=product%>" pname="<%=data[product].productName%>" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>"  psurl="<%=data[product].productStoreUrl%>">
-                                            <%=data[product].productName%>
-                                        </li>
-                                    <% } %>
-                                </ol>
                                 <div class="profile">
                                 <% if( sessionId == "" ){ %>
                                     <h2>Loading...</h2>
