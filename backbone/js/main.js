@@ -176,7 +176,7 @@ require([
         };
 
         DevSkip = function(){
-            currentQues = 7;
+            currentQues = 4;
             NextQuestion();
 
         };
