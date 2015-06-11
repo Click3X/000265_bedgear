@@ -13,7 +13,7 @@ var arrHistory = Array();
 var arrQuestions = Array();
 var arrQCache = Array();
 var currentQues = 0;
-var result_model,result_view,intro_view,view_question,NextQuestion,PreviousQuestion,SetWindowZoom,DevSkip;
+var result_model,result_view,intro_view,view_question,NextQuestion,FirstQuestion,PreviousQuestion,SetWindowZoom,DevSkip;
 var glgender = "male";
 
 
@@ -112,9 +112,11 @@ require([
         // Pop the current question off the history stack and load the last question from memory
         PreviousQuestion = function(){
             console.log('ck1',arrHistory.length, arrHistory);
-            // Remove the current question from the history
-            arrHistory.shift();
-            console.log('ck2',arrHistory.length, arrHistory);
+            if( currentQues <= LAST_QUESTION_NUMBER ){
+                // Remove the current question from the history
+                arrHistory.shift();
+                console.log('ck2',arrHistory.length, arrHistory);
+            }
             // Adjust the question pointer to the current history item
             currentQues=parseInt(arrHistory[0].get('question').questionNumber,10);
             // Render instead of load since we're working off an existing history
@@ -127,6 +129,8 @@ require([
             console.log("NEXT!");
             //console.log('pSub', pSub);
             if( currentQues >= LAST_QUESTION_NUMBER ){
+                // Increment for the final back button
+                currentQues++;
                 // If the quesiton pointer is at the end of the question array
                 //panel['result'].Load();
 //                $('#question .fadeout').fadeOut(function(){
@@ -175,8 +179,15 @@ require([
             }
         };
 
+        FirstQuestion = function(){
+            var arrHistory = Array();
+            var arrQCache = Array();
+            var currentQues = 0;
+            NextQuestion();
+        };
+
         DevSkip = function(){
-            currentQues = 4;
+            currentQues = 0;
             NextQuestion();
 
         };
