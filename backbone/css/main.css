@@ -57,7 +57,7 @@ body div#cachebox{
   overflow: hidden;
 }
 
-.panel .back, .panel .help, .panel .start {
+.panel .back, .panel .help {
     display: block;
   position: absolute;
   width: 40px;
@@ -137,7 +137,7 @@ body div#cachebox{
   text-align: center;
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 60px;
+  font-size: 80px;
 }
 
 #question.panel.q2 .questiongroup h, #result .questiongroup h1{
@@ -687,6 +687,11 @@ bottom: 300px;
 
 .female #result .dumbell{
 border-color: rgba(252,138,252,0.9);
+}
+
+#question.q5 .answers{
+    background:transparent;
+    border-color:transparent;
 }
 
 #result .products{

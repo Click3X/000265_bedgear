@@ -67,6 +67,7 @@
 
 #question.panel.q1 .zoomer.male{
     margin-left:5%;
+    background: transparent url('../img/avatar_male_flare.png') center center no-repeat;
 }
 
 #question.panel.q1 .avatar.male{
@@ -83,6 +84,7 @@
 #question.panel.q1 .avatargroup .zoomer.female{
     float:right;
     margin-right:5%;
+    background: transparent url('../img/avatar_female_flare.png') center center no-repeat;
 }
 
 #question.panel.q1 .avatar.female{
