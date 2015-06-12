@@ -196,8 +196,10 @@ body div#cachebox{
     width: 90%;
     margin: 100px 5% 0% 5%;
     position: relative;
-
     height: auto;
+    font-size:24px;
+    line-height:36px;
+    text-transform:uppercase;
 }
 
 .questiongroup #temperature{
@@ -599,7 +601,7 @@ bottom: 300px;
 }
 
 #result div.product .hotspot{
-    width:300px;
+    width:320px;
     position:absolute;
 }
 
@@ -611,7 +613,8 @@ bottom: 300px;
     width:40px;
     height:40px;
     /*border:solid 1px #f00;*/
-    background:#5da6f5;
+    /*background:#5da6f5;*/
+    background:#14A4ED;
     border-radius:45px;
 }
 
@@ -644,8 +647,10 @@ bottom: 300px;
 
 #result div.product .hotspot span{
     display:block;
-    float:left;
-    width:220px;
+    float:right;
+    width:auto;
+    margin-right:15px;
+    max-width:220px;
     font-size:14px;
     text-align:right;
     /*text-shadow: 0 0 20px #000000;*/
@@ -792,7 +797,10 @@ border-color: rgba(252,138,252,0.9);
 }
 
 #result a.buy, #result a.email{
+    position:absolute;
     display: block;
+    bottom:5%;
+    right:0%;
     font-weight: 300;
     background: transparent;
     color: #fff;
@@ -807,12 +815,12 @@ border-color: rgba(252,138,252,0.9);
     font-size: 14px;
     float: right;
     text-align: center;
-    margin: 0px 20px 0px 0px;
+    margin: 0px 0px 0px 0px;
 
 }
 
 #result a.buy{
-    left:8%;
+    right:36%;
 }
 
 #result a.email{

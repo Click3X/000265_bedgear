@@ -23,9 +23,6 @@ define([
             for( idx in benes ){
                 this.$('div.product').append(
                     $('<div>').addClass('hotspot').append(
-                        $('<span>').html(benes[idx].benefitName).css('opacity',0)
-
-                    ).append(
                         $('<a>').attr('href','#').append(
                                 $('<img>').attr('src','img/hotspot.png')
                             )
@@ -39,6 +36,9 @@ define([
                                 $(this).parent().parent().find('span').css('opacity',0);
                                 $(this).parent().find('span').css('opacity',1);
                             })
+                    ).append(
+                        $('<span>').html(benes[idx].benefitName).css('opacity',0)
+
                     ).css('margin-top',benes[idx].benefitY+'px')
                     .css('margin-left',benes[idx].benefitX+'px'));
 
