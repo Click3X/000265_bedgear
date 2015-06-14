@@ -95,7 +95,7 @@
                             </span>-->
                             <div class="questiongroup">
                                 <h1 class="fadeout">Discover the ultimate<br/>performance pillow<span>Determine the right pillow for you</span>
-                                    <a href="#" class="start">Start</a>
+                                    <a href="#" class="start button--ujarak">Start</a>
                                 </h1>
 
                                 <div class="answers singlechoice avatargroup windowzoom">
@@ -260,7 +260,7 @@
                                         <li><a href="#" class="yes">Yes</a></li>
                                         <li><a href="#" class="no">No</a></li>
                                     </ul>
-                                    <ul class="multichoice" style="display:none;">
+                                    <ul class="multichoice" style="">
                                         <% for( answer in answers ){ %>
                                         <li style="display: list-item; margin-left: 0px;"><div class="customcheck" onclick="$(this).parent().find('input[type=checkbox]').prop('checked', !$(this).parent().find('input[type=checkbox]').prop('checked')); if($(this).parent().find('input[type=checkbox]').prop('checked')) $(this).addClass('selected'); else $(this).removeClass('selected');"></div><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
                                         <% } %>
@@ -280,7 +280,7 @@
                                         <li><a href="#" class="yes">Yes</a></li>
                                         <li><a href="#" class="no">No</a></li>
                                     </ul>
-                                    <ul class="multichoice" style="display:none;">
+                                    <ul class="multichoice" style="">
                                         <% for( answer in answers ){ %>
                                         <li style="display: list-item; margin-left: 0px;"><div class="customcheck" onclick="$(this).parent().find('input[type=checkbox]').prop('checked', !$(this).parent().find('input[type=checkbox]').prop('checked')); if($(this).parent().find('input[type=checkbox]').prop('checked')) $(this).addClass('selected'); else $(this).removeClass('selected');"></div><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
                                         <% } %>
@@ -292,6 +292,7 @@
 
                     <div id="result" class="panel">
                         <script type="text/template" id="result-template">
+                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a>
                             <div class="questiongroup">
                                 <h1><span>Your</span> Ideal Bedgear</h1>
                                 <div class="hero windowzoom">
@@ -318,6 +319,7 @@
                                     <strong class="product">&nbsp;</strong>
                                     <a href="#" class="email button--ujarak" target="_blank">Email Me Results</a>
                                     <a href="" class="buy button--ujarak" target="_blank">Buy Now</a>
+                                    <a href="" class="startover button--ujarak">Start Over</a>
                                 </div>
                                 <div class="profile">
                                 <% if( sessionId == "" ){ %>

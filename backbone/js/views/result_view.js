@@ -9,8 +9,16 @@ define([
         },
         events: {
             'click .products .prodselection li':'HandleProductClick',
-            'click .product .email':'HandleEmailClick',
+            'click .email':'HandleEmailClick',
             'submit .profile form':'HandleProfileSubmit',
+            'click .back':'HandleBackClick',
+            'click .startover':'HandleStartOverClick',
+        },
+        HandleBackClick: function(evt){
+            PreviousQuestion();
+        },
+        HandleStartOverClick: function(evt){
+            FirstQuestion();
         },
         HandleProductClick: function(evt){
             //alert(this.$('.product').css());
