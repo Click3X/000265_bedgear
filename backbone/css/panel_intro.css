@@ -128,19 +128,23 @@
 }
 
 #intro a.start{
-    position:static;
+    position:absolute;
+    left:50%;
+    top:110%;
+    margin-left:-90px;
     display: initial;
     font-weight: 300;
-    background: #5da6f5;
+    /*background: #5da6f5;*/
     color: #fff;
     border-radius: 0px;
     width: auto;
     font-size: 15px;
+    line-height:15px;
     letter-spacing: 1px;
     padding: 9px 50px;
-    border:none;
+    border: solid 1px #fff;
     text-transform:uppercase;
-
+    text-decoration:none;
 
 }
 
@@ -194,6 +198,7 @@
 
 #intro.panel .zoomer.male{
     margin-left:5%;
+    background: transparent url('../img/avatar_male_flare.png') center center no-repeat;
 }
 
 #intro.panel .avatar.male{
@@ -210,6 +215,7 @@
 #intro.panel .avatargroup .zoomer.female{
     float:right;
     margin-right:5%;
+    background: transparent url('../img/avatar_female_flare.png') center center no-repeat;
 }
 
 #intro.panel .avatar.female{

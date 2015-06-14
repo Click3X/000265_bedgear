@@ -134,29 +134,29 @@
     background-image:url('../img/bodytype_female.png');
 }
 
-#question.panel.q2 .petitepos.questiongroup .background {
+#question.panel.q2 .x-smallpos.questiongroup .background {
     background-image: url('../img/bodytype_petite_male.png');
 }
-#question.panel.q2 .narrowpos.questiongroup .background {
+#question.panel.q2 .smallpos.questiongroup .background {
     background-image: url('../img/bodytype_narrow_male.png');
 }
 #question.panel.q2 .mediumpos.questiongroup .background {
     background-image: url('../img/bodytype_medium_male.png');
 }
-#question.panel.q2 .broadpos.questiongroup .background {
+#question.panel.q2 .largepos.questiongroup .background {
     background-image: url('../img/bodytype_broad_male.png');
 }
 
-.female #question.panel.q2 .petitepos.questiongroup .background {
+.female #question.panel.q2 .x-smallpos.questiongroup .background {
     background-image: url('../img/bodytype_petite_female.png');
 }
-.female #question.panel.q2 .narrowpos.questiongroup .background {
+.female #question.panel.q2 .smallpos.questiongroup .background {
     background-image: url('../img/bodytype_narrow_female.png');
 }
 .female #question.panel.q2 .mediumpos.questiongroup .background {
     background-image: url('../img/bodytype_medium_female.png');
 }
-.female #question.panel.q2 .broadpos.questiongroup .background {
+.female #question.panel.q2 .largepos.questiongroup .background {
     background-image: url('../img/bodytype_broad_female.png');
 }
 
@@ -205,7 +205,7 @@
    transition: all 500ms ease-in-out 0s;
 }
 
-#question.panel.q2 .questiongroup.broadpos .answers ul {
+#question.panel.q2 .questiongroup.largepos .answers ul {
     background-position-x:95%;
 }
 
@@ -213,11 +213,11 @@
     background-position-x:65%;
 }
 
-#question.panel.q2 .questiongroup.narrowpos .answers ul {
+#question.panel.q2 .questiongroup.smallpos .answers ul {
     background-position-x:35%;
 }
 
-#question.panel.q2 .questiongroup.petitepos .answers ul {
+#question.panel.q2 .questiongroup.x-smallpos .answers ul {
     background-position-x:5%;
 }
 
