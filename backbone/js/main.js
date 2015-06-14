@@ -187,11 +187,7 @@ require([
         };
 
         DevSkip = function(){
-<<<<<<< HEAD
-            //currentQues = 7;
-=======
             //currentQues = 0;
->>>>>>> staging
             //NextQuestion();
 
         };
