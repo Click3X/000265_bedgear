@@ -146,6 +146,76 @@ class JSONAPI extends CI_Controller {
 		$this->_JSONout();
 	}
 
+	function sendmail($pTo, $pProd1, $pProd2, $pProd3, $mailtemplate = "share")
+	{
+		$toEmail = $pTo;
+		if($toEmail == "mwilber") $toEmail = "mwilber@gmail.com";
+		$toName = "";
+		if(isset($_POST['toName'])){
+			$toName = $_POST['toName'];
+		}
+		$fromEmail = "mattw@click3x.com";
+		$fromName = "Bedgear";
+
+
+		$message = "Template";
+
+		$this->load->model('emaildata_model');
+
+		$docc = false;
+		$optout = 0;
+
+		// Build the html email
+		$emailBody="";
+
+		$file = fopen("email_templates/".$mailtemplate.".html", "r");
+
+		while(!feof($file)) {
+			//read file line by line into variable
+			$emailBody = $emailBody . fgets($file, 4096);
+		}
+		fclose ($file);
+
+		// Fill in dynamic values
+		$arrFind = array("{PROD1}", "{PROD2}", "{PROD3}");
+		$arrReplace = array($pProd1, $pProd2, $pProd3);
+		$emailBody = str_replace($arrFind, $arrReplace, $emailBody);
+
+		// Send html email
+		$this->load->library('email');
+		$config['charset'] = 'iso-8859-1';
+		$config['mailtype'] = 'html';
+		$this->email->initialize($config);
+
+		$this->email->from($fromEmail, $fromName);
+		$this->email->to($toEmail, $toName);
+		if( $docc ){
+			$this->email->bcc($fromEmail);
+		}
+
+		//(Recipient�s name), (Sender�s name) sent you a Pawtrait!
+		$this->email->subject('Your Ideal Bedgear');
+
+		$this->email->message($emailBody);
+
+		// Store data if email was sent successfully
+		if( $this->email->send() ){
+			//$this->emaildata->setData($toEmail, $toName, $fromEmail, $fromName, $message, $filename, $flashdata, $optout);
+			$fields = array(
+				 'emailToName' => $toName,
+				 'emailFrom' => $fromEmail,
+		         'emailFromName' => $fromName,
+		         'emailMessage' => $message,
+				);
+			$nId = $this->emaildata_model->Add($fields);
+			echo "success";
+		}else{
+			echo $this->email->print_debugger();
+		}
+
+
+	}
+
 }
 
 /* End of file welcome.php */

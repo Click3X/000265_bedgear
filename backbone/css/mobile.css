@@ -60,9 +60,19 @@
 @media only screen
   and (max-width: 1024px){
 
+      .questiongroup{
+          width:96%;
+          margin: 20px 2%;
+      }
+
       .questiongroup h1 {
-          margin-top: 100px;
-          font-size: 70px;
+          margin: 100px 0% 0px 0%;
+          width:96%;
+          font-size: 64px;
+      }
+
+      #intro .questiongroup h1 {
+          font-size:50px;
       }
 
       #question.panel.q2 .questiongroup .answers {
@@ -93,6 +103,19 @@
           width:80%;
           min-height: 250px;
           padding: 20px 10% 30px 10%;
+    }
+
+    #question.panel.q6 .questiongroup .answers, #question.panel.q7 .questiongroup .answers{
+        width:90%;
+        padding: 20px 5% 30px 5%;
+    }
+
+    #result a.buy, #result a.email, #result a.startover {
+        font-size:13px;
+    }
+
+    #result a.startover {
+        width: 20%;
     }
 
 }
@@ -131,7 +154,7 @@
 
       .questiongroup h1{
           margin-top:90px;
-          font-size:35px;
+          font-size:31px;
       }
 
       #question.panel.q2 .questiongroup h1{
@@ -422,12 +445,28 @@
           bottom:15%;
       }
 
-      #result a.buy, #result a.email {
-          width: 45%;
-          padding: 5px 0px;
+      #result a.buy, #result a.email, #result a.startover {
+          width: 30%;
+          padding: 10px 0px;
           font-size: 9px;
           text-align: center;
-          margin:2%;
+          margin:0%;
+          max-height:30px;
+      }
+
+      #result a.email{
+          right:0%;
+          font-size:8px;
+          width:35%;
+      }
+
+      #result a.buy{
+          right:38%;
+          width:25%;
+      }
+
+      #result a.startover {
+          left:0%;
       }
 
       #result .dumbell li div {
