@@ -123,9 +123,10 @@ body div#cachebox{
 }
 
 .questiongroup{
-    width: 70%;
-    margin: 10px 15%;
+    width: 90%;
+    margin: 10px 5%;
     overflow: hidden;
+
 }
 
 .questiongroup .number{
@@ -138,6 +139,9 @@ body div#cachebox{
   text-transform: uppercase;
   font-weight: 500;
   font-size: 80px;
+  position: absolute;
+  width:90%;
+  margin:0%;
 }
 
 #question.panel.q2 .questiongroup h, #result .questiongroup h1{
@@ -432,11 +436,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b18d0', end
 .questiongroup .yesno{
     display:none;
     border: none;
-background: transparent;
-width: 100%;
-padding: 0px 0%;
-margin: -62px 0px 0px 0px;
-position: relative;
+    background: transparent;
+    width: 100%;
+    padding: 0px 0%;
+    margin: -62px 0px 0px 0px;
+    position: relative;
 }
 
 .questiongroup .yesno li{
@@ -577,7 +581,7 @@ bottom: 300px;
     border: none;
 }
 
-.female #result a.buy, .female #result a.email, .female #result a.detail{
+.female #result a.buy, .female #result a.email, .female #result a.detail, .female #result a.startover{
     border-color: rgba(252,138,252,0.9);
 }
 
