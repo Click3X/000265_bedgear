@@ -185,6 +185,7 @@ class JSONAPI extends CI_Controller {
 		$this->load->library('email');
 		$config['charset'] = 'iso-8859-1';
 		$config['mailtype'] = 'html';
+		$config['protocol'] = 'sendmail';
 		$this->email->initialize($config);
 
 		$this->email->from($fromEmail, $fromName);
