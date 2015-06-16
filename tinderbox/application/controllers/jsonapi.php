@@ -148,6 +148,9 @@ class JSONAPI extends CI_Controller {
 
 	function sendmail($pTo, $pProd1, $pProd2, $pProd3, $mailtemplate = "share")
 	{
+		$imgpath = base_url().'email_templates/images/';
+		$prodimgpath = base_url().'images/products/';
+
 		$toEmail = $pTo;
 		if($toEmail == "mwilber") $toEmail = "mwilber@gmail.com";
 		$toName = "";
@@ -161,6 +164,21 @@ class JSONAPI extends CI_Controller {
 		$message = "Template";
 
 		$this->load->model('emaildata_model');
+		$this->load->model('product_model');
+		$this->load->model('benefit_model');
+
+		// Get the product information
+		$p1 = $this->product_model->Get(array('productId'=>$pProd1));
+		$p2 = $this->product_model->Get(array('productId'=>$pProd2));
+		$p3 = $this->product_model->Get(array('productId'=>$pProd3));
+
+		//Build the benefits string
+		$benes = "<p style=\"font-size:12px; font-weight:bold; line-height:20px;\">";
+		$rsb = $this->benefit_model->Get(array('productId'=>$pProd1));
+		foreach($rsb as $bene){
+			$benes .= "<span style=\"color:#14A4ED;\">&#8226;&nbsp;</span>".str_replace("<br/>","",$bene->benefitName)."<br/>";
+		}
+		$benes .= "</p>";
 
 		$docc = false;
 		$optout = 0;
@@ -177,15 +195,39 @@ class JSONAPI extends CI_Controller {
 		fclose ($file);
 
 		// Fill in dynamic values
-		$arrFind = array("{PROD1}", "{PROD2}", "{PROD3}");
-		$arrReplace = array($pProd1, $pProd2, $pProd3);
+		$arrFind = array(	"{IMGROOT}",
+							"{PROD1}",
+							"{PROD2}",
+							"{PROD3}",
+							"{PRODNAME}",
+							"{BUYNOW}",
+							"{PRODURL1}",
+							"{PRODURL2}",
+							"{PRODURL3}",
+							"{BULLETS}"
+						);
+		$arrReplace = array(
+							$imgpath,
+							$prodimgpath.$p1->productImage,
+							$prodimgpath.$p2->productImage,
+							$prodimgpath.$p3->productImage,
+							$p1->productName,
+							$p1->productStoreUrl,
+							$p1->productUrl,
+							$p2->productUrl,
+							$p3->productUrl,
+							$benes
+							);
 		$emailBody = str_replace($arrFind, $arrReplace, $emailBody);
+
+		//echo $emailBody;
+		//die;
 
 		// Send html email
 		$this->load->library('email');
 		$config['charset'] = 'iso-8859-1';
 		$config['mailtype'] = 'html';
-		$config['protocol'] = 'sendmail';
+		//$config['protocol'] = 'sendmail';
 		$this->email->initialize($config);
 
 		$this->email->from($fromEmail, $fromName);
