@@ -415,6 +415,10 @@
           left:90%;
       }*/
 
+      #result .questiongroup h1 span#heroname {
+          font-size:30px;
+      }
+
       #result .hotspot{
           display:none;
       }
@@ -423,11 +427,16 @@
           top:5%;
       }
 
-      #result a.detail{
+      #result a.detail, #result a.startover{
           font-size:72px;
           width:100%;
-          margin:-72px 0px 0px 0px;
+          margin:-154px 0px 0px 0px;
           text-align:center;
+          clear:both;
+      }
+
+      #result a.detail{
+          margin-top: -35px;
       }
 
 
@@ -435,6 +444,7 @@
           font-size: 18px;
           padding-top: 140px;
           background-position: center 0px;
+          margin-top:20px
       }
 
       #result strong.product  {
@@ -445,7 +455,7 @@
           bottom:15%;
       }
 
-      #result a.buy, #result a.email, #result a.startover {
+      #result a.buy, #result a.email {
           width: 30%;
           padding: 10px 0px;
           font-size: 9px;
@@ -463,10 +473,6 @@
       #result a.buy{
           right:38%;
           width:25%;
-      }
-
-      #result a.startover {
-          left:0%;
       }
 
       #result .dumbell li div {

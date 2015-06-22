@@ -294,10 +294,11 @@
                         <script type="text/template" id="result-template">
                             <a href="#" class="back"><i class="fa fa-angle-left"></i></a>
                             <div class="questiongroup">
-                                <h1><span>Your</span> Ideal Bedgear</h1>
+                                <h1><span id="herohead">YOUR BEDGEAR</span> <span id="heroname"></span>&reg;</h1>
                                 <div class="hero windowzoom">
-                                    <a href="" class="detail" target="_blank"><i class="fa fa-play"></i> More Details</a>
+                                    <a href="" class="detail" target="_blank"><i class="fa fa-caret-right"></i> More Details</a>
                                     <div class="product"></div>
+                                    <a href="" class="startover"><i class="fa fa-caret-left"></i> Start Over</a>
                                 </div>
                                 <div class="products">
                                     <ul class="dumbell">
@@ -319,7 +320,7 @@
                                     <strong class="product">&nbsp;</strong>
                                     <a href="#" class="email button--ujarak" target="_blank">Email Me Results</a>
                                     <a href="" class="buy button--ujarak" target="_blank">Buy Now</a>
-                                    <a href="" class="startover button--ujarak">Start Over</a>
+
                                 </div>
                                 <div class="profile">
                                 <% if( sessionId == "" ){ %>
