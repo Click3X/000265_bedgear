@@ -146,10 +146,117 @@ class JSONAPI extends CI_Controller {
 		$this->_JSONout();
 	}
 
+	function mailtest(){
+		require_once 'mandrill-api-php/src/Mandrill.php'; //Not required with Composer
+
+
+		try {
+			$mandrill = new Mandrill('XrdDO0F9tIoY1qLs6H_lSw');
+		    $message = array(
+		        'html' => '<p>Example <strong>HTML</strong> content</p>',
+		        'text' => 'Example text content',
+		        'subject' => 'example subject two',
+		        'from_email' => 'mattw@click3x.com',
+		        'from_name' => 'Example Name',
+		        'to' => array(
+		            array(
+		                'email' => 'mwilber@gmail.com',
+		                'name' => 'Recipient Name',
+		                'type' => 'to'
+		            )
+		        ),
+		        'headers' => array('Reply-To' => 'mattw@click3x.com'),
+		        // 'important' => false,
+		        // 'track_opens' => null,
+		        // 'track_clicks' => null,
+		        // 'auto_text' => null,
+		        // 'auto_html' => null,
+		        // 'inline_css' => null,
+		        // 'url_strip_qs' => null,
+		        // 'preserve_recipients' => null,
+		        // 'view_content_link' => null,
+		        // 'bcc_address' => 'mattw@click3x.com',
+		        // 'tracking_domain' => null,
+		        // 'signing_domain' => null,
+		        // 'return_path_domain' => null,
+		        // 'merge' => true,
+		        // 'merge_language' => 'mailchimp',
+		        // 'global_merge_vars' => array(
+		        //     array(
+		        //         'name' => 'merge1',
+		        //         'content' => 'merge1 content'
+		        //     )
+		        // ),
+		        // 'merge_vars' => array(
+		        //     array(
+		        //         'rcpt' => 'mwilber@gmail.com',
+		        //         'vars' => array(
+		        //             array(
+		        //                 'name' => 'merge2',
+		        //                 'content' => 'merge2 content'
+		        //             )
+		        //         )
+		        //     )
+		        // ),
+
+
+		        //'tags' => array('password-resets'),
+		        //'subaccount' => 'customer-123',
+		        //'google_analytics_domains' => array('example.com'),
+		        //'google_analytics_campaign' => 'message.from_email@example.com',
+		        //'metadata' => array('website' => 'www.example.com'),
+		        // 'recipient_metadata' => array(
+		        //     array(
+		        //         'rcpt' => 'recipient.email@example.com',
+		        //         'values' => array('user_id' => 123456)
+		        //     )
+		        // ),
+		        // 'attachments' => array(
+		        //     array(
+		        //         'type' => 'text/plain',
+		        //         'name' => 'myfile.txt',
+		        //         'content' => 'ZXhhbXBsZSBmaWxl'
+		        //     )
+		        // ),
+		        // 'images' => array(
+		        //     array(
+		        //         'type' => 'image/png',
+		        //         'name' => 'IMAGECID',
+		        //         'content' => 'ZXhhbXBsZSBmaWxl'
+		        //     )
+		        // )
+		    );
+		    $async = false;
+		    $result = $mandrill->messages->send($message, $async);
+		    print_r($result);
+		    /*
+		    Array
+		    (
+		        [0] => Array
+		            (
+		                [email] => recipient.email@example.com
+		                [status] => sent
+		                [reject_reason] => hard-bounce
+		                [_id] => abc123abc123abc123abc123abc123
+		            )
+
+		    )
+		    */
+		} catch(Mandrill_Error $e) {
+		    // Mandrill errors are thrown as exceptions
+		    echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+		    // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+		    throw $e;
+		}
+	}
+
 	function sendmail($pTo, $pProd1, $pProd2, $pProd3, $mailtemplate = "share")
 	{
 		$imgpath = base_url().'email_templates/images/';
 		$prodimgpath = base_url().'images/products/';
+
+		$imgpath = 'http://staging.click3x.com/bedgear/productselector/tinderbox/'.'email_templates/images/';
+		$prodimgpath = 'http://staging.click3x.com/bedgear/productselector/tinderbox/'.'images/products/';
 
 		$toEmail = $pTo;
 		if($toEmail == "mwilber") $toEmail = "mwilber@gmail.com";
@@ -223,39 +330,74 @@ class JSONAPI extends CI_Controller {
 		//echo $emailBody;
 		//die;
 
-		// Send html email
-		$this->load->library('email');
-		$config['charset'] = 'iso-8859-1';
-		$config['mailtype'] = 'html';
-		//$config['protocol'] = 'sendmail';
-		$this->email->initialize($config);
+		if(true){
+			// Send via mandrill
+			require_once 'mandrill-api-php/src/Mandrill.php'; //Not required with Composer
 
-		$this->email->from($fromEmail, $fromName);
-		$this->email->to($toEmail, $toName);
-		if( $docc ){
-			$this->email->bcc($fromEmail);
-		}
 
-		//(Recipient�s name), (Sender�s name) sent you a Pawtrait!
-		$this->email->subject('Your Ideal Bedgear');
+			try {
+				$mandrill = new Mandrill('XrdDO0F9tIoY1qLs6H_lSw');
+			    $message = array(
+			        'html' => $emailBody,
+			        'text' => 'HTML not supported in this client.',
+			        'subject' => 'Your Ideal Bedgear',
+			        'from_email' => $fromEmail,
+			        'from_name' => $fromName,
+			        'to' => array(
+			            array(
+			                'email' => $toEmail,
+			                'name' => '',
+			                'type' => 'to'
+			            )
+			        ),
+			        'headers' => array('Reply-To' => $fromEmail),
+			    );
+			    $async = false;
+			    $result = $mandrill->messages->send($message, $async);
+			    print_r($result);
 
-		$this->email->message($emailBody);
+			} catch(Mandrill_Error $e) {
+			    // Mandrill errors are thrown as exceptions
+			    echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+			    // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+			    throw $e;
+			}
 
-		// Store data if email was sent successfully
-		if( $this->email->send() ){
-			//$this->emaildata->setData($toEmail, $toName, $fromEmail, $fromName, $message, $filename, $flashdata, $optout);
-			$fields = array(
-				 'emailToName' => $toName,
-				 'emailFrom' => $fromEmail,
-		         'emailFromName' => $fromName,
-		         'emailMessage' => $message,
-				);
-			$nId = $this->emaildata_model->Add($fields);
-			echo "success";
+
 		}else{
-			echo $this->email->print_debugger();
-		}
+			// Send html email via sendmail
+			$this->load->library('email');
+			$config['charset'] = 'iso-8859-1';
+			$config['mailtype'] = 'html';
+			//$config['protocol'] = 'sendmail';
+			$this->email->initialize($config);
 
+			$this->email->from($fromEmail, $fromName);
+			$this->email->to($toEmail, $toName);
+			if( $docc ){
+				$this->email->bcc($fromEmail);
+			}
+
+			//(Recipient�s name), (Sender�s name) sent you a Pawtrait!
+			$this->email->subject('Your Ideal Bedgear');
+
+			$this->email->message($emailBody);
+
+			// Store data if email was sent successfully
+			if( $this->email->send() ){
+				//$this->emaildata->setData($toEmail, $toName, $fromEmail, $fromName, $message, $filename, $flashdata, $optout);
+				$fields = array(
+					 'emailToName' => $toName,
+					 'emailFrom' => $fromEmail,
+			         'emailFromName' => $fromName,
+			         'emailMessage' => $message,
+					);
+				$nId = $this->emaildata_model->Add($fields);
+				echo "success";
+			}else{
+				echo $this->email->print_debugger();
+			}
+		}
 
 	}
 
