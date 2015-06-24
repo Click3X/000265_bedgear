@@ -157,7 +157,7 @@ body div#cachebox{
 
 .questiongroup h1 span{
     font-size:18px;
-    color:#5da6f5;
+    color:#51d7f3;
     display:block;
 }
 
@@ -626,7 +626,7 @@ bottom: 300px;
     width:30px;
     height:30px;
     /*border:solid 1px #f00;*/
-    /*background:#5da6f5;*/
+    /*background:#51d7f3;*/
     background:#14A4ED;
     border-radius:45px;
     -webkit-transition: all 200ms ease-in-out 0s;
@@ -702,7 +702,7 @@ bottom: 300px;
 }
 
 #result .dumbell{
-    border-top:solid 1px #5da6f5;
+    border-top:solid 1px #51d7f3;
     width:70%;
     margin-left:15%;
 }
@@ -749,7 +749,7 @@ border-color: rgba(252,138,252,0.9);
 #result .dumbell li div{
     width:20px;
     height:20px;
-    background:#5da6f5;
+    background:#51d7f3;
     position:absolute;
     left:50%;
     margin-top:-10px;
@@ -837,7 +837,7 @@ border-color: rgba(252,138,252,0.9);
     font-size: 15px;
     letter-spacing: 1px;
     padding: 9px 0px;
-    border: solid 1px #5da6f5;
+    border: solid 1px #51d7f3;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 14px;
