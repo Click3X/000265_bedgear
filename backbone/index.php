@@ -303,7 +303,7 @@
                             <div class="questiongroup">
                                 <h1><span id="herohead">YOUR BEDGEAR</span> <span id="heroname"></span>&reg;</h1>
                                 <div class="hero windowzoom">
-                                    <a href="" class="detail" target="_blank"><i class="fa fa-caret-right"></i> More Details</a>
+                                    <a href="" class="detail" target="_blank">More Details <i class="fa fa-caret-right"></i></a>
                                     <div class="product"></div>
                                     <a href="" class="startover"><i class="fa fa-caret-left"></i> Start Over</a>
                                 </div>
