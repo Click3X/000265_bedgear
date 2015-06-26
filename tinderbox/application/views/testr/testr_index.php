@@ -28,16 +28,16 @@ function HandleResult(response){
 	<ol class="products"></ol>
 </div>
 
-<?if($this->session->flashdata('flashError')):?>
+<?php if($this->session->flashdata('flashError')):?>
 <div class='flashError'>
-	Error! <?=$this->session->flashdata('flashError')?>
+	Error! <?php echo $this->session->flashdata('flashError')?>
 </div>
-<?endif?>
+<?php endif?>
 
-<?if($this->session->flashdata('flashConfirm')):?>
+<?php if($this->session->flashdata('flashConfirm')):?>
 <div class='flashConfirm'>
-	Success! <?=$this->session->flashdata('flashConfirm')?>
+	Success! <?php echo $this->session->flashdata('flashConfirm')?>
 </div>
-<?endif?>
+<?php endif?>
 
 <?php $this->load->view('testr/testr_questionblock', array('questions'=>$questions,'answerId'=>0)); ?>

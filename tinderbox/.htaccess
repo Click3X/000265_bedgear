@@ -477,7 +477,3 @@ Options -Indexes
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php?/$1 [L]
 </IfModule>
-
-<IfModule mod_php5.c>
-  php_value short_open_tag 1
-</IfModule>

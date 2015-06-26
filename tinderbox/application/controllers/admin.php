@@ -103,7 +103,7 @@ class Admin extends CI_Controller {
 			// Update the CMS template
 			$template = read_file('./application/views/template/template_head.php');
 			$navMarker = '<!-- Add nav elements here -->';
-			$navElement = '<li><a href="<?= base_url() ?>'.$_POST['model'].'" class="'.$_POST['model'].'">'.ucfirst($_POST['model']).'</a></li>';
+			$navElement = '<li><a href="<?php echo  base_url() ?>'.$_POST['model'].'" class="'.$_POST['model'].'">'.ucfirst($_POST['model']).'</a></li>';
 			$template = str_replace($navMarker, $navMarker.$navElement, $template);
 			if ( ! write_file('./application/views/template/template_head.php', $template))
 				$this->session->set_flashdata('flashError', 'Unable to write site nav file. Check directory permissions.<br/>');

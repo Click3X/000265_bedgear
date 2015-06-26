@@ -1,19 +1,19 @@
-<a href="<?=base_url()?><?=$this->uri->segment(1);?>/add" class="button" style="float:left; margin-right:5px;">Add Item</a>
-<a href="<?=base_url()?><?=$this->uri->segment(1);?>/csv" class="button" style="float:left; clear:right;">Export CSV</a>
+<a href="<?php echo base_url()?><?php echo $this->uri->segment(1);?>/add" class="button" style="float:left; margin-right:5px;">Add Item</a>
+<a href="<?php echo base_url()?><?php echo $this->uri->segment(1);?>/csv" class="button" style="float:left; clear:right;">Export CSV</a>
 
-<?if($this->session->flashdata('flashError')):?>
+<?php if($this->session->flashdata('flashError')):?>
 <div class='flashError'>
-	Error! <?=$this->session->flashdata('flashError')?>
+	Error! <?php echo $this->session->flashdata('flashError')?>
 </div>
-<?endif?>
+<?php endif?>
 
-<?if($this->session->flashdata('flashConfirm')):?>
+<?php if($this->session->flashdata('flashConfirm')):?>
 <div class='flashConfirm'>
-	Success! <?=$this->session->flashdata('flashConfirm')?>
+	Success! <?php echo $this->session->flashdata('flashConfirm')?>
 </div>
-<?endif?>
+<?php endif?>
 
-<strong  style="float:left; clear:both;">Total Records: <?=$total_rows?></strong>
+<strong  style="float:left; clear:both;">Total Records: <?php echo $total_rows?></strong>
 
 <table border="1" cellpadding="4" style="float:left; clear:both;">
 	<tr>
@@ -23,19 +23,19 @@
 		<th width="100"></th>
 		<th width="100"></th>
 	</tr>
-	<?if(isset($records) && is_array($records) && count($records)>0):?>
-		<?foreach($records as $record):?>
+	<?php if(isset($records) && is_array($records) && count($records)>0):?>
+		<?php foreach($records as $record):?>
 		<tr>
-			<td><?=$record->userEmail?></td>
-			<td><?=$record->userPassword?></td>
-			<td><?=$record->userStatus?></td>
-			<td><a href='<?=base_url()?><?=$this->uri->segment(1);?>/edit/<?=$record->$pk?>'>Edit</a></td>
-			<td><a href='<?=base_url()?><?=$this->uri->segment(1);?>/delete/<?=$record->$pk?>'>Delete</a></td>
+			<td><?php echo $record->userEmail?></td>
+			<td><?php echo $record->userPassword?></td>
+			<td><?php echo $record->userStatus?></td>
+			<td><a href='<?php echo base_url()?><?php echo $this->uri->segment(1);?>/edit/<?php echo $record->$pk?>'>Edit</a></td>
+			<td><a href='<?php echo base_url()?><?php echo $this->uri->segment(1);?>/delete/<?php echo $record->$pk?>'>Delete</a></td>
 		</tr>
-		<?endforeach?>
+		<?php endforeach?>
 	<?else:?>
 		<tr>
 			<td colspan="3">There are currently no records.</td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 </table>

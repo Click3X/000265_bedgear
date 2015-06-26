@@ -1,12 +1,12 @@
 <h2>Edit Item</h2>
-<? $hidden = array('ID' => $record->$pk); ?>
-<?=form_open($this->uri->segment(1).'/edit/'.$record->$pk, '', $hidden)?>
+<?php $hidden = array('ID' => $record->$pk); ?>
+<?php echo form_open($this->uri->segment(1).'/edit/'.$record->$pk, '', $hidden)?>
 <fieldset>
 	<ul>
 		<li>
 			<label>Email <span>(Required)</span></label>
-			<?=form_input('userEmail', set_value('userEmail', $record->userEmail))?>
-			<?=form_error('userEmail')?>
+			<?php echo form_input('userEmail', set_value('userEmail', $record->userEmail))?>
+			<?php echo form_error('userEmail')?>
 		</li>
 		<li>
 			<input type="submit" value="Save" name="" class="button">
@@ -19,4 +19,4 @@
 		
 	</ul>
 </fieldset>
-<?=form_close()?>
+<?php echo form_close()?>
