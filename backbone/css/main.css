@@ -618,14 +618,96 @@ bottom: 300px;
     position:absolute;
 }
 
+@-webkit-keyframes hotspotfadein {
+    0%   { opacity: 0;
+          width:0px;
+          height:0px;
+          margin:20px;
+          }
+    75%   { opacity: 1;
+        width:40px;
+        height:40px;
+        margin:0px;
+        }
+    100% {
+          opacity: 1;
+          width:30px;
+          height:30px;
+          margin:5px;
+      }
+}
+@-moz-keyframes hotspotfadein {
+    0%   { opacity: 0;
+          width:0px;
+          height:0px;
+          margin:20px;
+          }
+    75%   { opacity: 1;
+        width:40px;
+        height:40px;
+        margin:0px;
+        }
+    100% {
+          opacity: 1;
+          width:30px;
+          height:30px;
+          margin:5px;
+      }
+}
+@-o-keyframes hotspotfadein {
+    0%   { opacity: 0;
+          width:0px;
+          height:0px;
+          margin:20px;
+          }
+    75%   { opacity: 1;
+        width:40px;
+        height:40px;
+        margin:0px;
+        }
+    100% {
+          opacity: 1;
+          width:30px;
+          height:30px;
+          margin:5px;
+      }
+}
+@keyframes hotspotfadein {
+    0%   { opacity: 0;
+          width:0px;
+          height:0px;
+          margin:20px;
+          }
+    75%   { opacity: 1;
+        width:40px;
+        height:40px;
+        margin:0px;
+        }
+    100% {
+          opacity: 1;
+          width:30px;
+          height:30px;
+          margin:5px;
+      }
+}
+
 #result div.product .hotspot a{
     position:relative;
-    margin:5px 5px 5px 5px;
+    margin:40px;
     z-index:1000;
     display:block;
     float:right;
-    width:30px;
-    height:30px;
+    width:0px;
+    height:0px;
+    opacity:0;
+
+}
+
+#result div.product .hotspot a i{
+    margin:10%;
+    display:block;
+    width:80%;
+    height:80%;
     /*border:solid 1px #f00;*/
     /*background:#51d7f3;*/
     background:#14A4ED;
@@ -636,13 +718,38 @@ bottom: 300px;
    transition: all 200ms ease-in-out 0s;
 }
 
-#result div.product .hotspot a:hover{
-    margin:0px;
-    width:40px;
-    height:40px;
+#result div.product .hotspot:nth-child(1) a{
+    -webkit-animation: hotspotfadein 1s linear 0s 1 normal forwards;
+    -moz-animation:    hotspotfadein 1s linear 0s 1 normal forwards;
+    -o-animation:      hotspotfadein 1s linear 0s 1 normal forwards;
+    animation:         hotspotfadein 1s linear 0s 1 normal forwards;
+}
+#result div.product .hotspot:nth-child(2) a{
+    -webkit-animation: hotspotfadein 1s linear 0.25s 1 normal forwards;
+    -moz-animation:    hotspotfadein 1s linear 0.25s 1 normal forwards;
+    -o-animation:      hotspotfadein 1s linear 0.25s 1 normal forwards;
+    animation:         hotspotfadein 1s linear 0.25s 1 normal forwards;
+}
+#result div.product .hotspot:nth-child(3) a{
+    -webkit-animation: hotspotfadein 1s linear 0.5s 1 normal forwards;
+    -moz-animation:    hotspotfadein 1s linear 0.5s 1 normal forwards;
+    -o-animation:      hotspotfadein 1s linear 0.5s 1 normal forwards;
+    animation:         hotspotfadein 1s linear 0.5s 1 normal forwards;
+}
+#result div.product .hotspot:nth-child(4) a{
+    -webkit-animation: hotspotfadein 1s linear 0.75s 1 normal forwards;
+    -moz-animation:    hotspotfadein 1s linear 0.75s 1 normal forwards;
+    -o-animation:      hotspotfadein 1s linear 0.75s 1 normal forwards;
+    animation:         hotspotfadein 1s linear 0.75s 1 normal forwards;
 }
 
-.female #result div.product .hotspot a{
+#result div.product .hotspot a:hover i{
+    margin:0%;
+    width:100%;
+    height:100%;
+}
+
+.female #result div.product .hotspot a span{
     background: rgba(252,138,252,0.9);
 }
 

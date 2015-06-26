@@ -195,6 +195,10 @@ define([
       },
         render: function(){
 
+            if( timer == null ){
+                timer = setTimeout(moveIt, 60);
+            }
+
             console.log(this.model.attributes);
             console.log('getting template', '#question'+this.model.get('question').questionNumber+'-template');
             //if( typeof(this.template)=='undefined'){

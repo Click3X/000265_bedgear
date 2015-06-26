@@ -32,7 +32,7 @@ define([
                 this.$('div.product').append(
                     $('<div>').addClass('hotspot').append(
                         $('<a>').attr('href','#').append(
-                                $('<img>').attr('src','img/hotspot.png')
+                                $('<i>')
                             )
                             .mouseover(function(){
                                 $(this).parent().find('span').css('opacity',1);
@@ -79,11 +79,26 @@ define([
         },
         render: function(){
             clearTimeout(timer);
-            console.log(this.model.get('data'));
+            timer = null;
+            console.log('timer', timer);
+            // console.log(this.model.get('data'));
+            // var tmpData = this.model.get('data');
+            // var tmpElem = tmpData[0];
+            // tmpData[0] = tmpData[1];
+            // tmpData[1] = tmpElem;
+            // this.model.set('data', tmpData);
+            // if( this.model.attributes.data[0] ){
+            //     var tmpData = this.model.attributes.data[0];
+            //     console.log('tmpdata', tmpData);
+            //     this.model.attributes.data[0] = this.model.attributes.data[1];
+            //     this.model.attributes.data[1] = tmpData;
+            //     console.log('template data', this.model.attributes.data);
+            // }
+
             $(this.el).html(this.template(this.model.attributes));
             //this.$('.questiongroup').css('opacity',0);
             $('.panel').hide();
-            this.$('.products li:first-child').click();
+            this.$('.products li:nth-child(2)').click();
             this.$el.show();
             // this.$('.questiongroup').animate({
             //     opacity: 1,
