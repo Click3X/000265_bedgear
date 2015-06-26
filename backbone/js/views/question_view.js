@@ -229,8 +229,8 @@ define([
             this.$('.ui-slider-handle').html("<span>50</span>");
 
 
-            if(this.model.get('question').questionNumber == 2)
-                this.$('.answers.sleeppos li:nth-child(3) a.spsub').click();
+            //if(this.model.get('question').questionNumber == 2)
+            //    this.$('.answers.sleeppos li:nth-child(3) a.spsub').click();
             if(this.model.get('question').questionNumber == 3)
                 this.$('.answers.sleeppos.alpha li:nth-child(2) a.spsub').click();
 

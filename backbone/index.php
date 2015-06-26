@@ -301,7 +301,7 @@
                         <script type="text/template" id="result-template">
                             <a href="#" class="back"><i class="fa fa-angle-left"></i></a>
                             <div class="questiongroup">
-                                <h1><span id="herohead">YOUR BEDGEAR</span> <span id="heroname"></span>&reg;</h1>
+                                <h1><span id="herohead">YOUR BEDGEAR</span> <span id="heroname"></span>PILLOW ID&reg;</h1>
                                 <div class="hero windowzoom">
                                     <a href="" class="detail" target="_blank">More Details <i class="fa fa-caret-right"></i></a>
                                     <div class="product"></div>

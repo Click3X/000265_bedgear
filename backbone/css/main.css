@@ -551,7 +551,8 @@ bottom: 300px;
 #result .questiongroup h1 span#heroname {
     color:#fff;
     font-size:80px;
-    display:inline;
+    /*display:inline;*/
+    display:none;
 }
 
 #result .questiongroup h1 span#herohead{

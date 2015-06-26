@@ -78,6 +78,7 @@ define([
             };
         },
         render: function(){
+            clearTimeout(timer);
             console.log(this.model.get('data'));
             $(this.el).html(this.template(this.model.attributes));
             //this.$('.questiongroup').css('opacity',0);
