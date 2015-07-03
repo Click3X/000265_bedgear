@@ -12,6 +12,7 @@ class Product_Model extends CI_Model
 		'productImage' => array('label'=>'Image','type'=>'varchar','constraint'=>200),
 		'productUrl' => array('label'=>'Url','type'=>'varchar','constraint'=>200),
 		'productStoreUrl' => array('label'=>'Url','type'=>'varchar','constraint'=>200),
+		'productPrice' => array('label'=>'Price','type'=>'varchar','constraint'=>50),
 		);
 
 

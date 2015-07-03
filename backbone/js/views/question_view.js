@@ -82,9 +82,11 @@ define([
               });
           }else{
               $.each($('.multichoice input[name="sleeppos"]'),function(key, val){
-                  console.log("remove",$(val).attr('answerText').toLowerCase());
+                  console.log("remove",$(val).attr('answerText'));
                   $('.questiongroup').removeClass($(val).attr('answerText').split(" ")[0].toLowerCase()+"pos");
               });
+              console.log('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]');
+              console.log($('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText'));
               $('.questiongroup').addClass($('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase()+"pos");
           }
 

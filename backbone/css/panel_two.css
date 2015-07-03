@@ -244,6 +244,14 @@
   margin-top: 30px;
 }
 
+.female #question.panel.q2 .questiongroup .answers li a .male{
+    display:none;
+}
+
+.male #question.panel.q2 .questiongroup .answers li a .female{
+    display:none;
+}
+
 #question.panel.q2 .questiongroup ul li a:hover{
     color: #fff;
 }

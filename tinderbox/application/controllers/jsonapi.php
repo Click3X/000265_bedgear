@@ -54,7 +54,12 @@ class JSONAPI extends CI_Controller {
 			$pQobj->answers = $this->answer_model->Get(array('questionId'=>$pQobj->questionId, 'sortBy'=>'answerNumber','sortDirection'=>'ASC'));
 			// Find out if there's a sub squestion
 			foreach( $pQobj->answers as $idx=>$answer ){
-				$pQobj->answers[$idx]->question = $this->_BuildQuestion($pQn, $answer->answerId);
+				if( $pQobj->questionId == 9 ){
+					$pQobj->answers[$idx]->question = $this->_BuildQuestion($pQn, 33);
+				}else{
+					$pQobj->answers[$idx]->question = $this->_BuildQuestion($pQn, $answer->answerId);
+				}
+
 			}
 		}else{
 			$pQobj = false;

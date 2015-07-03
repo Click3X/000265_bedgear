@@ -47,6 +47,8 @@
 #question.panel.q3 .questiongroup.multiplepos .answers {
     background-image: url('../img/sleepposition_multiple_male.png');
     background-position-x: 100%;
+    background-size: 80%;
+    background-position-y: 50%;
 }
 
 .female #question.panel.q3 .questiongroup.backpos .answers {
@@ -64,6 +66,8 @@
 .female #question.panel.q3 .questiongroup.multiplepos .answers {
     background-image: url('../img/sleepposition_multiple_female.png');
     background-position-x: 100%;
+    background-size: 80%;
+    background-position-y: 50%;
 }
 
 #question.panel.q3 .questiongroup .answers li{

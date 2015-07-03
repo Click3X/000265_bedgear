@@ -180,6 +180,14 @@ body div#cachebox{
     border-top-color: rgba(255,255,255,0.15);
 }
 
+.female .questiongroup .answers li a .male{
+    display:none;
+}
+
+.male .questiongroup .answers li a .female{
+    display:none;
+}
+
 .questiongroup .answers.temperature{
     width:100%;
     padding: 20px 0% 50px 0%;
@@ -384,6 +392,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0446d1', end
 	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 
+.back.button--ujarak::before {
+    border-radius:45px;
+}
+
 .female .button--ujarak::before {
     background: #9b18d0; /* Old browsers */
 background: -moz-linear-gradient(top,  #9b18d0 0%, #e5b7e8 100%); /* FF3.6+ */
@@ -408,7 +420,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b18d0', end
 }
 .button--ujarak:hover {
 	color: #fff;
-	border-color: #37474f;
+	border-color: #51d7f3;
 }
 .button--ujarak.button--inverted:hover {
 	color: #37474F;
@@ -455,7 +467,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b18d0', end
     padding: 10px 0px;
     font-weight: 300;
     font-style: normal;
-    font-size: 16px;
+    font-size: 18px;
     text-transform: uppercase;
     text-decoration: none;
     color:#fff;
@@ -699,6 +711,13 @@ bottom: 300px;
     margin-bottom:50px;
     font-weight:normal;
     display:none;
+}
+
+#result div.price{
+    text-align: center;
+    margin-top: -50px;
+    float: left;
+    width: 100%;
 }
 
 #result .dumbell{

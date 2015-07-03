@@ -148,7 +148,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question2-template">
-                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
+                            <a href="#" class="back button--ujarak"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="avatargroup windowzoom">
                                 <div class="zoomer male">
                                     <a href="#" onclick="return false;" class="avatar gender male" style="background-image:url('img/zoom_male_static.png')">
@@ -167,7 +167,7 @@
                                 <h1 class="fadeout"><%= questionText %></h1>
                                 <ul class="multichoice" style="display:none;">
                                     <% for( answer in answers ){ %>
-                                    <li style="display: list-item; margin-left: 0px;"><input type="radio" name="sleeppos" answerText="<%=answers[answer].answerText%>" answerId="<%=answers[answer].answerId%>" value="<%=answers[answer].answerBitpos%>"><label><%=answers[answer].answerText%></label></li>
+                                    <li style="display: list-item; margin-left: 0px;"><input type="radio" name="sleeppos" answerText='<%=answers[answer].answerText%>' answerId="<%=answers[answer].answerId%>" value="<%=answers[answer].answerBitpos%>"><label><%=answers[answer].answerText%></label></li>
                                     <% } %>
                                 </ul>
                                 <div class="answers sleeppos fadeout">
@@ -181,7 +181,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question3-template">
-                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
+                            <a href="#" class="back button--ujarak"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -213,7 +213,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question4-template">
-                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
+                            <a href="#" class="back button--ujarak"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -225,7 +225,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question5-template">
-                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
+                            <a href="#" class="back button--ujarak"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -257,7 +257,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question6-template">
-                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
+                            <a href="#" class="back button--ujarak"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -277,7 +277,7 @@
                             </div>
                         </script>
                         <script type="text/template" id="question7-template">
-                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
+                            <a href="#" class="back button--ujarak"><i class="fa fa-angle-left"></i></a><a href="#" class="help">?</a>
                             <div class="questiongroup fadeout">
                                 <p class="number"><%= questionNumber %></p>
                                 <h1><%= questionText %></h1>
@@ -299,13 +299,16 @@
 
                     <div id="result" class="panel">
                         <script type="text/template" id="result-template">
-                            <a href="#" class="back"><i class="fa fa-angle-left"></i></a>
+                            <a href="#" class="back button--ujarak"><i class="fa fa-angle-left"></i></a>
                             <div class="questiongroup">
                                 <h1><span id="herohead">YOUR BEDGEAR</span> <span id="heroname"></span>&reg;</h1>
                                 <div class="hero windowzoom">
                                     <a href="" class="detail" target="_blank">More Details <i class="fa fa-caret-right"></i></a>
                                     <div class="product"></div>
                                     <a href="" class="startover"><i class="fa fa-caret-left"></i> Start Over</a>
+                                    <div class="price">
+
+                                    </div>
                                 </div>
                                 <div class="products">
                                     <ul class="dumbell">
@@ -317,7 +320,7 @@
                                     </ul>
                                     <ol class="prodselection">
                                         <% for( product in data ){ %>
-                                            <li style="display: list-item; background-image:url('img/products/<%=data[product].productImage%>');" pidx="<%=product%>" pname="<%=data[product].productName%>" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>"  psurl="<%=data[product].productStoreUrl%>">
+                                            <li style="display: list-item; background-image:url('img/products/<%=data[product].productImage%>');" pidx="<%=product%>" pname="<%=data[product].productName%>" pprice="<%=data[product].productPrice%>" pimg="<%=data[product].productImage%>" purl="<%=data[product].productUrl%>"  psurl="<%=data[product].productStoreUrl%>">
                                                 <span><%=data[product].productName%></span>
                                             </li>
                                         <% } %>

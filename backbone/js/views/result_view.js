@@ -54,6 +54,7 @@ define([
 
             this.$('div.product').css('background-image',"url('img/products/"+$(evt.currentTarget).attr('pimg')+"')");
             this.$('strong.product').html($(evt.currentTarget).attr('pname'));
+            this.$('div.price').html("$"+$(evt.currentTarget).attr('pprice'));
             this.$('span#heroname').html($(evt.currentTarget).attr('pname'));
             this.$('.controlgroup .buy').attr('href',$(evt.currentTarget).attr('psurl'));
             this.$('.hero .detail').attr('href',$(evt.currentTarget).attr('purl'));
