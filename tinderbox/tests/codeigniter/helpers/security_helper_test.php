@@ -58,7 +58,7 @@ class Security_helper_tests extends CI_TestCase {
 
 	function test_encode_php_tags()
 	{
-		$this->assertEquals('&lt;? echo $foo; ?&gt;', encode_php_tags('<? echo $foo; ?>'));
+		$this->assertEquals('&lt;? echo $foo; ?&gt;', encode_php_tags('<?php echo $foo; ?>'));
 	}
 
 }

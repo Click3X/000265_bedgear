@@ -97,6 +97,10 @@ class JSONAPI extends CI_Controller {
 		$this->load->model('benefit_model');
 		$this->_response->data = $this->resultproduct_model->GetWithProd(array('resultproductBitint'=>$pBitInt,'sortBy'=>'resultproductNumber','sortDirection'=>'ASC'));
 
+		$tmpData = $this->_response->data[0];
+		$this->_response->data[0] = $this->_response->data[1];
+		$this->_response->data[1] = $tmpData;
+
 		foreach( $this->_response->data as $idx=>$prod ){
 			$this->_response->data[$idx]->benefits = $this->benefit_model->Get(array('productId'=>$this->_response->data[$idx]->productId));
 		}

@@ -595,15 +595,15 @@ Always use full PHP opening tags, in case a server does not have
 
 **INCORRECT**::
 
-	<? echo $foo; ?>
+	<?php echo $foo; ?>
 
-	<?=$foo?>
+	<?php echo $foo?>
 
 **CORRECT**::
 
 	<?php echo $foo; ?>
 
-.. note:: PHP 5.4 will always have the **<?=** tag available.
+.. note:: PHP 5.4 will always have the **<?php echo ** tag available.
 
 One Statement Per Line
 ======================

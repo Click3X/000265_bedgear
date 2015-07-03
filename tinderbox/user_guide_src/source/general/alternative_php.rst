@@ -33,7 +33,7 @@ Normally to echo, or print out a variable you would do this::
 
 With the alternative syntax you can instead do it this way::
 
-	<?=$variable?>
+	<?php echo $variable?>
 
 Alternative Control Structures
 ==============================
@@ -45,7 +45,7 @@ a simplified format as well. Here is an example using ``foreach``::
 
 	<?php foreach ($todo as $item): ?>
 
-		<li><?=$item?></li>
+		<li><?php echo $item?></li>
 
 	<?php endforeach; ?>
 

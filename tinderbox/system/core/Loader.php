@@ -884,7 +884,7 @@ class CI_Loader {
 			&& config_item('rewrite_short_tags') === TRUE && function_usable('eval')
 		)
 		{
-			echo eval('?>'.preg_replace('/;*\s*\?>/', '; ?>', str_replace('<?=', '<?php echo ', file_get_contents($_ci_path))));
+			echo eval('?>'.preg_replace('/;*\s*\?>/', '; ?>', str_replace('<?php echo ', '<?php echo ', file_get_contents($_ci_path))));
 		}
 		else
 		{

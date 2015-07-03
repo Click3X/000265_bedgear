@@ -13,26 +13,26 @@
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<link rel="stylesheet" href="<?= base_url() ?>css/style.css">
-	<link rel="stylesheet" href="<?= base_url() ?>css/jquery.qtip.min.css">
+	<link rel="stylesheet" href="<?php echo  base_url() ?>css/style.css">
+	<link rel="stylesheet" href="<?php echo  base_url() ?>css/jquery.qtip.min.css">
 
-	<script src="<?= base_url() ?>js/libs/modernizr-2.0.min.js"></script>
-	<script src="<?= base_url() ?>js/libs/respond.min.js"></script>
+	<script src="<?php echo  base_url() ?>js/libs/modernizr-2.0.min.js"></script>
+	<script src="<?php echo  base_url() ?>js/libs/respond.min.js"></script>
 </head>
-<body class="<?=$this->uri->segment(1);?>">
+<body class="<?php echo $this->uri->segment(1);?>">
 	<div id="header-container">
 		<header class="wrapper">
-			<img id="title" src="<?= base_url() ?>images/logo.png" alt="Admin" />
+			<img id="title" src="<?php echo  base_url() ?>images/logo.png" alt="Admin" />
 			<nav>
 				<ul>
-					<? if( $this->session->userdata('userEmail') ): ?>
-					<li><a href="<?= base_url() ?>testr" class="users">Testr</a></li>
-						<!-- Add nav elements here --><li><a href="<?= base_url() ?>report" class="report">Report</a></li><li><a href="<?= base_url() ?>question" class="question">Question</a></li><li><a href="<?= base_url() ?>answer" class="answer">Answer</a></li><li><a href="<?= base_url() ?>product" class="product">Product</a></li>
-						<li><a href="<?= base_url() ?>user" class="users">Users</a></li>
-						<li><a href="<?= base_url() ?>admin/logout" class="logout">Log Out</a></li>
-					<? else: ?>
-						<li><a href="<?= base_url() ?>admin/login" class="login">Log In</a></li>
-					<? endif; ?>
+					<?php if( $this->session->userdata('userEmail') ): ?>
+					<li><a href="<?php echo  base_url() ?>testr" class="users">Testr</a></li>
+						<!-- Add nav elements here --><li><a href="<?php echo  base_url() ?>report" class="report">Report</a></li><li><a href="<?php echo  base_url() ?>question" class="question">Question</a></li><li><a href="<?php echo  base_url() ?>answer" class="answer">Answer</a></li><li><a href="<?php echo  base_url() ?>product" class="product">Product</a></li>
+						<li><a href="<?php echo  base_url() ?>user" class="users">Users</a></li>
+						<li><a href="<?php echo  base_url() ?>admin/logout" class="logout">Log Out</a></li>
+					<?php else: ?>
+						<li><a href="<?php echo  base_url() ?>admin/login" class="login">Log In</a></li>
+					<?php endif; ?>
 				</ul>
 			</nav>
 		</header>

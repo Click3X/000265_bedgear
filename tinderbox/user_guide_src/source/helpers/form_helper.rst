@@ -599,7 +599,7 @@ form.
 
 Example::
 
-	<input type="text" name="quantity" value="<?=set_value('quantity', '0');?>" size="50" />
+	<input type="text" name="quantity" value="<?php echo set_value('quantity', '0');?>" size="50" />
 
 The above form will show "0" when loaded for the first time.
 

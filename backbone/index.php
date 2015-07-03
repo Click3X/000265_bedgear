@@ -12,16 +12,16 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-		<title><?=$social['title']?></title>
-		<meta name="description" content="<?=$social['description']?>">
+		<title><?php echo $social['title']?></title>
+		<meta name="description" content="<?php echo $social['description']?>">
 		<meta name="author" content="Matthew Wilber">
-		<meta property="og:title" content="<?=$social['title']?>" />
+		<meta property="og:title" content="<?php echo $social['title']?>" />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="<?=$social['link']?>" />
-		<meta property="og:image" content="<?=$social['image']?>" />
-		<meta property="og:site_name" content="<?=$social['title']?>" />
+		<meta property="og:url" content="<?php echo $social['link']?>" />
+		<meta property="og:image" content="<?php echo $social['image']?>" />
+		<meta property="og:site_name" content="<?php echo $social['title']?>" />
 		<meta property="fb:admins" content="631337813" />
-		<meta property="og:description" content="<?=$social['description']?>" />
+		<meta property="og:description" content="<?php echo $social['description']?>" />
         <!-- Optimized mobile viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -301,7 +301,7 @@
                         <script type="text/template" id="result-template">
                             <a href="#" class="back button--ujarak"><i class="fa fa-angle-left"></i></a>
                             <div class="questiongroup">
-                                <h1><span id="herohead">YOUR BEDGEAR</span> <span id="heroname"></span>&reg;</h1>
+                                <h1><span id="herohead">YOUR BEDGEAR</span> <span id="heroname"></span>PILLOW ID&reg;</h1>
                                 <div class="hero windowzoom">
                                     <a href="" class="detail" target="_blank">More Details <i class="fa fa-caret-right"></i></a>
                                     <div class="product"></div>

@@ -82,7 +82,7 @@ easier than learning the basics of PHP. Consider this block of PHP code::
 
 	<ul>
 	<?php foreach ($addressbook as $name):?>
-		<li><?=$name?></li>
+		<li><?php echo $name?></li>
 	<?php endforeach; ?>
 	</ul>
 
