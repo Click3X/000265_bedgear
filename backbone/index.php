@@ -269,7 +269,7 @@
                                     </ul>
                                     <ul class="multichoice" style="">
                                         <% for( answer in answers ){ %>
-                                        <li style="display: list-item; margin-left: 0px;"><div class="customcheck" onclick="$(this).parent().find('input[type=checkbox]').prop('checked', !$(this).parent().find('input[type=checkbox]').prop('checked')); if($(this).parent().find('input[type=checkbox]').prop('checked')) $(this).addClass('selected'); else $(this).removeClass('selected');"></div><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
+                                        <li style="display: list-item; margin-left: 0px;"><div class="customcheck button--ujarak" onclick="$(this).parent().find('input[type=checkbox]').prop('checked', !$(this).parent().find('input[type=checkbox]').prop('checked')); if($(this).parent().find('input[type=checkbox]').prop('checked')) $(this).addClass('selected'); else $(this).removeClass('selected');"></div><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
                                         <% } %>
                                     </ul>
                                     <a href="#" class="continue regcontinue button--ujarak">Continue</a>

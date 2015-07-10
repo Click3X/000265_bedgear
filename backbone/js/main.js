@@ -14,7 +14,7 @@ var arrQuestions = Array();
 var arrQCache = Array();
 var currentQues = 0;
 var result_model,result_view,intro_view,view_question,NextQuestion,FirstQuestion,PreviousQuestion,SetWindowZoom,DevSkip;
-var glgender = "male";
+var glgender = "female";
 
 
 require.config({
@@ -97,7 +97,7 @@ require([
             $('#windowzoom').remove();
             //alert($(window).width()/1280);
             //if($(window).width() > 800){
-                var scaleval = ($(window).width()/1280);
+                var scaleval = ($(window).width()/1280)+0.1;
                 if(scaleval > 1) scaleval = 1;
                 var style = $('<style id="windowzoom">.panel .windowzoom{-ms-transform: scale('+scaleval+');-webkit-transform: scale('+scaleval+');-moz-transform: scale('+scaleval+');transform: scale('+scaleval+');}</style>');
                 $('html > head').append(style);
@@ -187,7 +187,8 @@ require([
         };
 
         DevSkip = function(){
-            //currentQues = 5;
+            //$('body').removeClass('male').addClass('female');
+            //currentQues = 2;
             //NextQuestion();
 
         };

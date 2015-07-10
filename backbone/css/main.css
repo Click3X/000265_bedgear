@@ -467,7 +467,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b18d0', end
     padding: 10px 0px;
     font-weight: 300;
     font-style: normal;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     text-decoration: none;
     color:#fff;
@@ -502,7 +502,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b18d0', end
     float:left;
     width:auto;
     padding: 0px;
-    margin-top:3px;
+    margin:3px 0px 0px 30px;
 }
 
 .questiongroup .answers .multichoice li input[type=checkbox]{
@@ -523,6 +523,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b18d0', end
     border-color:rgba(0,182,220,0.9);
     background-color:transparent;
     margin-right:10px;
+    position:absolute;
 }
 
 .female .questiongroup .answers .multichoice li .customcheck{
@@ -623,6 +624,7 @@ bottom: 300px;
     font-weight: normal;
     padding: 0px;
     background-position: center center;
+    opacity:0;
 }
 
 #result div.product .hotspot{
@@ -730,29 +732,36 @@ bottom: 300px;
    transition: all 200ms ease-in-out 0s;
 }
 
+#result div.product{
+    -webkit-animation: fadein 1s linear 0.25s 1 normal forwards;
+    -moz-animation:    fadein 1s linear 0.25s 1 normal forwards;
+    -o-animation:      fadein 1s linear 0.25s 1 normal forwards;
+    animation:         fadein 1s linear 0.25s 1 normal forwards;
+}
+
 #result div.product .hotspot:nth-child(1) a{
-    -webkit-animation: hotspotfadein 1s linear 0s 1 normal forwards;
-    -moz-animation:    hotspotfadein 1s linear 0s 1 normal forwards;
-    -o-animation:      hotspotfadein 1s linear 0s 1 normal forwards;
-    animation:         hotspotfadein 1s linear 0s 1 normal forwards;
+    -webkit-animation: hotspotfadein 1s linear 1s 1 normal forwards;
+    -moz-animation:    hotspotfadein 1s linear 1s 1 normal forwards;
+    -o-animation:      hotspotfadein 1s linear 1s 1 normal forwards;
+    animation:         hotspotfadein 1s linear 1s 1 normal forwards;
 }
 #result div.product .hotspot:nth-child(2) a{
-    -webkit-animation: hotspotfadein 1s linear 0.25s 1 normal forwards;
-    -moz-animation:    hotspotfadein 1s linear 0.25s 1 normal forwards;
-    -o-animation:      hotspotfadein 1s linear 0.25s 1 normal forwards;
-    animation:         hotspotfadein 1s linear 0.25s 1 normal forwards;
+    -webkit-animation: hotspotfadein 1s linear 1.25s 1 normal forwards;
+    -moz-animation:    hotspotfadein 1s linear 1.25s 1 normal forwards;
+    -o-animation:      hotspotfadein 1s linear 1.25s 1 normal forwards;
+    animation:         hotspotfadein 1s linear 1.25s 1 normal forwards;
 }
 #result div.product .hotspot:nth-child(3) a{
-    -webkit-animation: hotspotfadein 1s linear 0.5s 1 normal forwards;
-    -moz-animation:    hotspotfadein 1s linear 0.5s 1 normal forwards;
-    -o-animation:      hotspotfadein 1s linear 0.5s 1 normal forwards;
-    animation:         hotspotfadein 1s linear 0.5s 1 normal forwards;
+    -webkit-animation: hotspotfadein 1s linear 1.5s 1 normal forwards;
+    -moz-animation:    hotspotfadein 1s linear 1.5s 1 normal forwards;
+    -o-animation:      hotspotfadein 1s linear 1.5s 1 normal forwards;
+    animation:         hotspotfadein 1s linear 1.5s 1 normal forwards;
 }
 #result div.product .hotspot:nth-child(4) a{
-    -webkit-animation: hotspotfadein 1s linear 0.75s 1 normal forwards;
-    -moz-animation:    hotspotfadein 1s linear 0.75s 1 normal forwards;
-    -o-animation:      hotspotfadein 1s linear 0.75s 1 normal forwards;
-    animation:         hotspotfadein 1s linear 0.75s 1 normal forwards;
+    -webkit-animation: hotspotfadein 1s linear 1.75s 1 normal forwards;
+    -moz-animation:    hotspotfadein 1s linear 1.75s 1 normal forwards;
+    -o-animation:      hotspotfadein 1s linear 1.75s 1 normal forwards;
+    animation:         hotspotfadein 1s linear 1.75s 1 normal forwards;
 }
 
 #result div.product .hotspot a:hover i{
@@ -761,8 +770,8 @@ bottom: 300px;
     height:100%;
 }
 
-.female #result div.product .hotspot a span{
-    background: rgba(252,138,252,0.9);
+.female #result div.product .hotspot a i{
+    background: rgba(252,138,252,1);
 }
 
 #result div.product .hotspot a img{

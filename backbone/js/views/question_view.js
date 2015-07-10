@@ -72,9 +72,9 @@ define([
                 }, 400, 'linear', function(){
                     $.each($('.multichoice input[name="sleeppos"]'),function(key, val){
                         console.log("remove",$(val).attr('answerText').toLowerCase());
-                        $('.questiongroup').removeClass($(val).attr('answerText').split(" ")[0].toLowerCase()+"pos");
+                        $('.questiongroup').removeClass($(val).attr('answerText').split(" ")[0].replace('\'','').toLowerCase()+"pos");
                     });
-                    $('.questiongroup').addClass($('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].toLowerCase()+"pos");
+                    $('.questiongroup').addClass($('.multichoice input[answerid="'+$(evt.currentTarget).attr('answerId')+'"]').attr('answerText').split(" ")[0].replace('\'','').toLowerCase()+"pos");
                     $('.questiongroup .answers').animate(
                         {
                             'background-position-x': '100%',
