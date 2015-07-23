@@ -259,13 +259,13 @@ class JSONAPI extends CI_Controller {
 		}
 	}
 
-	function sendmail($pTo, $pProd1, $pProd2, $pProd3, $mailtemplate = "share")
+	function sendmail($pTo, $btype, $spos, $pProd1, $pProd2, $pProd3, $mailtemplate = "share")
 	{
 		$imgpath = base_url().'email_templates/images/';
 		$prodimgpath = base_url().'images/products/';
 
-		$imgpath = 'http://staging.click3x.com/bedgear/productselector/tinderbox/'.'email_templates/images/';
-		$prodimgpath = 'http://staging.click3x.com/bedgear/productselector/tinderbox/'.'images/products/';
+		//$imgpath = 'http://staging.click3x.com/bedgear/productselector/tinderbox/'.'email_templates/images/';
+		//$prodimgpath = 'http://staging.click3x.com/bedgear/productselector/tinderbox/'.'images/products/';
 
 		$toEmail = $pTo;
 		if($toEmail == "mwilber") $toEmail = "mwilber@gmail.com";
@@ -282,19 +282,44 @@ class JSONAPI extends CI_Controller {
 		$this->load->model('emaildata_model');
 		$this->load->model('product_model');
 		$this->load->model('benefit_model');
+		$this->load->model('answer_model');
 
 		// Get the product information
 		$p1 = $this->product_model->Get(array('productId'=>$pProd1));
 		$p2 = $this->product_model->Get(array('productId'=>$pProd2));
 		$p3 = $this->product_model->Get(array('productId'=>$pProd3));
+		$sp = $this->answer_model->Get(array('answerId'=>$spos));
+		$bt = $this->answer_model->Get(array('answerId'=>$btype));
 
 		//Build the benefits string
-		$benes = "<p style=\"font-size:12px; font-weight:bold; line-height:20px;\">";
+		$benes = "<p style=\"font-size:10px; font-weight:bold; line-height:18px;\">";
 		$rsb = $this->benefit_model->Get(array('productId'=>$pProd1));
 		foreach($rsb as $bene){
 			$benes .= "<span style=\"color:#14A4ED;\">&#8226;&nbsp;</span>".str_replace("<br/>","",$bene->benefitName)."<br/>";
 		}
 		$benes .= "</p>";
+
+
+
+		//Build the benefits string
+		$benes2 = "<p style=\"font-size:10px; font-weight:bold; line-height:18px;\">";
+		$rsb = $this->benefit_model->Get(array('productId'=>$pProd2));
+		foreach($rsb as $bene){
+			$benes2 .= "<span style=\"color:#14A4ED;\">&#8226;&nbsp;</span>".str_replace("<br/>","",$bene->benefitName)."<br/>";
+		}
+		$benes2 .= "</p>";
+
+		//Build the benefits string
+		$benes3 = "<p style=\"font-size:10px; font-weight:bold; line-height:18px;\">";
+		$rsb = $this->benefit_model->Get(array('productId'=>$pProd3));
+		foreach($rsb as $bene){
+			$benes3 .= "<span style=\"color:#14A4ED;\">&#8226;&nbsp;</span>".str_replace("<br/>","",$bene->benefitName)."<br/>";
+		}
+		$benes3 .= "</p>";
+
+
+
+
 
 		$docc = false;
 		$optout = 0;
@@ -316,28 +341,46 @@ class JSONAPI extends CI_Controller {
 							"{PROD2}",
 							"{PROD3}",
 							"{PRODNAME}",
+							"{PRODNAME2}",
+							"{PRODNAME3}",
+							"{PRODPRICE}",
+							"{PRODPRICE2}",
+							"{PRODPRICE3}",
 							"{BUYNOW}",
 							"{PRODURL1}",
 							"{PRODURL2}",
 							"{PRODURL3}",
-							"{BULLETS}"
+							"{BULLETS}",
+							"{BULLETS2}",
+							"{BULLETS3}",
+							"{SLEEPPOS}",
+							"{BODYTYPE}"
 						);
 		$arrReplace = array(
 							$imgpath,
 							$prodimgpath.$p1->productImage,
 							$prodimgpath.$p2->productImage,
 							$prodimgpath.$p3->productImage,
-							$p1->productName,
+							strtoupper($p1->productName),
+							strtoupper($p2->productName),
+							strtoupper($p3->productName),
+							strtoupper($p1->productPrice),
+							strtoupper($p2->productPrice),
+							strtoupper($p3->productPrice),
 							$p1->productStoreUrl,
 							$p1->productUrl,
 							$p2->productUrl,
 							$p3->productUrl,
-							$benes
+							$benes,
+							$benes2,
+							$benes3,
+							strtoupper($sp->answerText),
+							strtoupper(explode("<span", $bt->answerText)[0])
 							);
 		$emailBody = str_replace($arrFind, $arrReplace, $emailBody);
 
-		//echo $emailBody;
-		//die;
+		echo $emailBody;
+		die;
 
 		if(true){
 			// Send via mandrill

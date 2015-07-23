@@ -289,7 +289,7 @@
                                     </ul>
                                     <ul class="multichoice" style="">
                                         <% for( answer in answers ){ %>
-                                        <li style="display: list-item; margin-left: 0px;"><div class="customcheck" onclick="$(this).parent().find('input[type=checkbox]').prop('checked', !$(this).parent().find('input[type=checkbox]').prop('checked')); if($(this).parent().find('input[type=checkbox]').prop('checked')) $(this).addClass('selected'); else $(this).removeClass('selected');"></div><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
+                                        <li style="display: list-item; margin-left: 0px;"><div class="customcheck button--ujarak" onclick="$(this).parent().find('input[type=checkbox]').prop('checked', !$(this).parent().find('input[type=checkbox]').prop('checked')); if($(this).parent().find('input[type=checkbox]').prop('checked')) $(this).addClass('selected'); else $(this).removeClass('selected');"></div><input type="checkbox" value="<%=answers[answer].answerId%>"><label><%=answers[answer].answerText%></label></li>
                                         <% } %>
                                     </ul>
                                     <a href="#" class="continue regcontinue button--ujarak">Continue</a>
@@ -303,12 +303,11 @@
                             <div class="questiongroup">
                                 <h1><span id="herohead">YOUR BEDGEAR</span> <span id="heroname"></span>PILLOW ID&reg;</h1>
                                 <div class="hero windowzoom">
-                                    <a href="" class="detail" target="_blank">More Details <i class="fa fa-caret-right"></i></a>
+                                    <a href="" class="detail" target="_blank" onclick="ga('send', 'event', 'productselector', 'detail', 'click', 0);">More Details <i class="fa fa-caret-right"></i></a>
+                                    <div class="price"></div>
                                     <div class="product"></div>
                                     <a href="" class="startover"><i class="fa fa-caret-left"></i> Start Over</a>
-                                    <div class="price">
 
-                                    </div>
                                 </div>
                                 <div class="products">
                                     <ul class="dumbell">
@@ -329,7 +328,7 @@
                                 <div class="controlgroup">
                                     <strong class="product">&nbsp;</strong>
                                     <a href="#" class="email button--ujarak" target="_blank">Email Me Results</a>
-                                    <a href="" class="buy button--ujarak" target="_blank">Buy Now</a>
+                                    <a href="" class="buy button--ujarak" target="_blank" onclick="ga('send', 'event', 'productselector', 'buy_now', 'click', 0);">Buy Now</a>
 
                                 </div>
                                 <div class="profile">
@@ -338,8 +337,13 @@
                                 <% }else if( sessionId == "done" ){ %>
                                     <h2>Thank You!</h2>
                                 <% } else { %>
-                                    <h2>Sign up for more information:</h2>
+                                    <h2>Enter your email address:</h2>
                                     <form>
+                                        <input type="text" name="sleeppos"/>
+                                        <input type="text" name="bodytype"/>
+                                        <input type="text" name="result1"/>
+                                        <input type="text" name="result2"/>
+                                        <input type="text" name="result3"/>
                                         <input type="hidden" name="surveyUUID" value="<%= sessionId %>"/>
                                         <input type="text" name="profileEmail"/>
                                         <input type="submit"/>
@@ -469,14 +473,19 @@
             }
 
         </script>
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/jquery.ui.touch-punch.min.js"></script>
         <script data-main="js/main" src="js/vendor/require.min.js"></script>
+
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create',"XXXXXXXX");ga('send','pageview');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-42081821-1', 'auto');
+          ga('send', 'pageview');
         </script>
+
     </body>
 </html>

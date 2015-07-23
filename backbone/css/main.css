@@ -600,6 +600,7 @@ bottom: 300px;
     right: 0%;
     margin: 0px;
     border: none;
+    z-index: 5000;
 }
 
 .female #result a.buy, .female #result a.email, .female #result a.detail{
@@ -830,11 +831,29 @@ bottom: 300px;
     display:none;
 }
 
+#result a.detail{
+    width: 20%;
+    text-align: left;
+}
+
 #result div.price{
-    text-align: center;
-    margin-top: -50px;
-    float: left;
-    width: 100%;
+    display: block;
+    font-weight: 300;
+    background: transparent;
+    color: #fff;
+    border-radius: 0px;
+    width: 20%;
+    padding: 130px 0px;
+    text-transform: uppercase;
+    text-decoration: none;
+    float: right;
+    text-align: left;
+
+    position:absolute;
+    right: 0%;
+    margin: 0px;
+    border: none;
+    z-index: 5000;
 }
 
 #result .dumbell{
@@ -989,7 +1008,6 @@ border-color: rgba(252,138,252,0.9);
 
 #result a.email{
     right:8%;
-    display:none;
 }
 
 #result a.startover{

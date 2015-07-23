@@ -22,7 +22,7 @@ require.config({
     paths: {
         jquery:         'js/vendor/jquery.min',
         jquery_ui:      'js/vendor/jquery-ui.min',
-        jquery_touch_punch:      'js/vendor/jquery.ui.touch-punch.min',
+        //jquery_touch_punch:      'js/vendor/jquery.ui.touch-punch.min',
         backbone:       'js/vendor/backbone.min',
         underscore:     'js/vendor/underscore.min',
         preloader:      'js/preloader',
@@ -45,7 +45,7 @@ require([
     'result_view',
     'intro_view',
     'jquery_ui',
-    'jquery_touch_punch',
+    //'jquery_touch_punch',
 ], function( $, _, Backbone, Preloader, QuestionModel, ResultModel, QuestionView, ResultView, IntroView ) {
 
     $(document).ready(function(){
@@ -188,7 +188,7 @@ require([
 
         DevSkip = function(){
             //$('body').removeClass('male').addClass('female');
-            //currentQues = 2;
+            //currentQues = 0;
             //NextQuestion();
 
         };

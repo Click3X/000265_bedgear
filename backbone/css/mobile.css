@@ -427,16 +427,20 @@
           top:15%;
       }
 
-      #result a.detail, #result a.startover{
+      #result a.detail, #result a.startover, #result div.price{
           font-size:72px;
           width:100%;
-          margin:-154px 0px 0px 0px;
+          margin:-174px 0px 0px 0px;
           text-align:center;
           clear:both;
       }
 
       #result a.detail{
-          margin-top: -35px;
+          margin-top: -95px;
+      }
+
+      #result div.price{
+          margin-top: -100px;
       }
 
 
@@ -444,7 +448,7 @@
           font-size: 18px;
           padding-top: 140px;
           background-position: center 0px;
-          margin-top:20px
+          margin-top:50px
       }
 
       #result strong.product  {

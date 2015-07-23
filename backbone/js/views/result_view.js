@@ -19,6 +19,7 @@ define([
         },
         HandleStartOverClick: function(evt){
             FirstQuestion();
+            ga('send', 'event', 'productselector', 'start_over', 'click', 0);
         },
         HandleProductClick: function(evt){
             //alert(this.$('.product').css());
@@ -99,7 +100,26 @@ define([
             $(this.el).html(this.template(this.model.attributes));
             //this.$('.questiongroup').css('opacity',0);
             $('.panel').hide();
+            //console.log('HISTORY', arrHistory);
+            console.log('BodyType',arrHistory[arrHistory.length-2].attributes.answerChoice);
+            console.log('SleepPos',arrHistory[arrHistory.length-3].attributes.answerChoice);
             this.$('.products li:nth-child(2)').click();
+            if(this.model.get("data")[0]){
+                this.$('input[name=result2]').val(this.model.get("data")[0].productId);
+            }
+            if(this.model.get("data")[1]){
+                this.$('input[name=result1]').val(this.model.get("data")[1].productId);
+            }
+            if(this.model.get("data")[2]){
+                this.$('input[name=result3]').val(this.model.get("data")[2].productId);
+            }
+            if(arrHistory[arrHistory.length-2].attributes.answerChoice){
+                this.$('input[name=bodytype]').val(arrHistory[arrHistory.length-2].attributes.answerChoice);
+            }
+            if(arrHistory[arrHistory.length-3].attributes.answerChoice){
+                this.$('input[name=sleeppos]').val(arrHistory[arrHistory.length-3].attributes.answerChoice);
+            }
+
             this.$el.show();
             // this.$('.questiongroup').animate({
             //     opacity: 1,
