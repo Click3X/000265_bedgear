@@ -339,11 +339,11 @@
                                 <% } else { %>
                                     <h2>Enter your email address:</h2>
                                     <form>
-                                        <input type="text" name="sleeppos"/>
-                                        <input type="text" name="bodytype"/>
-                                        <input type="text" name="result1"/>
-                                        <input type="text" name="result2"/>
-                                        <input type="text" name="result3"/>
+                                        <input type="hidden" name="sleeppos"/>
+                                        <input type="hidden" name="bodytype"/>
+                                        <input type="hidden" name="result1"/>
+                                        <input type="hidden" name="result2"/>
+                                        <input type="hidden" name="result3"/>
                                         <input type="hidden" name="surveyUUID" value="<%= sessionId %>"/>
                                         <input type="text" name="profileEmail"/>
                                         <input type="submit"/>

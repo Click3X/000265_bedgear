@@ -144,6 +144,16 @@ class JSONAPI extends CI_Controller {
 		$this->_response->error->type = -1;
 		$this->_response->error->message = "could not add records to table";
 
+		// Send the email
+		$this->_response->email = $this->sendmail($_POST['profileEmail'], $_POST['bodytype'], $_POST['sleeppos'], $_POST['result1'], $_POST['result2'], $_POST['result3']);
+
+		// Remove extraneous fields
+		unset($_POST['bodytype']);
+		unset($_POST['sleeppos']);
+		unset($_POST['result1']);
+		unset($_POST['result2']);
+		unset($_POST['result3']);
+
 		$nid = $this->profile_model->Add($_POST);
 
 		$this->_response->error->type = 0;
@@ -273,7 +283,7 @@ class JSONAPI extends CI_Controller {
 		if(isset($_POST['toName'])){
 			$toName = $_POST['toName'];
 		}
-		$fromEmail = "mattw@click3x.com";
+		$fromEmail = "wow@bedgear.com";
 		$fromName = "Bedgear";
 
 
@@ -346,6 +356,9 @@ class JSONAPI extends CI_Controller {
 							"{PRODPRICE}",
 							"{PRODPRICE2}",
 							"{PRODPRICE3}",
+							"{PRODTYPE}",
+							"{PRODTYPE2}",
+							"{PRODTYPE3}",
 							"{BUYNOW}",
 							"{PRODURL1}",
 							"{PRODURL2}",
@@ -367,6 +380,9 @@ class JSONAPI extends CI_Controller {
 							strtoupper($p1->productPrice),
 							strtoupper($p2->productPrice),
 							strtoupper($p3->productPrice),
+							strtoupper($p1->productBodytype),
+							strtoupper($p2->productBodytype),
+							strtoupper($p3->productBodytype),
 							$p1->productStoreUrl,
 							$p1->productUrl,
 							$p2->productUrl,
@@ -379,8 +395,8 @@ class JSONAPI extends CI_Controller {
 							);
 		$emailBody = str_replace($arrFind, $arrReplace, $emailBody);
 
-		echo $emailBody;
-		die;
+		//echo $emailBody;
+		//die;
 
 		if(true){
 			// Send via mandrill
@@ -406,11 +422,11 @@ class JSONAPI extends CI_Controller {
 			    );
 			    $async = false;
 			    $result = $mandrill->messages->send($message, $async);
-			    print_r($result);
+			    return $result;
 
 			} catch(Mandrill_Error $e) {
 			    // Mandrill errors are thrown as exceptions
-			    echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+			    return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
 			    // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
 			    throw $e;
 			}
