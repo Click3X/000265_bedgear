@@ -328,7 +328,10 @@ class JSONAPI extends CI_Controller {
 		$benes3 .= "</p>";
 
 
-
+		// Get the body type
+		$mbt = "Medium";
+		$arrBT = explode("<span", $bt->answerText);
+		if( count($arrBT > 0) ) $mbt = $arrBT[0];
 
 
 		$docc = false;
@@ -344,6 +347,7 @@ class JSONAPI extends CI_Controller {
 			$emailBody = $emailBody . fgets($file, 4096);
 		}
 		fclose ($file);
+
 
 		// Fill in dynamic values
 		$arrFind = array(	"{IMGROOT}",
@@ -391,7 +395,7 @@ class JSONAPI extends CI_Controller {
 							$benes2,
 							$benes3,
 							strtoupper($sp->answerText),
-							strtoupper(explode("<span", $bt->answerText)[0])
+							strtoupper($mbt)
 							);
 		$emailBody = str_replace($arrFind, $arrReplace, $emailBody);
 
